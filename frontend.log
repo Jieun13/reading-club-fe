@@ -1,0 +1,3758 @@
+
+> frontend@0.1.0 start
+> react-scripts start
+
+(node:39545) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:39545) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Failed to compile.
+
+[eslint] 
+src/pages/ReadingGroupDetail.tsx
+Syntax error: ')' expected (685:4)
+ERROR in ./src/pages/ReadingGroupDetail.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/jiny/dev-log/reading-club/frontend/src/pages/ReadingGroupDetail.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (685:4)
+
+  683 |         </div>
+  684 |       </div>
+> 685 |     </div>
+      |     ^
+  686 |   );
+  687 | };
+  688 |
+    at constructor (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+    at TypeScriptParserMixin.raise (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:6627:19)
+    at TypeScriptParserMixin.jsxParseElementAt (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:4772:18)
+    at TypeScriptParserMixin.jsxParseElement (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:4779:17)
+    at TypeScriptParserMixin.parseExprAtom (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:4789:19)
+    at TypeScriptParserMixin.parseExprSubscripts (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11076:23)
+    at TypeScriptParserMixin.parseUpdate (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11061:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11041:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:9852:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10894:61)
+    at TypeScriptParserMixin.parseExprOps (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10899:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10876:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10826:21)
+    at /Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:9790:39
+    at TypeScriptParserMixin.tryParse (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:6935:20)
+    at TypeScriptParserMixin.parseMaybeAssign (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:9790:18)
+    at /Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10795:39
+    at TypeScriptParserMixin.allowInAnd (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:12427:12)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10795:17)
+    at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:12494:17)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11674:28)
+    at TypeScriptParserMixin.parseExprAtom (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11326:23)
+    at TypeScriptParserMixin.parseExprAtom (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:4794:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11076:23)
+    at TypeScriptParserMixin.parseUpdate (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11061:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11041:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:9852:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10894:61)
+    at TypeScriptParserMixin.parseExprOps (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10899:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10876:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10826:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:9801:20)
+    at TypeScriptParserMixin.parseExpressionBase (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10779:23)
+    at /Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10775:39
+    at TypeScriptParserMixin.allowInAnd (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:12422:16)
+    at TypeScriptParserMixin.parseExpression (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10775:17)
+    at TypeScriptParserMixin.parseReturnStatement (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:13142:28)
+    at TypeScriptParserMixin.parseStatementContent (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:12798:21)
+    at TypeScriptParserMixin.parseStatementContent (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:9527:18)
+    at TypeScriptParserMixin.parseStatementLike (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:12767:17)
+    at TypeScriptParserMixin.parseStatementListItem (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:12747:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:13316:61)
+    at TypeScriptParserMixin.parseBlockBody (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:13309:10)
+    at TypeScriptParserMixin.parseBlock (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:13297:10)
+    at TypeScriptParserMixin.parseFunctionBody (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:12101:24)
+    at TypeScriptParserMixin.parseArrowExpression (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:12076:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11686:12)
+    at TypeScriptParserMixin.parseExprAtom (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11326:23)
+    at TypeScriptParserMixin.parseExprAtom (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:4794:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11076:23)
+
+ERROR in [eslint] 
+src/pages/ReadingGroupDetail.tsx
+  Line 685:4:  Parsing error: ')' expected
+
+webpack compiled with 2 errors
+ERROR in src/pages/ReadingGroupDetail.tsx:162:30
+TS2304: Cannot find name 'groupReviewApi'.
+    160 |   const fetchReviews = async (groupId: number) => {
+    161 |     try {
+  > 162 |       const response = await groupReviewApi.getGroupReviews(groupId);
+        |                              ^^^^^^^^^^^^^^
+    163 |       setReviews(response.data.data || []);
+    164 |     } catch (error) {
+    165 |       console.error('리뷰 조회 실패:', error);
+
+ERROR in src/pages/ReadingGroupDetail.tsx:163:7
+TS2552: Cannot find name 'setReviews'. Did you mean 'fetchReviews'?
+    161 |     try {
+    162 |       const response = await groupReviewApi.getGroupReviews(groupId);
+  > 163 |       setReviews(response.data.data || []);
+        |       ^^^^^^^^^^
+    164 |     } catch (error) {
+    165 |       console.error('리뷰 조회 실패:', error);
+    166 |       setReviews([]);
+
+ERROR in src/pages/ReadingGroupDetail.tsx:166:7
+TS2552: Cannot find name 'setReviews'. Did you mean 'fetchReviews'?
+    164 |     } catch (error) {
+    165 |       console.error('리뷰 조회 실패:', error);
+  > 166 |       setReviews([]);
+        |       ^^^^^^^^^^
+    167 |     }
+    168 |   };
+    169 |
+
+ERROR in src/pages/ReadingGroupDetail.tsx:171:20
+TS2304: Cannot find name 'reviewForm'.
+    169 |
+    170 |   const handleSubmitReview = async () => {
+  > 171 |     if (!group || !reviewForm.title.trim() || !reviewForm.content.trim()) {
+        |                    ^^^^^^^^^^
+    172 |       alert('제목과 내용을 입력해주세요.');
+    173 |       return;
+    174 |     }
+
+ERROR in src/pages/ReadingGroupDetail.tsx:171:48
+TS2304: Cannot find name 'reviewForm'.
+    169 |
+    170 |   const handleSubmitReview = async () => {
+  > 171 |     if (!group || !reviewForm.title.trim() || !reviewForm.content.trim()) {
+        |                                                ^^^^^^^^^^
+    172 |       alert('제목과 내용을 입력해주세요.');
+    173 |       return;
+    174 |     }
+
+ERROR in src/pages/ReadingGroupDetail.tsx:177:25
+TS2304: Cannot find name 'GroupReviewCreateRequest'.
+    175 |
+    176 |     try {
+  > 177 |       const reviewData: GroupReviewCreateRequest = {
+        |                         ^^^^^^^^^^^^^^^^^^^^^^^^
+    178 |         readingGroupId: group.id,
+    179 |         rating: reviewForm.rating,
+    180 |         title: reviewForm.title,
+
+ERROR in src/pages/ReadingGroupDetail.tsx:179:17
+TS2304: Cannot find name 'reviewForm'.
+    177 |       const reviewData: GroupReviewCreateRequest = {
+    178 |         readingGroupId: group.id,
+  > 179 |         rating: reviewForm.rating,
+        |                 ^^^^^^^^^^
+    180 |         title: reviewForm.title,
+    181 |         content: reviewForm.content,
+    182 |         favoriteQuote: reviewForm.favoriteQuote || undefined,
+
+ERROR in src/pages/ReadingGroupDetail.tsx:180:16
+TS2304: Cannot find name 'reviewForm'.
+    178 |         readingGroupId: group.id,
+    179 |         rating: reviewForm.rating,
+  > 180 |         title: reviewForm.title,
+        |                ^^^^^^^^^^
+    181 |         content: reviewForm.content,
+    182 |         favoriteQuote: reviewForm.favoriteQuote || undefined,
+    183 |         recommendation: reviewForm.recommendation || undefined,
+
+ERROR in src/pages/ReadingGroupDetail.tsx:181:18
+TS2304: Cannot find name 'reviewForm'.
+    179 |         rating: reviewForm.rating,
+    180 |         title: reviewForm.title,
+  > 181 |         content: reviewForm.content,
+        |                  ^^^^^^^^^^
+    182 |         favoriteQuote: reviewForm.favoriteQuote || undefined,
+    183 |         recommendation: reviewForm.recommendation || undefined,
+    184 |         isPublic: reviewForm.isPublic
+
+ERROR in src/pages/ReadingGroupDetail.tsx:182:24
+TS2304: Cannot find name 'reviewForm'.
+    180 |         title: reviewForm.title,
+    181 |         content: reviewForm.content,
+  > 182 |         favoriteQuote: reviewForm.favoriteQuote || undefined,
+        |                        ^^^^^^^^^^
+    183 |         recommendation: reviewForm.recommendation || undefined,
+    184 |         isPublic: reviewForm.isPublic
+    185 |       };
+
+ERROR in src/pages/ReadingGroupDetail.tsx:183:25
+TS2304: Cannot find name 'reviewForm'.
+    181 |         content: reviewForm.content,
+    182 |         favoriteQuote: reviewForm.favoriteQuote || undefined,
+  > 183 |         recommendation: reviewForm.recommendation || undefined,
+        |                         ^^^^^^^^^^
+    184 |         isPublic: reviewForm.isPublic
+    185 |       };
+    186 |
+
+ERROR in src/pages/ReadingGroupDetail.tsx:184:19
+TS2304: Cannot find name 'reviewForm'.
+    182 |         favoriteQuote: reviewForm.favoriteQuote || undefined,
+    183 |         recommendation: reviewForm.recommendation || undefined,
+  > 184 |         isPublic: reviewForm.isPublic
+        |                   ^^^^^^^^^^
+    185 |       };
+    186 |
+    187 |       await groupReviewApi.createReview(reviewData);
+
+ERROR in src/pages/ReadingGroupDetail.tsx:187:13
+TS2304: Cannot find name 'groupReviewApi'.
+    185 |       };
+    186 |
+  > 187 |       await groupReviewApi.createReview(reviewData);
+        |             ^^^^^^^^^^^^^^
+    188 |       alert('리뷰가 성공적으로 작성되었습니다.');
+    189 |       setShowReviewForm(false);
+    190 |       setReviewForm({
+
+ERROR in src/pages/ReadingGroupDetail.tsx:189:7
+TS2304: Cannot find name 'setShowReviewForm'.
+    187 |       await groupReviewApi.createReview(reviewData);
+    188 |       alert('리뷰가 성공적으로 작성되었습니다.');
+  > 189 |       setShowReviewForm(false);
+        |       ^^^^^^^^^^^^^^^^^
+    190 |       setReviewForm({
+    191 |         rating: 5,
+    192 |         title: '',
+
+ERROR in src/pages/ReadingGroupDetail.tsx:190:7
+TS2304: Cannot find name 'setReviewForm'.
+    188 |       alert('리뷰가 성공적으로 작성되었습니다.');
+    189 |       setShowReviewForm(false);
+  > 190 |       setReviewForm({
+        |       ^^^^^^^^^^^^^
+    191 |         rating: 5,
+    192 |         title: '',
+    193 |         content: '',
+
+ERROR in src/pages/ReadingGroupDetail.tsx:409:34
+TS2304: Cannot find name 'setShowReviewForm'.
+    407 |                 </h2>
+    408 |                 <button
+  > 409 |                   onClick={() => setShowReviewForm(!showReviewForm)}
+        |                                  ^^^^^^^^^^^^^^^^^
+    410 |                   className="btn btn-primary btn-sm flex items-center"
+    411 |                 >
+    412 |                   <PlusIcon className="w-4 h-4 mr-1" />
+
+ERROR in src/pages/ReadingGroupDetail.tsx:409:53
+TS2304: Cannot find name 'showReviewForm'.
+    407 |                 </h2>
+    408 |                 <button
+  > 409 |                   onClick={() => setShowReviewForm(!showReviewForm)}
+        |                                                     ^^^^^^^^^^^^^^
+    410 |                   className="btn btn-primary btn-sm flex items-center"
+    411 |                 >
+    412 |                   <PlusIcon className="w-4 h-4 mr-1" />
+
+ERROR in src/pages/ReadingGroupDetail.tsx:418:18
+TS2304: Cannot find name 'showReviewForm'.
+    416 |
+    417 |                 {/* 리뷰 작성 폼 */}
+  > 418 |                 {showReviewForm && (
+        |                  ^^^^^^^^^^^^^^
+    419 |                   <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+    420 |                     <div className="space-y-4">
+    421 |                       <div>
+
+ERROR in src/pages/ReadingGroupDetail.tsx:425:38
+TS2304: Cannot find name 'reviewForm'.
+    423 |                           별점
+    424 |                         </label>
+  > 425 |                         {renderStars(reviewForm.rating, true, (rating) => 
+        |                                      ^^^^^^^^^^
+    426 |                           setReviewForm(prev => ({ ...prev, rating }))
+    427 |                         )}
+    428 |                       </div>
+
+ERROR in src/pages/ReadingGroupDetail.tsx:426:27
+TS2304: Cannot find name 'setReviewForm'.
+    424 |                         </label>
+    425 |                         {renderStars(reviewForm.rating, true, (rating) => 
+  > 426 |                           setReviewForm(prev => ({ ...prev, rating }))
+        |                           ^^^^^^^^^^^^^
+    427 |                         )}
+    428 |                       </div>
+    429 |                       
+
+ERROR in src/pages/ReadingGroupDetail.tsx:426:41
+TS7006: Parameter 'prev' implicitly has an 'any' type.
+    424 |                         </label>
+    425 |                         {renderStars(reviewForm.rating, true, (rating) => 
+  > 426 |                           setReviewForm(prev => ({ ...prev, rating }))
+        |                                         ^^^^
+    427 |                         )}
+    428 |                       </div>
+    429 |                       
+
+ERROR in src/pages/ReadingGroupDetail.tsx:436:34
+TS2304: Cannot find name 'reviewForm'.
+    434 |                         <input
+    435 |                           type="text"
+  > 436 |                           value={reviewForm.title}
+        |                                  ^^^^^^^^^^
+    437 |                           onChange={(e) => setReviewForm(prev => ({ ...prev, title: e.target.value }))}
+    438 |                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+    439 |                           placeholder="리뷰 제목을 입력하세요"
+
+ERROR in src/pages/ReadingGroupDetail.tsx:437:44
+TS2304: Cannot find name 'setReviewForm'.
+    435 |                           type="text"
+    436 |                           value={reviewForm.title}
+  > 437 |                           onChange={(e) => setReviewForm(prev => ({ ...prev, title: e.target.value }))}
+        |                                            ^^^^^^^^^^^^^
+    438 |                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+    439 |                           placeholder="리뷰 제목을 입력하세요"
+    440 |                         />
+
+ERROR in src/pages/ReadingGroupDetail.tsx:437:58
+TS7006: Parameter 'prev' implicitly has an 'any' type.
+    435 |                           type="text"
+    436 |                           value={reviewForm.title}
+  > 437 |                           onChange={(e) => setReviewForm(prev => ({ ...prev, title: e.target.value }))}
+        |                                                          ^^^^
+    438 |                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+    439 |                           placeholder="리뷰 제목을 입력하세요"
+    440 |                         />
+
+ERROR in src/pages/ReadingGroupDetail.tsx:448:34
+TS2304: Cannot find name 'reviewForm'.
+    446 |                         </label>
+    447 |                         <textarea
+  > 448 |                           value={reviewForm.content}
+        |                                  ^^^^^^^^^^
+    449 |                           onChange={(e) => setReviewForm(prev => ({ ...prev, content: e.target.value }))}
+    450 |                           rows={4}
+    451 |                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+
+ERROR in src/pages/ReadingGroupDetail.tsx:449:44
+TS2304: Cannot find name 'setReviewForm'.
+    447 |                         <textarea
+    448 |                           value={reviewForm.content}
+  > 449 |                           onChange={(e) => setReviewForm(prev => ({ ...prev, content: e.target.value }))}
+        |                                            ^^^^^^^^^^^^^
+    450 |                           rows={4}
+    451 |                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+    452 |                           placeholder="책에 대한 생각을 자유롭게 작성해주세요"
+
+ERROR in src/pages/ReadingGroupDetail.tsx:449:58
+TS7006: Parameter 'prev' implicitly has an 'any' type.
+    447 |                         <textarea
+    448 |                           value={reviewForm.content}
+  > 449 |                           onChange={(e) => setReviewForm(prev => ({ ...prev, content: e.target.value }))}
+        |                                                          ^^^^
+    450 |                           rows={4}
+    451 |                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+    452 |                           placeholder="책에 대한 생각을 자유롭게 작성해주세요"
+
+ERROR in src/pages/ReadingGroupDetail.tsx:461:34
+TS2304: Cannot find name 'reviewForm'.
+    459 |                         </label>
+    460 |                         <textarea
+  > 461 |                           value={reviewForm.favoriteQuote}
+        |                                  ^^^^^^^^^^
+    462 |                           onChange={(e) => setReviewForm(prev => ({ ...prev, favoriteQuote: e.target.value }))}
+    463 |                           rows={2}
+    464 |                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+
+ERROR in src/pages/ReadingGroupDetail.tsx:462:44
+TS2304: Cannot find name 'setReviewForm'.
+    460 |                         <textarea
+    461 |                           value={reviewForm.favoriteQuote}
+  > 462 |                           onChange={(e) => setReviewForm(prev => ({ ...prev, favoriteQuote: e.target.value }))}
+        |                                            ^^^^^^^^^^^^^
+    463 |                           rows={2}
+    464 |                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+    465 |                           placeholder="기억에 남는 구절이 있다면 적어주세요"
+
+ERROR in src/pages/ReadingGroupDetail.tsx:462:58
+TS7006: Parameter 'prev' implicitly has an 'any' type.
+    460 |                         <textarea
+    461 |                           value={reviewForm.favoriteQuote}
+  > 462 |                           onChange={(e) => setReviewForm(prev => ({ ...prev, favoriteQuote: e.target.value }))}
+        |                                                          ^^^^
+    463 |                           rows={2}
+    464 |                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+    465 |                           placeholder="기억에 남는 구절이 있다면 적어주세요"
+
+ERROR in src/pages/ReadingGroupDetail.tsx:474:34
+TS2304: Cannot find name 'reviewForm'.
+    472 |                         </label>
+    473 |                         <textarea
+  > 474 |                           value={reviewForm.recommendation}
+        |                                  ^^^^^^^^^^
+    475 |                           onChange={(e) => setReviewForm(prev => ({ ...prev, recommendation: e.target.value }))}
+    476 |                           rows={2}
+    477 |                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+
+ERROR in src/pages/ReadingGroupDetail.tsx:475:44
+TS2304: Cannot find name 'setReviewForm'.
+    473 |                         <textarea
+    474 |                           value={reviewForm.recommendation}
+  > 475 |                           onChange={(e) => setReviewForm(prev => ({ ...prev, recommendation: e.target.value }))}
+        |                                            ^^^^^^^^^^^^^
+    476 |                           rows={2}
+    477 |                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+    478 |                           placeholder="다른 사람들에게 이 책을 추천하고 싶은지 이유와 함께 적어주세요"
+
+ERROR in src/pages/ReadingGroupDetail.tsx:475:58
+TS7006: Parameter 'prev' implicitly has an 'any' type.
+    473 |                         <textarea
+    474 |                           value={reviewForm.recommendation}
+  > 475 |                           onChange={(e) => setReviewForm(prev => ({ ...prev, recommendation: e.target.value }))}
+        |                                                          ^^^^
+    476 |                           rows={2}
+    477 |                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+    478 |                           placeholder="다른 사람들에게 이 책을 추천하고 싶은지 이유와 함께 적어주세요"
+
+ERROR in src/pages/ReadingGroupDetail.tsx:486:36
+TS2304: Cannot find name 'reviewForm'.
+    484 |                           type="checkbox"
+    485 |                           id="isPublic"
+  > 486 |                           checked={reviewForm.isPublic}
+        |                                    ^^^^^^^^^^
+    487 |                           onChange={(e) => setReviewForm(prev => ({ ...prev, isPublic: e.target.checked }))}
+    488 |                           className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+    489 |                         />
+
+ERROR in src/pages/ReadingGroupDetail.tsx:487:44
+TS2304: Cannot find name 'setReviewForm'.
+    485 |                           id="isPublic"
+    486 |                           checked={reviewForm.isPublic}
+  > 487 |                           onChange={(e) => setReviewForm(prev => ({ ...prev, isPublic: e.target.checked }))}
+        |                                            ^^^^^^^^^^^^^
+    488 |                           className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+    489 |                         />
+    490 |                         <label htmlFor="isPublic" className="ml-2 block text-sm text-gray-700">
+
+ERROR in src/pages/ReadingGroupDetail.tsx:487:58
+TS7006: Parameter 'prev' implicitly has an 'any' type.
+    485 |                           id="isPublic"
+    486 |                           checked={reviewForm.isPublic}
+  > 487 |                           onChange={(e) => setReviewForm(prev => ({ ...prev, isPublic: e.target.checked }))}
+        |                                                          ^^^^
+    488 |                           className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+    489 |                         />
+    490 |                         <label htmlFor="isPublic" className="ml-2 block text-sm text-gray-700">
+
+ERROR in src/pages/ReadingGroupDetail.tsx:497:42
+TS2304: Cannot find name 'setShowReviewForm'.
+    495 |                       <div className="flex justify-end space-x-2">
+    496 |                         <button
+  > 497 |                           onClick={() => setShowReviewForm(false)}
+        |                                          ^^^^^^^^^^^^^^^^^
+    498 |                           className="px-4 py-2 text-sm text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200"
+    499 |                         >
+    500 |                           취소
+
+ERROR in src/pages/ReadingGroupDetail.tsx:515:20
+TS2304: Cannot find name 'reviews'.
+    513 |                 {/* 리뷰 목록 */}
+    514 |                 <div className="space-y-4">
+  > 515 |                   {reviews.length > 0 ? (
+        |                    ^^^^^^^
+    516 |                     reviews.map((review) => (
+    517 |                       <div key={review.id} className="border border-gray-200 rounded-lg p-4">
+    518 |                         <div className="flex items-start justify-between mb-2">
+
+ERROR in src/pages/ReadingGroupDetail.tsx:516:21
+TS2304: Cannot find name 'reviews'.
+    514 |                 <div className="space-y-4">
+    515 |                   {reviews.length > 0 ? (
+  > 516 |                     reviews.map((review) => (
+        |                     ^^^^^^^
+    517 |                       <div key={review.id} className="border border-gray-200 rounded-lg p-4">
+    518 |                         <div className="flex items-start justify-between mb-2">
+    519 |                           <div className="flex items-center space-x-3">
+
+ERROR in src/pages/ReadingGroupDetail.tsx:516:34
+TS7006: Parameter 'review' implicitly has an 'any' type.
+    514 |                 <div className="space-y-4">
+    515 |                   {reviews.length > 0 ? (
+  > 516 |                     reviews.map((review) => (
+        |                                  ^^^^^^
+    517 |                       <div key={review.id} className="border border-gray-200 rounded-lg p-4">
+    518 |                         <div className="flex items-start justify-between mb-2">
+    519 |                           <div className="flex items-center space-x-3">
+
+ERROR in src/pages/ReadingGroupDetail.tsx:685:5
+TS1005: ')' expected.
+    683 |         </div>
+    684 |       </div>
+  > 685 |     </div>
+        |     ^^
+    686 |   );
+    687 | };
+    688 |
+
+ERROR in src/pages/ReadingGroupDetail.tsx:685:7
+TS2304: Cannot find name 'div'.
+    683 |         </div>
+    684 |       </div>
+  > 685 |     </div>
+        |       ^^^
+    686 |   );
+    687 | };
+    688 |
+
+ERROR in src/pages/ReadingGroupDetail.tsx:686:3
+TS1109: Expression expected.
+    684 |       </div>
+    685 |     </div>
+  > 686 |   );
+        |   ^
+    687 | };
+    688 |
+    689 | export default ReadingGroupDetail;
+
+ERROR in src/pages/ReadingGroupDetail.tsx:687:1
+TS1128: Declaration or statement expected.
+    685 |     </div>
+    686 |   );
+  > 687 | };
+        | ^
+    688 |
+    689 | export default ReadingGroupDetail;
+    690 |
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/pages/ReadingGroupDetail.tsx
+  Line 7:3:  'UserPlusIcon' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/pages/ReadingGroupDetail.tsx
+  Line 7:3:  'UserPlusIcon' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/pages/ReadingGroupDetail.tsx:138:26
+TS2339: Property 'members' does not exist on type 'ReadingGroup'.
+    136 |
+    137 |   const isCreator = user?.id === group.creator.id;
+  > 138 |   const isMember = group.members.some(member => member.id === user?.id);
+        |                          ^^^^^^^
+    139 |
+    140 |   return (
+    141 |     <div className="min-h-screen bg-gray-50">
+
+ERROR in src/pages/ReadingGroupDetail.tsx:138:39
+TS7006: Parameter 'member' implicitly has an 'any' type.
+    136 |
+    137 |   const isCreator = user?.id === group.creator.id;
+  > 138 |   const isMember = group.members.some(member => member.id === user?.id);
+        |                                       ^^^^^^
+    139 |
+    140 |   return (
+    141 |     <div className="min-h-screen bg-gray-50">
+
+ERROR in src/pages/ReadingGroupDetail.tsx:200:37
+TS2551: Property 'meetingDateTime' does not exist on type 'ReadingGroup'. Did you mean 'endDateTime'?
+    198 |                   <dd className="mt-1 text-sm text-gray-900 flex items-center">
+    199 |                     <CalendarIcon className="w-4 h-4 mr-2 text-gray-400" />
+  > 200 |                     {new Date(group.meetingDateTime).toLocaleString('ko-KR')}
+        |                                     ^^^^^^^^^^^^^^^
+    201 |                   </dd>
+    202 |                 </div>
+    203 |                 <div>
+
+ERROR in src/pages/ReadingGroupDetail.tsx:213:28
+TS2339: Property 'members' does not exist on type 'ReadingGroup'.
+    211 |                   <dt className="text-sm font-medium text-gray-500">참여 인원</dt>
+    212 |                   <dd className="mt-1 text-sm text-gray-900">
+  > 213 |                     {group.members.length}/{group.maxMembers}명
+        |                            ^^^^^^^
+    214 |                   </dd>
+    215 |                 </div>
+    216 |                 <div>
+
+ERROR in src/pages/ReadingGroupDetail.tsx:302:28
+TS2339: Property 'members' does not exist on type 'ReadingGroup'.
+    300 |             <div className="bg-white rounded-lg shadow p-6">
+    301 |               <h3 className="text-lg font-semibold text-gray-900 mb-4">
+  > 302 |                 멤버 ({group.members.length}/{group.maxMembers})
+        |                            ^^^^^^^
+    303 |               </h3>
+    304 |               <div className="space-y-3">
+    305 |                 {group.members.map((member) => (
+
+ERROR in src/pages/ReadingGroupDetail.tsx:305:24
+TS2339: Property 'members' does not exist on type 'ReadingGroup'.
+    303 |               </h3>
+    304 |               <div className="space-y-3">
+  > 305 |                 {group.members.map((member) => (
+        |                        ^^^^^^^
+    306 |                   <div key={member.id} className="flex items-center">
+    307 |                     {member.profileImage ? (
+    308 |                       <img
+
+ERROR in src/pages/ReadingGroupDetail.tsx:305:37
+TS7006: Parameter 'member' implicitly has an 'any' type.
+    303 |               </h3>
+    304 |               <div className="space-y-3">
+  > 305 |                 {group.members.map((member) => (
+        |                                     ^^^^^^
+    306 |                   <div key={member.id} className="flex items-center">
+    307 |                     {member.profileImage ? (
+    308 |                       <img
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/pages/ReadingGroupDetail.tsx
+  Line 7:3:  'UserPlusIcon' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/pages/ReadingGroupDetail.tsx
+  Line 7:3:  'UserPlusIcon' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/pages/ReadingGroupDetail.tsx:138:26
+TS2339: Property 'members' does not exist on type 'ReadingGroup'.
+    136 |
+    137 |   const isCreator = user?.id === group.creator.id;
+  > 138 |   const isMember = group.members.some(member => member.id === user?.id);
+        |                          ^^^^^^^
+    139 |
+    140 |   return (
+    141 |     <div className="min-h-screen bg-gray-50">
+
+ERROR in src/pages/ReadingGroupDetail.tsx:138:39
+TS7006: Parameter 'member' implicitly has an 'any' type.
+    136 |
+    137 |   const isCreator = user?.id === group.creator.id;
+  > 138 |   const isMember = group.members.some(member => member.id === user?.id);
+        |                                       ^^^^^^
+    139 |
+    140 |   return (
+    141 |     <div className="min-h-screen bg-gray-50">
+
+ERROR in src/pages/ReadingGroupDetail.tsx:200:37
+TS2551: Property 'meetingDateTime' does not exist on type 'ReadingGroup'. Did you mean 'endDateTime'?
+    198 |                   <dd className="mt-1 text-sm text-gray-900 flex items-center">
+    199 |                     <CalendarIcon className="w-4 h-4 mr-2 text-gray-400" />
+  > 200 |                     {new Date(group.meetingDateTime).toLocaleString('ko-KR')}
+        |                                     ^^^^^^^^^^^^^^^
+    201 |                   </dd>
+    202 |                 </div>
+    203 |                 <div>
+
+ERROR in src/pages/ReadingGroupDetail.tsx:302:28
+TS2339: Property 'members' does not exist on type 'ReadingGroup'.
+    300 |             <div className="bg-white rounded-lg shadow p-6">
+    301 |               <h3 className="text-lg font-semibold text-gray-900 mb-4">
+  > 302 |                 멤버 ({group.members.length}/{group.maxMembers})
+        |                            ^^^^^^^
+    303 |               </h3>
+    304 |               <div className="space-y-3">
+    305 |                 {group.members.map((member) => (
+
+ERROR in src/pages/ReadingGroupDetail.tsx:305:24
+TS2339: Property 'members' does not exist on type 'ReadingGroup'.
+    303 |               </h3>
+    304 |               <div className="space-y-3">
+  > 305 |                 {group.members.map((member) => (
+        |                        ^^^^^^^
+    306 |                   <div key={member.id} className="flex items-center">
+    307 |                     {member.profileImage ? (
+    308 |                       <img
+
+ERROR in src/pages/ReadingGroupDetail.tsx:305:37
+TS7006: Parameter 'member' implicitly has an 'any' type.
+    303 |               </h3>
+    304 |               <div className="space-y-3">
+  > 305 |                 {group.members.map((member) => (
+        |                                     ^^^^^^
+    306 |                   <div key={member.id} className="flex items-center">
+    307 |                     {member.profileImage ? (
+    308 |                       <img
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/pages/ReadingGroupDetail.tsx
+  Line 7:3:  'UserPlusIcon' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/pages/ReadingGroupDetail.tsx
+  Line 7:3:  'UserPlusIcon' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/pages/ReadingGroupDetail.tsx:138:26
+TS2339: Property 'members' does not exist on type 'ReadingGroup'.
+    136 |
+    137 |   const isCreator = user?.id === group.creator.id;
+  > 138 |   const isMember = group.members.some(member => member.id === user?.id);
+        |                          ^^^^^^^
+    139 |
+    140 |   return (
+    141 |     <div className="min-h-screen bg-gray-50">
+
+ERROR in src/pages/ReadingGroupDetail.tsx:138:39
+TS7006: Parameter 'member' implicitly has an 'any' type.
+    136 |
+    137 |   const isCreator = user?.id === group.creator.id;
+  > 138 |   const isMember = group.members.some(member => member.id === user?.id);
+        |                                       ^^^^^^
+    139 |
+    140 |   return (
+    141 |     <div className="min-h-screen bg-gray-50">
+
+ERROR in src/pages/ReadingGroupDetail.tsx:302:28
+TS2339: Property 'members' does not exist on type 'ReadingGroup'.
+    300 |             <div className="bg-white rounded-lg shadow p-6">
+    301 |               <h3 className="text-lg font-semibold text-gray-900 mb-4">
+  > 302 |                 멤버 ({group.members.length}/{group.maxMembers})
+        |                            ^^^^^^^
+    303 |               </h3>
+    304 |               <div className="space-y-3">
+    305 |                 {group.members.map((member) => (
+
+ERROR in src/pages/ReadingGroupDetail.tsx:305:24
+TS2339: Property 'members' does not exist on type 'ReadingGroup'.
+    303 |               </h3>
+    304 |               <div className="space-y-3">
+  > 305 |                 {group.members.map((member) => (
+        |                        ^^^^^^^
+    306 |                   <div key={member.id} className="flex items-center">
+    307 |                     {member.profileImage ? (
+    308 |                       <img
+
+ERROR in src/pages/ReadingGroupDetail.tsx:305:37
+TS7006: Parameter 'member' implicitly has an 'any' type.
+    303 |               </h3>
+    304 |               <div className="space-y-3">
+  > 305 |                 {group.members.map((member) => (
+        |                                     ^^^^^^
+    306 |                   <div key={member.id} className="flex items-center">
+    307 |                     {member.profileImage ? (
+    308 |                       <img
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/pages/ReadingGroupDetail.tsx
+  Line 7:3:  'UserPlusIcon' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/pages/ReadingGroupDetail.tsx
+  Line 7:3:  'UserPlusIcon' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/pages/ReadingGroupDetail.tsx:303:28
+TS2339: Property 'members' does not exist on type 'ReadingGroup'.
+    301 |             <div className="bg-white rounded-lg shadow p-6">
+    302 |               <h3 className="text-lg font-semibold text-gray-900 mb-4">
+  > 303 |                 멤버 ({group.members.length}/{group.maxMembers})
+        |                            ^^^^^^^
+    304 |               </h3>
+    305 |               <div className="space-y-3">
+    306 |                 {group.members.map((member) => (
+
+ERROR in src/pages/ReadingGroupDetail.tsx:306:24
+TS2339: Property 'members' does not exist on type 'ReadingGroup'.
+    304 |               </h3>
+    305 |               <div className="space-y-3">
+  > 306 |                 {group.members.map((member) => (
+        |                        ^^^^^^^
+    307 |                   <div key={member.id} className="flex items-center">
+    308 |                     {member.profileImage ? (
+    309 |                       <img
+
+ERROR in src/pages/ReadingGroupDetail.tsx:306:37
+TS7006: Parameter 'member' implicitly has an 'any' type.
+    304 |               </h3>
+    305 |               <div className="space-y-3">
+  > 306 |                 {group.members.map((member) => (
+        |                                     ^^^^^^
+    307 |                   <div key={member.id} className="flex items-center">
+    308 |                     {member.profileImage ? (
+    309 |                       <img
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/pages/ReadingGroupDetail.tsx
+  Line 7:3:  'UserPlusIcon' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/pages/ReadingGroupDetail.tsx
+  Line 7:3:  'UserPlusIcon' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/readingGroups.ts
+  Line 139:3:  Duplicate key 'joinGroup'   no-dupe-keys
+  Line 159:3:  Duplicate key 'leaveGroup'  no-dupe-keys
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/readingGroups.ts
+  Line 139:3:  Duplicate key 'joinGroup'   no-dupe-keys
+  Line 159:3:  Duplicate key 'leaveGroup'  no-dupe-keys
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/api/readingGroups.ts:135:48
+TS2304: Cannot find name 'GroupMember'.
+    133 |   // 멤버 관리 API
+    134 |   getGroupMembers: async (groupId: number) => {
+  > 135 |     const response = await api.get<ApiResponse<GroupMember[]>>(`/reading-groups/${groupId}/members`);
+        |                                                ^^^^^^^^^^^
+    136 |     return response;
+    137 |   },
+    138 |
+
+ERROR in src/api/readingGroups.ts:139:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    137 |   },
+    138 |
+  > 139 |   joinGroup: async (groupId: number, introduction?: string) => {
+        |   ^^^^^^^^^
+    140 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+    141 |       introduction: introduction || ''
+    142 |     });
+
+ERROR in src/api/readingGroups.ts:140:49
+TS2304: Cannot find name 'GroupMember'.
+    138 |
+    139 |   joinGroup: async (groupId: number, introduction?: string) => {
+  > 140 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+        |                                                 ^^^^^^^^^^^
+    141 |       introduction: introduction || ''
+    142 |     });
+    143 |     return response;
+
+ERROR in src/api/readingGroups.ts:147:49
+TS2304: Cannot find name 'GroupMember'.
+    145 |
+    146 |   joinByInviteCode: async (groupId: number, inviteCode: string, introduction?: string) => {
+  > 147 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join-by-code`, {
+        |                                                 ^^^^^^^^^^^
+    148 |       inviteCode,
+    149 |       introduction: introduction || ''
+    150 |     });
+
+ERROR in src/api/readingGroups.ts:159:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    157 |   },
+    158 |
+  > 159 |   leaveGroup: async (groupId: number) => {
+        |   ^^^^^^^^^^
+    160 |     const response = await api.delete<ApiResponse<void>>(`/reading-groups/${groupId}/members/leave`);
+    161 |     return response;
+    162 |   },
+
+ERROR in src/pages/JoinReadingGroup.tsx:48:39
+TS2345: Argument of type '{ inviteCode: string; introduction: string | undefined; }' is not assignable to parameter of type 'number'.
+    46 |     try {
+    47 |       setJoining(true);
+  > 48 |       await readingGroupApi.joinGroup({
+       |                                       ^
+  > 49 |         inviteCode,
+       | ^^^^^^^^^^^^^^^^^^^
+  > 50 |         introduction: introduction.trim() || undefined
+       | ^^^^^^^^^^^^^^^^^^^
+  > 51 |       });
+       | ^^^^^^^^
+    52 |       
+    53 |       alert('독서 모임에 성공적으로 가입했습니다!');
+    54 |       navigate(`/reading-groups/${group.id}`);
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/readingGroups.ts
+  Line 139:3:  Duplicate key 'joinGroup'   no-dupe-keys
+  Line 159:3:  Duplicate key 'leaveGroup'  no-dupe-keys
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/readingGroups.ts
+  Line 139:3:  Duplicate key 'joinGroup'   no-dupe-keys
+  Line 159:3:  Duplicate key 'leaveGroup'  no-dupe-keys
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/api/readingGroups.ts:135:48
+TS2304: Cannot find name 'GroupMember'.
+    133 |   // 멤버 관리 API
+    134 |   getGroupMembers: async (groupId: number) => {
+  > 135 |     const response = await api.get<ApiResponse<GroupMember[]>>(`/reading-groups/${groupId}/members`);
+        |                                                ^^^^^^^^^^^
+    136 |     return response;
+    137 |   },
+    138 |
+
+ERROR in src/api/readingGroups.ts:139:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    137 |   },
+    138 |
+  > 139 |   joinGroup: async (groupId: number, introduction?: string) => {
+        |   ^^^^^^^^^
+    140 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+    141 |       introduction: introduction || ''
+    142 |     });
+
+ERROR in src/api/readingGroups.ts:140:49
+TS2304: Cannot find name 'GroupMember'.
+    138 |
+    139 |   joinGroup: async (groupId: number, introduction?: string) => {
+  > 140 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+        |                                                 ^^^^^^^^^^^
+    141 |       introduction: introduction || ''
+    142 |     });
+    143 |     return response;
+
+ERROR in src/api/readingGroups.ts:147:49
+TS2304: Cannot find name 'GroupMember'.
+    145 |
+    146 |   joinByInviteCode: async (groupId: number, inviteCode: string, introduction?: string) => {
+  > 147 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join-by-code`, {
+        |                                                 ^^^^^^^^^^^
+    148 |       inviteCode,
+    149 |       introduction: introduction || ''
+    150 |     });
+
+ERROR in src/api/readingGroups.ts:159:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    157 |   },
+    158 |
+  > 159 |   leaveGroup: async (groupId: number) => {
+        |   ^^^^^^^^^^
+    160 |     const response = await api.delete<ApiResponse<void>>(`/reading-groups/${groupId}/members/leave`);
+    161 |     return response;
+    162 |   },
+
+ERROR in src/pages/JoinReadingGroup.tsx:48:39
+TS2345: Argument of type '{ inviteCode: string; introduction: string | undefined; }' is not assignable to parameter of type 'number'.
+    46 |     try {
+    47 |       setJoining(true);
+  > 48 |       await readingGroupApi.joinGroup({
+       |                                       ^
+  > 49 |         inviteCode,
+       | ^^^^^^^^^^^^^^^^^^^
+  > 50 |         introduction: introduction.trim() || undefined
+       | ^^^^^^^^^^^^^^^^^^^
+  > 51 |       });
+       | ^^^^^^^^
+    52 |       
+    53 |       alert('독서 모임에 성공적으로 가입했습니다!');
+    54 |       navigate(`/reading-groups/${group.id}`);
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/readingGroups.ts
+  Line 139:3:  Duplicate key 'joinGroup'   no-dupe-keys
+  Line 159:3:  Duplicate key 'leaveGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 15:24:  'GroupMember' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/readingGroups.ts
+  Line 139:3:  Duplicate key 'joinGroup'   no-dupe-keys
+  Line 159:3:  Duplicate key 'leaveGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 15:24:  'GroupMember' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/api/readingGroups.ts:135:48
+TS2304: Cannot find name 'GroupMember'.
+    133 |   // 멤버 관리 API
+    134 |   getGroupMembers: async (groupId: number) => {
+  > 135 |     const response = await api.get<ApiResponse<GroupMember[]>>(`/reading-groups/${groupId}/members`);
+        |                                                ^^^^^^^^^^^
+    136 |     return response;
+    137 |   },
+    138 |
+
+ERROR in src/api/readingGroups.ts:139:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    137 |   },
+    138 |
+  > 139 |   joinGroup: async (groupId: number, introduction?: string) => {
+        |   ^^^^^^^^^
+    140 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+    141 |       introduction: introduction || ''
+    142 |     });
+
+ERROR in src/api/readingGroups.ts:140:49
+TS2304: Cannot find name 'GroupMember'.
+    138 |
+    139 |   joinGroup: async (groupId: number, introduction?: string) => {
+  > 140 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+        |                                                 ^^^^^^^^^^^
+    141 |       introduction: introduction || ''
+    142 |     });
+    143 |     return response;
+
+ERROR in src/api/readingGroups.ts:147:49
+TS2304: Cannot find name 'GroupMember'.
+    145 |
+    146 |   joinByInviteCode: async (groupId: number, inviteCode: string, introduction?: string) => {
+  > 147 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join-by-code`, {
+        |                                                 ^^^^^^^^^^^
+    148 |       inviteCode,
+    149 |       introduction: introduction || ''
+    150 |     });
+
+ERROR in src/api/readingGroups.ts:159:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    157 |   },
+    158 |
+  > 159 |   leaveGroup: async (groupId: number) => {
+        |   ^^^^^^^^^^
+    160 |     const response = await api.delete<ApiResponse<void>>(`/reading-groups/${groupId}/members/leave`);
+    161 |     return response;
+    162 |   },
+
+ERROR in src/pages/JoinReadingGroup.tsx:48:39
+TS2345: Argument of type '{ inviteCode: string; introduction: string | undefined; }' is not assignable to parameter of type 'number'.
+    46 |     try {
+    47 |       setJoining(true);
+  > 48 |       await readingGroupApi.joinGroup({
+       |                                       ^
+  > 49 |         inviteCode,
+       | ^^^^^^^^^^^^^^^^^^^
+  > 50 |         introduction: introduction.trim() || undefined
+       | ^^^^^^^^^^^^^^^^^^^
+  > 51 |       });
+       | ^^^^^^^^
+    52 |       
+    53 |       alert('독서 모임에 성공적으로 가입했습니다!');
+    54 |       navigate(`/reading-groups/${group.id}`);
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/readingGroups.ts
+  Line 139:3:  Duplicate key 'joinGroup'   no-dupe-keys
+  Line 159:3:  Duplicate key 'leaveGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 27:10:  'members' is assigned a value but never used             @typescript-eslint/no-unused-vars
+  Line 27:19:  'setMembers' is assigned a value but never used          @typescript-eslint/no-unused-vars
+  Line 28:10:  'showJoinModal' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  Line 28:25:  'setShowJoinModal' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  Line 29:10:  'inviteCodeInput' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 29:27:  'setInviteCodeInput' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 30:10:  'introduction' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  Line 30:24:  'setIntroduction' is assigned a value but never used     @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/readingGroups.ts
+  Line 139:3:  Duplicate key 'joinGroup'   no-dupe-keys
+  Line 159:3:  Duplicate key 'leaveGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 27:10:  'members' is assigned a value but never used             @typescript-eslint/no-unused-vars
+  Line 27:19:  'setMembers' is assigned a value but never used          @typescript-eslint/no-unused-vars
+  Line 28:10:  'showJoinModal' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  Line 28:25:  'setShowJoinModal' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  Line 29:10:  'inviteCodeInput' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 29:27:  'setInviteCodeInput' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 30:10:  'introduction' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  Line 30:24:  'setIntroduction' is assigned a value but never used     @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/api/readingGroups.ts:135:48
+TS2304: Cannot find name 'GroupMember'.
+    133 |   // 멤버 관리 API
+    134 |   getGroupMembers: async (groupId: number) => {
+  > 135 |     const response = await api.get<ApiResponse<GroupMember[]>>(`/reading-groups/${groupId}/members`);
+        |                                                ^^^^^^^^^^^
+    136 |     return response;
+    137 |   },
+    138 |
+
+ERROR in src/api/readingGroups.ts:139:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    137 |   },
+    138 |
+  > 139 |   joinGroup: async (groupId: number, introduction?: string) => {
+        |   ^^^^^^^^^
+    140 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+    141 |       introduction: introduction || ''
+    142 |     });
+
+ERROR in src/api/readingGroups.ts:140:49
+TS2304: Cannot find name 'GroupMember'.
+    138 |
+    139 |   joinGroup: async (groupId: number, introduction?: string) => {
+  > 140 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+        |                                                 ^^^^^^^^^^^
+    141 |       introduction: introduction || ''
+    142 |     });
+    143 |     return response;
+
+ERROR in src/api/readingGroups.ts:147:49
+TS2304: Cannot find name 'GroupMember'.
+    145 |
+    146 |   joinByInviteCode: async (groupId: number, inviteCode: string, introduction?: string) => {
+  > 147 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join-by-code`, {
+        |                                                 ^^^^^^^^^^^
+    148 |       inviteCode,
+    149 |       introduction: introduction || ''
+    150 |     });
+
+ERROR in src/api/readingGroups.ts:159:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    157 |   },
+    158 |
+  > 159 |   leaveGroup: async (groupId: number) => {
+        |   ^^^^^^^^^^
+    160 |     const response = await api.delete<ApiResponse<void>>(`/reading-groups/${groupId}/members/leave`);
+    161 |     return response;
+    162 |   },
+
+ERROR in src/pages/JoinReadingGroup.tsx:48:39
+TS2345: Argument of type '{ inviteCode: string; introduction: string | undefined; }' is not assignable to parameter of type 'number'.
+    46 |     try {
+    47 |       setJoining(true);
+  > 48 |       await readingGroupApi.joinGroup({
+       |                                       ^
+  > 49 |         inviteCode,
+       | ^^^^^^^^^^^^^^^^^^^
+  > 50 |         introduction: introduction.trim() || undefined
+       | ^^^^^^^^^^^^^^^^^^^
+  > 51 |       });
+       | ^^^^^^^^
+    52 |       
+    53 |       alert('독서 모임에 성공적으로 가입했습니다!');
+    54 |       navigate(`/reading-groups/${group.id}`);
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/readingGroups.ts
+  Line 139:3:  Duplicate key 'joinGroup'   no-dupe-keys
+  Line 159:3:  Duplicate key 'leaveGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 27:10:  'members' is assigned a value but never used             @typescript-eslint/no-unused-vars
+  Line 28:10:  'showJoinModal' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  Line 66:9:   'handleJoinGroup' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 99:9:   'handleRemoveMember' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 118:9:  'handleLeaveGroup' is assigned a value but never used    @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/readingGroups.ts
+  Line 139:3:  Duplicate key 'joinGroup'   no-dupe-keys
+  Line 159:3:  Duplicate key 'leaveGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 27:10:  'members' is assigned a value but never used             @typescript-eslint/no-unused-vars
+  Line 28:10:  'showJoinModal' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  Line 66:9:   'handleJoinGroup' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 99:9:   'handleRemoveMember' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 118:9:  'handleLeaveGroup' is assigned a value but never used    @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/api/readingGroups.ts:135:48
+TS2304: Cannot find name 'GroupMember'.
+    133 |   // 멤버 관리 API
+    134 |   getGroupMembers: async (groupId: number) => {
+  > 135 |     const response = await api.get<ApiResponse<GroupMember[]>>(`/reading-groups/${groupId}/members`);
+        |                                                ^^^^^^^^^^^
+    136 |     return response;
+    137 |   },
+    138 |
+
+ERROR in src/api/readingGroups.ts:139:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    137 |   },
+    138 |
+  > 139 |   joinGroup: async (groupId: number, introduction?: string) => {
+        |   ^^^^^^^^^
+    140 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+    141 |       introduction: introduction || ''
+    142 |     });
+
+ERROR in src/api/readingGroups.ts:140:49
+TS2304: Cannot find name 'GroupMember'.
+    138 |
+    139 |   joinGroup: async (groupId: number, introduction?: string) => {
+  > 140 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+        |                                                 ^^^^^^^^^^^
+    141 |       introduction: introduction || ''
+    142 |     });
+    143 |     return response;
+
+ERROR in src/api/readingGroups.ts:147:49
+TS2304: Cannot find name 'GroupMember'.
+    145 |
+    146 |   joinByInviteCode: async (groupId: number, inviteCode: string, introduction?: string) => {
+  > 147 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join-by-code`, {
+        |                                                 ^^^^^^^^^^^
+    148 |       inviteCode,
+    149 |       introduction: introduction || ''
+    150 |     });
+
+ERROR in src/api/readingGroups.ts:159:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    157 |   },
+    158 |
+  > 159 |   leaveGroup: async (groupId: number) => {
+        |   ^^^^^^^^^^
+    160 |     const response = await api.delete<ApiResponse<void>>(`/reading-groups/${groupId}/members/leave`);
+    161 |     return response;
+    162 |   },
+
+ERROR in src/pages/JoinReadingGroup.tsx:48:39
+TS2345: Argument of type '{ inviteCode: string; introduction: string | undefined; }' is not assignable to parameter of type 'number'.
+    46 |     try {
+    47 |       setJoining(true);
+  > 48 |       await readingGroupApi.joinGroup({
+       |                                       ^
+  > 49 |         inviteCode,
+       | ^^^^^^^^^^^^^^^^^^^
+  > 50 |         introduction: introduction.trim() || undefined
+       | ^^^^^^^^^^^^^^^^^^^
+  > 51 |       });
+       | ^^^^^^^^
+    52 |       
+    53 |       alert('독서 모임에 성공적으로 가입했습니다!');
+    54 |       navigate(`/reading-groups/${group.id}`);
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/readingGroups.ts
+  Line 139:3:  Duplicate key 'joinGroup'   no-dupe-keys
+  Line 159:3:  Duplicate key 'leaveGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 28:10:  'showJoinModal' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  Line 66:9:   'handleJoinGroup' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 99:9:   'handleRemoveMember' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 118:9:  'handleLeaveGroup' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  Line 223:9:  'currentUserMember' is assigned a value but never used   @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/readingGroups.ts
+  Line 139:3:  Duplicate key 'joinGroup'   no-dupe-keys
+  Line 159:3:  Duplicate key 'leaveGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 28:10:  'showJoinModal' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  Line 66:9:   'handleJoinGroup' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 99:9:   'handleRemoveMember' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 118:9:  'handleLeaveGroup' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  Line 223:9:  'currentUserMember' is assigned a value but never used   @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/api/readingGroups.ts:135:48
+TS2304: Cannot find name 'GroupMember'.
+    133 |   // 멤버 관리 API
+    134 |   getGroupMembers: async (groupId: number) => {
+  > 135 |     const response = await api.get<ApiResponse<GroupMember[]>>(`/reading-groups/${groupId}/members`);
+        |                                                ^^^^^^^^^^^
+    136 |     return response;
+    137 |   },
+    138 |
+
+ERROR in src/api/readingGroups.ts:139:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    137 |   },
+    138 |
+  > 139 |   joinGroup: async (groupId: number, introduction?: string) => {
+        |   ^^^^^^^^^
+    140 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+    141 |       introduction: introduction || ''
+    142 |     });
+
+ERROR in src/api/readingGroups.ts:140:49
+TS2304: Cannot find name 'GroupMember'.
+    138 |
+    139 |   joinGroup: async (groupId: number, introduction?: string) => {
+  > 140 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+        |                                                 ^^^^^^^^^^^
+    141 |       introduction: introduction || ''
+    142 |     });
+    143 |     return response;
+
+ERROR in src/api/readingGroups.ts:147:49
+TS2304: Cannot find name 'GroupMember'.
+    145 |
+    146 |   joinByInviteCode: async (groupId: number, inviteCode: string, introduction?: string) => {
+  > 147 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join-by-code`, {
+        |                                                 ^^^^^^^^^^^
+    148 |       inviteCode,
+    149 |       introduction: introduction || ''
+    150 |     });
+
+ERROR in src/api/readingGroups.ts:159:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    157 |   },
+    158 |
+  > 159 |   leaveGroup: async (groupId: number) => {
+        |   ^^^^^^^^^^
+    160 |     const response = await api.delete<ApiResponse<void>>(`/reading-groups/${groupId}/members/leave`);
+    161 |     return response;
+    162 |   },
+
+ERROR in src/pages/JoinReadingGroup.tsx:48:39
+TS2345: Argument of type '{ inviteCode: string; introduction: string | undefined; }' is not assignable to parameter of type 'number'.
+    46 |     try {
+    47 |       setJoining(true);
+  > 48 |       await readingGroupApi.joinGroup({
+       |                                       ^
+  > 49 |         inviteCode,
+       | ^^^^^^^^^^^^^^^^^^^
+  > 50 |         introduction: introduction.trim() || undefined
+       | ^^^^^^^^^^^^^^^^^^^
+  > 51 |       });
+       | ^^^^^^^^
+    52 |       
+    53 |       alert('독서 모임에 성공적으로 가입했습니다!');
+    54 |       navigate(`/reading-groups/${group.id}`);
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/readingGroups.ts
+  Line 139:3:  Duplicate key 'joinGroup'   no-dupe-keys
+  Line 159:3:  Duplicate key 'leaveGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 28:10:  'showJoinModal' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  Line 66:9:   'handleJoinGroup' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  Line 223:9:  'currentUserMember' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/readingGroups.ts
+  Line 139:3:  Duplicate key 'joinGroup'   no-dupe-keys
+  Line 159:3:  Duplicate key 'leaveGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 28:10:  'showJoinModal' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  Line 66:9:   'handleJoinGroup' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  Line 223:9:  'currentUserMember' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/api/readingGroups.ts:135:48
+TS2304: Cannot find name 'GroupMember'.
+    133 |   // 멤버 관리 API
+    134 |   getGroupMembers: async (groupId: number) => {
+  > 135 |     const response = await api.get<ApiResponse<GroupMember[]>>(`/reading-groups/${groupId}/members`);
+        |                                                ^^^^^^^^^^^
+    136 |     return response;
+    137 |   },
+    138 |
+
+ERROR in src/api/readingGroups.ts:139:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    137 |   },
+    138 |
+  > 139 |   joinGroup: async (groupId: number, introduction?: string) => {
+        |   ^^^^^^^^^
+    140 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+    141 |       introduction: introduction || ''
+    142 |     });
+
+ERROR in src/api/readingGroups.ts:140:49
+TS2304: Cannot find name 'GroupMember'.
+    138 |
+    139 |   joinGroup: async (groupId: number, introduction?: string) => {
+  > 140 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+        |                                                 ^^^^^^^^^^^
+    141 |       introduction: introduction || ''
+    142 |     });
+    143 |     return response;
+
+ERROR in src/api/readingGroups.ts:147:49
+TS2304: Cannot find name 'GroupMember'.
+    145 |
+    146 |   joinByInviteCode: async (groupId: number, inviteCode: string, introduction?: string) => {
+  > 147 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join-by-code`, {
+        |                                                 ^^^^^^^^^^^
+    148 |       inviteCode,
+    149 |       introduction: introduction || ''
+    150 |     });
+
+ERROR in src/api/readingGroups.ts:159:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    157 |   },
+    158 |
+  > 159 |   leaveGroup: async (groupId: number) => {
+        |   ^^^^^^^^^^
+    160 |     const response = await api.delete<ApiResponse<void>>(`/reading-groups/${groupId}/members/leave`);
+    161 |     return response;
+    162 |   },
+
+ERROR in src/pages/JoinReadingGroup.tsx:48:39
+TS2345: Argument of type '{ inviteCode: string; introduction: string | undefined; }' is not assignable to parameter of type 'number'.
+    46 |     try {
+    47 |       setJoining(true);
+  > 48 |       await readingGroupApi.joinGroup({
+       |                                       ^
+  > 49 |         inviteCode,
+       | ^^^^^^^^^^^^^^^^^^^
+  > 50 |         introduction: introduction.trim() || undefined
+       | ^^^^^^^^^^^^^^^^^^^
+  > 51 |       });
+       | ^^^^^^^^
+    52 |       
+    53 |       alert('독서 모임에 성공적으로 가입했습니다!');
+    54 |       navigate(`/reading-groups/${group.id}`);
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/readingGroups.ts
+  Line 139:3:  Duplicate key 'joinGroup'   no-dupe-keys
+  Line 159:3:  Duplicate key 'leaveGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 223:9:  'currentUserMember' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/readingGroups.ts
+  Line 139:3:  Duplicate key 'joinGroup'   no-dupe-keys
+  Line 159:3:  Duplicate key 'leaveGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 223:9:  'currentUserMember' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/api/readingGroups.ts:135:48
+TS2304: Cannot find name 'GroupMember'.
+    133 |   // 멤버 관리 API
+    134 |   getGroupMembers: async (groupId: number) => {
+  > 135 |     const response = await api.get<ApiResponse<GroupMember[]>>(`/reading-groups/${groupId}/members`);
+        |                                                ^^^^^^^^^^^
+    136 |     return response;
+    137 |   },
+    138 |
+
+ERROR in src/api/readingGroups.ts:139:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    137 |   },
+    138 |
+  > 139 |   joinGroup: async (groupId: number, introduction?: string) => {
+        |   ^^^^^^^^^
+    140 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+    141 |       introduction: introduction || ''
+    142 |     });
+
+ERROR in src/api/readingGroups.ts:140:49
+TS2304: Cannot find name 'GroupMember'.
+    138 |
+    139 |   joinGroup: async (groupId: number, introduction?: string) => {
+  > 140 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+        |                                                 ^^^^^^^^^^^
+    141 |       introduction: introduction || ''
+    142 |     });
+    143 |     return response;
+
+ERROR in src/api/readingGroups.ts:147:49
+TS2304: Cannot find name 'GroupMember'.
+    145 |
+    146 |   joinByInviteCode: async (groupId: number, inviteCode: string, introduction?: string) => {
+  > 147 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join-by-code`, {
+        |                                                 ^^^^^^^^^^^
+    148 |       inviteCode,
+    149 |       introduction: introduction || ''
+    150 |     });
+
+ERROR in src/api/readingGroups.ts:159:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    157 |   },
+    158 |
+  > 159 |   leaveGroup: async (groupId: number) => {
+        |   ^^^^^^^^^^
+    160 |     const response = await api.delete<ApiResponse<void>>(`/reading-groups/${groupId}/members/leave`);
+    161 |     return response;
+    162 |   },
+
+ERROR in src/pages/JoinReadingGroup.tsx:48:39
+TS2345: Argument of type '{ inviteCode: string; introduction: string | undefined; }' is not assignable to parameter of type 'number'.
+    46 |     try {
+    47 |       setJoining(true);
+  > 48 |       await readingGroupApi.joinGroup({
+       |                                       ^
+  > 49 |         inviteCode,
+       | ^^^^^^^^^^^^^^^^^^^
+  > 50 |         introduction: introduction.trim() || undefined
+       | ^^^^^^^^^^^^^^^^^^^
+  > 51 |       });
+       | ^^^^^^^^
+    52 |       
+    53 |       alert('독서 모임에 성공적으로 가입했습니다!');
+    54 |       navigate(`/reading-groups/${group.id}`);
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/readingGroups.ts
+  Line 133:3:  Duplicate key 'joinGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 223:9:  'currentUserMember' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/readingGroups.ts
+  Line 133:3:  Duplicate key 'joinGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 223:9:  'currentUserMember' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/api/readingGroups.ts:129:48
+TS2304: Cannot find name 'GroupMember'.
+    127 |   // 멤버 관리 API
+    128 |   getGroupMembers: async (groupId: number) => {
+  > 129 |     const response = await api.get<ApiResponse<GroupMember[]>>(`/reading-groups/${groupId}/members`);
+        |                                                ^^^^^^^^^^^
+    130 |     return response;
+    131 |   },
+    132 |
+
+ERROR in src/api/readingGroups.ts:133:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    131 |   },
+    132 |
+  > 133 |   joinGroup: async (groupId: number, introduction?: string) => {
+        |   ^^^^^^^^^
+    134 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+    135 |       introduction: introduction || ''
+    136 |     });
+
+ERROR in src/api/readingGroups.ts:134:49
+TS2304: Cannot find name 'GroupMember'.
+    132 |
+    133 |   joinGroup: async (groupId: number, introduction?: string) => {
+  > 134 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+        |                                                 ^^^^^^^^^^^
+    135 |       introduction: introduction || ''
+    136 |     });
+    137 |     return response;
+
+ERROR in src/api/readingGroups.ts:141:49
+TS2304: Cannot find name 'GroupMember'.
+    139 |
+    140 |   joinByInviteCode: async (groupId: number, inviteCode: string, introduction?: string) => {
+  > 141 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join-by-code`, {
+        |                                                 ^^^^^^^^^^^
+    142 |       inviteCode,
+    143 |       introduction: introduction || ''
+    144 |     });
+
+ERROR in src/pages/JoinReadingGroup.tsx:48:39
+TS2345: Argument of type '{ inviteCode: string; introduction: string | undefined; }' is not assignable to parameter of type 'number'.
+    46 |     try {
+    47 |       setJoining(true);
+  > 48 |       await readingGroupApi.joinGroup({
+       |                                       ^
+  > 49 |         inviteCode,
+       | ^^^^^^^^^^^^^^^^^^^
+  > 50 |         introduction: introduction.trim() || undefined
+       | ^^^^^^^^^^^^^^^^^^^
+  > 51 |       });
+       | ^^^^^^^^
+    52 |       
+    53 |       alert('독서 모임에 성공적으로 가입했습니다!');
+    54 |       navigate(`/reading-groups/${group.id}`);
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/readingGroups.ts
+  Line 133:3:  Duplicate key 'joinGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 223:9:  'currentUserMember' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/readingGroups.ts
+  Line 133:3:  Duplicate key 'joinGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 223:9:  'currentUserMember' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/api/readingGroups.ts:129:48
+TS2304: Cannot find name 'GroupMember'.
+    127 |   // 멤버 관리 API
+    128 |   getGroupMembers: async (groupId: number) => {
+  > 129 |     const response = await api.get<ApiResponse<GroupMember[]>>(`/reading-groups/${groupId}/members`);
+        |                                                ^^^^^^^^^^^
+    130 |     return response;
+    131 |   },
+    132 |
+
+ERROR in src/api/readingGroups.ts:133:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    131 |   },
+    132 |
+  > 133 |   joinGroup: async (groupId: number, introduction?: string) => {
+        |   ^^^^^^^^^
+    134 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+    135 |       introduction: introduction || ''
+    136 |     });
+
+ERROR in src/api/readingGroups.ts:134:49
+TS2304: Cannot find name 'GroupMember'.
+    132 |
+    133 |   joinGroup: async (groupId: number, introduction?: string) => {
+  > 134 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+        |                                                 ^^^^^^^^^^^
+    135 |       introduction: introduction || ''
+    136 |     });
+    137 |     return response;
+
+ERROR in src/api/readingGroups.ts:141:49
+TS2304: Cannot find name 'GroupMember'.
+    139 |
+    140 |   joinByInviteCode: async (groupId: number, inviteCode: string, introduction?: string) => {
+  > 141 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join-by-code`, {
+        |                                                 ^^^^^^^^^^^
+    142 |       inviteCode,
+    143 |       introduction: introduction || ''
+    144 |     });
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/readingGroups.ts
+  Line 134:3:  Duplicate key 'joinGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 223:9:  'currentUserMember' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/readingGroups.ts
+  Line 134:3:  Duplicate key 'joinGroup'  no-dupe-keys
+
+src/pages/ReadingGroupDetail.tsx
+  Line 223:9:  'currentUserMember' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/api/readingGroups.ts:134:3
+TS1117: An object literal cannot have multiple properties with the same name.
+    132 |   },
+    133 |
+  > 134 |   joinGroup: async (groupId: number, introduction?: string) => {
+        |   ^^^^^^^^^
+    135 |     const response = await api.post<ApiResponse<GroupMember>>(`/reading-groups/${groupId}/members/join`, {
+    136 |       introduction: introduction || ''
+    137 |     });
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/readingGroups.ts
+  Line 7:3:  'JoinReadingGroupRequest' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/ReadingGroupDetail.tsx
+  Line 223:9:  'currentUserMember' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/readingGroups.ts
+  Line 7:3:  'JoinReadingGroupRequest' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/ReadingGroupDetail.tsx
+  Line 223:9:  'currentUserMember' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/readingGroups.ts
+  Line 7:3:  'JoinReadingGroupRequest' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/readingGroups.ts
+  Line 7:3:  'JoinReadingGroupRequest' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.tsx
+  Line 139:16:  'JoinReadingGroup' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/App.tsx
+  Line 15:8:  'JoinGroupPage' is defined but never used  @typescript-eslint/no-unused-vars
+
+ERROR in [eslint] 
+src/App.tsx
+  Line 139:16:  'JoinReadingGroup' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+ERROR in src/App.tsx:139:16
+TS2552: Cannot find name 'JoinReadingGroup'. Did you mean 'ReadingGroups'?
+    137 |           <Route path="/reading-groups/join/:inviteCode" element={
+    138 |             <ProtectedRoute>
+  > 139 |               <JoinReadingGroup />
+        |                ^^^^^^^^^^^^^^^^
+    140 |             </ProtectedRoute>
+    141 |           } />
+    142 |           <Route path="/reading-groups/:groupId/select-book" element={
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/pages/JoinGroupPage.tsx
+  Line 19:11:  'user' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/pages/JoinGroupPage.tsx
+  Line 19:11:  'user' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 23:10:  'searchMode' is assigned a value but never used                                                                @typescript-eslint/no-unused-vars
+  Line 23:22:  'setSearchMode' is assigned a value but never used                                                             @typescript-eslint/no-unused-vars
+  Line 24:10:  'searchQuery' is assigned a value but never used                                                               @typescript-eslint/no-unused-vars
+  Line 24:23:  'setSearchQuery' is assigned a value but never used                                                            @typescript-eslint/no-unused-vars
+  Line 25:10:  'searchType' is assigned a value but never used                                                                @typescript-eslint/no-unused-vars
+  Line 25:22:  'setSearchType' is assigned a value but never used                                                             @typescript-eslint/no-unused-vars
+  Line 29:6:   React Hook useEffect has a missing dependency: 'fetchPosts'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 23:10:  'searchMode' is assigned a value but never used                                                                @typescript-eslint/no-unused-vars
+  Line 23:22:  'setSearchMode' is assigned a value but never used                                                             @typescript-eslint/no-unused-vars
+  Line 24:10:  'searchQuery' is assigned a value but never used                                                               @typescript-eslint/no-unused-vars
+  Line 24:23:  'setSearchQuery' is assigned a value but never used                                                            @typescript-eslint/no-unused-vars
+  Line 25:10:  'searchType' is assigned a value but never used                                                                @typescript-eslint/no-unused-vars
+  Line 25:22:  'setSearchType' is assigned a value but never used                                                             @typescript-eslint/no-unused-vars
+  Line 29:6:   React Hook useEffect has a missing dependency: 'fetchPosts'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 23:22:  'setSearchMode' is assigned a value but never used                                                                                 @typescript-eslint/no-unused-vars
+  Line 24:23:  'setSearchQuery' is assigned a value but never used                                                                                @typescript-eslint/no-unused-vars
+  Line 25:10:  'searchType' is assigned a value but never used                                                                                    @typescript-eslint/no-unused-vars
+  Line 25:22:  'setSearchType' is assigned a value but never used                                                                                 @typescript-eslint/no-unused-vars
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts' and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 23:22:  'setSearchMode' is assigned a value but never used                                                                                 @typescript-eslint/no-unused-vars
+  Line 24:23:  'setSearchQuery' is assigned a value but never used                                                                                @typescript-eslint/no-unused-vars
+  Line 25:10:  'searchType' is assigned a value but never used                                                                                    @typescript-eslint/no-unused-vars
+  Line 25:22:  'setSearchType' is assigned a value but never used                                                                                 @typescript-eslint/no-unused-vars
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts' and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+ERROR in src/pages/Posts.tsx:29:7
+TS2304: Cannot find name 'handleSearch'.
+    27 |   useEffect(() => {
+    28 |     if (searchMode && searchQuery.trim()) {
+  > 29 |       handleSearch();
+       |       ^^^^^^^^^^^^
+    30 |     } else if (!searchMode) {
+    31 |       fetchPosts();
+    32 |     }
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 25:22:  'setSearchType' is assigned a value but never used                                                                                                  @typescript-eslint/no-unused-vars
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 89:9:   'handleSearchSubmit' is assigned a value but never used                                                                                             @typescript-eslint/no-unused-vars
+  Line 96:9:   'clearSearch' is assigned a value but never used                                                                                                    @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 25:22:  'setSearchType' is assigned a value but never used                                                                                                  @typescript-eslint/no-unused-vars
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 89:9:   'handleSearchSubmit' is assigned a value but never used                                                                                             @typescript-eslint/no-unused-vars
+  Line 96:9:   'clearSearch' is assigned a value but never used                                                                                                    @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 96:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 96:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 96:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 96:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 103:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 103:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 105:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 105:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 105:9:  'clearSearch' is assigned a value but never used                                                                                                    @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 105:9:  'clearSearch' is assigned a value but never used                                                                                                    @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 1:38:   'useCallback' is defined but never used                                                                                                             @typescript-eslint/no-unused-vars
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 105:9:  'clearSearch' is assigned a value but never used                                                                                                    @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 1:38:   'useCallback' is defined but never used                                                                                                             @typescript-eslint/no-unused-vars
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 105:9:  'clearSearch' is assigned a value but never used                                                                                                    @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 105:9:  'clearSearch' is assigned a value but never used                                                                                                    @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 105:9:  'clearSearch' is assigned a value but never used                                                                                                    @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 105:9:  'clearSearch' is assigned a value but never used                                                                                                    @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 105:9:  'clearSearch' is assigned a value but never used                                                                                                    @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:32:  'fetchPosts' was used before it was defined       @typescript-eslint/no-use-before-define
+  Line 33:44:  'handleSearch' was used before it was defined     @typescript-eslint/no-use-before-define
+  Line 105:9:  'clearSearch' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:32:  'fetchPosts' was used before it was defined       @typescript-eslint/no-use-before-define
+  Line 33:44:  'handleSearch' was used before it was defined     @typescript-eslint/no-use-before-define
+  Line 105:9:  'clearSearch' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/pages/Posts.tsx:33:32
+TS2448: Block-scoped variable 'fetchPosts' used before its declaration.
+    31 |       fetchPosts();
+    32 |     }
+  > 33 |   }, [searchMode, searchQuery, fetchPosts, handleSearch]);
+       |                                ^^^^^^^^^^
+    34 |
+    35 |   const fetchPosts = useCallback(async () => {
+    36 |     console.log('fetchPosts 시작, filters:', { selectedType, currentPage });
+
+ERROR in src/pages/Posts.tsx:33:32
+TS2454: Variable 'fetchPosts' is used before being assigned.
+    31 |       fetchPosts();
+    32 |     }
+  > 33 |   }, [searchMode, searchQuery, fetchPosts, handleSearch]);
+       |                                ^^^^^^^^^^
+    34 |
+    35 |   const fetchPosts = useCallback(async () => {
+    36 |     console.log('fetchPosts 시작, filters:', { selectedType, currentPage });
+
+ERROR in src/pages/Posts.tsx:33:44
+TS2448: Block-scoped variable 'handleSearch' used before its declaration.
+    31 |       fetchPosts();
+    32 |     }
+  > 33 |   }, [searchMode, searchQuery, fetchPosts, handleSearch]);
+       |                                            ^^^^^^^^^^^^
+    34 |
+    35 |   const fetchPosts = useCallback(async () => {
+    36 |     console.log('fetchPosts 시작, filters:', { selectedType, currentPage });
+
+ERROR in src/pages/Posts.tsx:33:44
+TS2454: Variable 'handleSearch' is used before being assigned.
+    31 |       fetchPosts();
+    32 |     }
+  > 33 |   }, [searchMode, searchQuery, fetchPosts, handleSearch]);
+       |                                            ^^^^^^^^^^^^
+    34 |
+    35 |   const fetchPosts = useCallback(async () => {
+    36 |     console.log('fetchPosts 시작, filters:', { selectedType, currentPage });
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 105:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 105:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 106:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 106:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 1:38:   'useCallback' is defined but never used                                                                                                                           @typescript-eslint/no-unused-vars
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 106:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 1:38:   'useCallback' is defined but never used                                                                                                                           @typescript-eslint/no-unused-vars
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 106:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 106:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 106:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 106:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', 'searchMode', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  Line 106:9:  'clearSearch' is assigned a value but never used                                                                                                                  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has a missing dependency: 'searchQuery'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  Line 33:19:  'fetchPosts' was used before it was defined                                                                     @typescript-eslint/no-use-before-define
+  Line 33:31:  'handleSearch' was used before it was defined                                                                   @typescript-eslint/no-use-before-define
+  Line 106:9:  'clearSearch' is assigned a value but never used                                                                @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 33:6:   React Hook useEffect has a missing dependency: 'searchQuery'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  Line 33:19:  'fetchPosts' was used before it was defined                                                                     @typescript-eslint/no-use-before-define
+  Line 33:31:  'handleSearch' was used before it was defined                                                                   @typescript-eslint/no-use-before-define
+  Line 106:9:  'clearSearch' is assigned a value but never used                                                                @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/pages/Posts.tsx:33:19
+TS2448: Block-scoped variable 'fetchPosts' used before its declaration.
+    31 |       fetchPosts();
+    32 |     }
+  > 33 |   }, [searchMode, fetchPosts, handleSearch]); // searchMode와 searchQuery는 의도적으로 제외
+       |                   ^^^^^^^^^^
+    34 |
+    35 |   const fetchPosts = useCallback(async () => {
+    36 |     console.log('fetchPosts 시작, filters:', { selectedType, currentPage });
+
+ERROR in src/pages/Posts.tsx:33:19
+TS2454: Variable 'fetchPosts' is used before being assigned.
+    31 |       fetchPosts();
+    32 |     }
+  > 33 |   }, [searchMode, fetchPosts, handleSearch]); // searchMode와 searchQuery는 의도적으로 제외
+       |                   ^^^^^^^^^^
+    34 |
+    35 |   const fetchPosts = useCallback(async () => {
+    36 |     console.log('fetchPosts 시작, filters:', { selectedType, currentPage });
+
+ERROR in src/pages/Posts.tsx:33:31
+TS2448: Block-scoped variable 'handleSearch' used before its declaration.
+    31 |       fetchPosts();
+    32 |     }
+  > 33 |   }, [searchMode, fetchPosts, handleSearch]); // searchMode와 searchQuery는 의도적으로 제외
+       |                               ^^^^^^^^^^^^
+    34 |
+    35 |   const fetchPosts = useCallback(async () => {
+    36 |     console.log('fetchPosts 시작, filters:', { selectedType, currentPage });
+
+ERROR in src/pages/Posts.tsx:33:31
+TS2454: Variable 'handleSearch' is used before being assigned.
+    31 |       fetchPosts();
+    32 |     }
+  > 33 |   }, [searchMode, fetchPosts, handleSearch]); // searchMode와 searchQuery는 의도적으로 제외
+       |                               ^^^^^^^^^^^^
+    34 |
+    35 |   const fetchPosts = useCallback(async () => {
+    36 |     console.log('fetchPosts 시작, filters:', { selectedType, currentPage });
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 1:27:  'useEffect' is defined but never used             @typescript-eslint/no-unused-vars
+  Line 98:9:  'clearSearch' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 1:27:  'useEffect' is defined but never used             @typescript-eslint/no-unused-vars
+  Line 98:9:  'clearSearch' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 98:9:   'clearSearch' is assigned a value but never used                                                                @typescript-eslint/no-unused-vars
+  Line 110:6:  React Hook useEffect has a missing dependency: 'searchQuery'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 98:9:   'clearSearch' is assigned a value but never used                                                                @typescript-eslint/no-unused-vars
+  Line 110:6:  React Hook useEffect has a missing dependency: 'searchQuery'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 3:10:  'posts' is assigned a value but never used            @typescript-eslint/no-unused-vars
+  Line 4:10:  'loading' is assigned a value but never used          @typescript-eslint/no-unused-vars
+  Line 5:24:  'setSelectedType' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 7:10:  'totalPages' is assigned a value but never used       @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 3:10:  'posts' is assigned a value but never used            @typescript-eslint/no-unused-vars
+  Line 4:10:  'loading' is assigned a value but never used          @typescript-eslint/no-unused-vars
+  Line 5:24:  'setSelectedType' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 7:10:  'totalPages' is assigned a value but never used       @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/pages/Posts.tsx:3:29
+TS2304: Cannot find name 'useState'.
+    1 | // import 생략
+    2 | const Posts: React.FC = () => {
+  > 3 |   const [posts, setPosts] = useState<Post[]>([]);
+      |                             ^^^^^^^^
+    4 |   const [loading, setLoading] = useState(true);
+    5 |   const [selectedType, setSelectedType] = useState<PostType | 'ALL'>('ALL');
+    6 |   const [currentPage, setCurrentPage] = useState(0);
+
+ERROR in src/pages/Posts.tsx:3:38
+TS2304: Cannot find name 'Post'.
+    1 | // import 생략
+    2 | const Posts: React.FC = () => {
+  > 3 |   const [posts, setPosts] = useState<Post[]>([]);
+      |                                      ^^^^
+    4 |   const [loading, setLoading] = useState(true);
+    5 |   const [selectedType, setSelectedType] = useState<PostType | 'ALL'>('ALL');
+    6 |   const [currentPage, setCurrentPage] = useState(0);
+
+ERROR in src/pages/Posts.tsx:4:33
+TS2304: Cannot find name 'useState'.
+    2 | const Posts: React.FC = () => {
+    3 |   const [posts, setPosts] = useState<Post[]>([]);
+  > 4 |   const [loading, setLoading] = useState(true);
+      |                                 ^^^^^^^^
+    5 |   const [selectedType, setSelectedType] = useState<PostType | 'ALL'>('ALL');
+    6 |   const [currentPage, setCurrentPage] = useState(0);
+    7 |   const [totalPages, setTotalPages] = useState(1);
+
+ERROR in src/pages/Posts.tsx:5:43
+TS2304: Cannot find name 'useState'.
+    3 |   const [posts, setPosts] = useState<Post[]>([]);
+    4 |   const [loading, setLoading] = useState(true);
+  > 5 |   const [selectedType, setSelectedType] = useState<PostType | 'ALL'>('ALL');
+      |                                           ^^^^^^^^
+    6 |   const [currentPage, setCurrentPage] = useState(0);
+    7 |   const [totalPages, setTotalPages] = useState(1);
+    8 |
+
+ERROR in src/pages/Posts.tsx:5:52
+TS2304: Cannot find name 'PostType'.
+    3 |   const [posts, setPosts] = useState<Post[]>([]);
+    4 |   const [loading, setLoading] = useState(true);
+  > 5 |   const [selectedType, setSelectedType] = useState<PostType | 'ALL'>('ALL');
+      |                                                    ^^^^^^^^
+    6 |   const [currentPage, setCurrentPage] = useState(0);
+    7 |   const [totalPages, setTotalPages] = useState(1);
+    8 |
+
+ERROR in src/pages/Posts.tsx:6:41
+TS2304: Cannot find name 'useState'.
+    4 |   const [loading, setLoading] = useState(true);
+    5 |   const [selectedType, setSelectedType] = useState<PostType | 'ALL'>('ALL');
+  > 6 |   const [currentPage, setCurrentPage] = useState(0);
+      |                                         ^^^^^^^^
+    7 |   const [totalPages, setTotalPages] = useState(1);
+    8 |
+    9 |   const [searchMode, setSearchMode] = useState(false);
+
+ERROR in src/pages/Posts.tsx:7:39
+TS2304: Cannot find name 'useState'.
+     5 |   const [selectedType, setSelectedType] = useState<PostType | 'ALL'>('ALL');
+     6 |   const [currentPage, setCurrentPage] = useState(0);
+  >  7 |   const [totalPages, setTotalPages] = useState(1);
+       |                                       ^^^^^^^^
+     8 |
+     9 |   const [searchMode, setSearchMode] = useState(false);
+    10 |   const [searchQuery, setSearchQuery] = useState('');
+
+ERROR in src/pages/Posts.tsx:9:39
+TS2304: Cannot find name 'useState'.
+     7 |   const [totalPages, setTotalPages] = useState(1);
+     8 |
+  >  9 |   const [searchMode, setSearchMode] = useState(false);
+       |                                       ^^^^^^^^
+    10 |   const [searchQuery, setSearchQuery] = useState('');
+    11 |   const [searchType, setSearchType] = useState<'bookTitle' | 'keyword'>('bookTitle');
+    12 |
+
+ERROR in src/pages/Posts.tsx:10:41
+TS2304: Cannot find name 'useState'.
+     8 |
+     9 |   const [searchMode, setSearchMode] = useState(false);
+  > 10 |   const [searchQuery, setSearchQuery] = useState('');
+       |                                         ^^^^^^^^
+    11 |   const [searchType, setSearchType] = useState<'bookTitle' | 'keyword'>('bookTitle');
+    12 |
+    13 |   const fetchPosts = useCallback(async () => {
+
+ERROR in src/pages/Posts.tsx:11:39
+TS2304: Cannot find name 'useState'.
+     9 |   const [searchMode, setSearchMode] = useState(false);
+    10 |   const [searchQuery, setSearchQuery] = useState('');
+  > 11 |   const [searchType, setSearchType] = useState<'bookTitle' | 'keyword'>('bookTitle');
+       |                                       ^^^^^^^^
+    12 |
+    13 |   const fetchPosts = useCallback(async () => {
+    14 |     setLoading(true);
+
+ERROR in src/pages/Posts.tsx:13:22
+TS2304: Cannot find name 'useCallback'.
+    11 |   const [searchType, setSearchType] = useState<'bookTitle' | 'keyword'>('bookTitle');
+    12 |
+  > 13 |   const fetchPosts = useCallback(async () => {
+       |                      ^^^^^^^^^^^
+    14 |     setLoading(true);
+    15 |     try {
+    16 |       const filters = {
+
+ERROR in src/pages/Posts.tsx:21:30
+TS2304: Cannot find name 'postsApi'.
+    19 |         size: 10,
+    20 |       };
+  > 21 |       const response = await postsApi.getPosts(filters);
+       |                              ^^^^^^^^
+    22 |       setPosts(response.data?.posts || []);
+    23 |       setTotalPages(response.data?.totalPages || 1);
+    24 |     } catch (error) {
+
+ERROR in src/pages/Posts.tsx:33:24
+TS2304: Cannot find name 'useCallback'.
+    31 |   }, [selectedType, currentPage]);
+    32 |
+  > 33 |   const handleSearch = useCallback(async () => {
+       |                        ^^^^^^^^^^^
+    34 |     if (!searchQuery.trim()) {
+    35 |       setSearchMode(false);
+    36 |       fetchPosts();
+
+ERROR in src/pages/Posts.tsx:50:30
+TS2304: Cannot find name 'postsApi'.
+    48 |         size: 10,
+    49 |       };
+  > 50 |       const response = await postsApi.searchPosts(searchParams);
+       |                              ^^^^^^^^
+    51 |       setPosts(response.data?.content || []);
+    52 |       setTotalPages(response.data?.totalPages || 1);
+    53 |     } catch (error) {
+
+ERROR in src/pages/Posts.tsx:85:3
+TS2304: Cannot find name 'useEffect'.
+    83 |   };
+    84 |
+  > 85 |   useEffect(() => {
+       |   ^^^^^^^^^
+    86 |     if (searchMode && searchQuery.trim()) {
+    87 |       handleSearch();
+    88 |     } else if (!searchMode) {
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 98:9:   'clearSearch' is assigned a value but never used                                                                @typescript-eslint/no-unused-vars
+  Line 110:6:  React Hook useEffect has a missing dependency: 'searchQuery'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 98:9:   'clearSearch' is assigned a value but never used                                                                @typescript-eslint/no-unused-vars
+  Line 110:6:  React Hook useEffect has a missing dependency: 'searchQuery'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 2:10:   'Link' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 6:3:    'PostVisibility' is defined but never used            @typescript-eslint/no-unused-vars
+  Line 7:3:    'ReviewPost' is defined but never used                @typescript-eslint/no-unused-vars
+  Line 8:3:    'RecommendationPost' is defined but never used        @typescript-eslint/no-unused-vars
+  Line 9:3:    'QuotePost' is defined but never used                 @typescript-eslint/no-unused-vars
+  Line 10:3:   'RecommendationType' is defined but never used        @typescript-eslint/no-unused-vars
+  Line 13:10:  'wishlistApi' is defined but never used               @typescript-eslint/no-unused-vars
+  Line 17:10:  'posts' is assigned a value but never used            @typescript-eslint/no-unused-vars
+  Line 18:10:  'loading' is assigned a value but never used          @typescript-eslint/no-unused-vars
+  Line 19:24:  'setSelectedType' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 21:10:  'totalPages' is assigned a value but never used       @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 2:10:   'Link' is defined but never used                      @typescript-eslint/no-unused-vars
+  Line 6:3:    'PostVisibility' is defined but never used            @typescript-eslint/no-unused-vars
+  Line 7:3:    'ReviewPost' is defined but never used                @typescript-eslint/no-unused-vars
+  Line 8:3:    'RecommendationPost' is defined but never used        @typescript-eslint/no-unused-vars
+  Line 9:3:    'QuotePost' is defined but never used                 @typescript-eslint/no-unused-vars
+  Line 10:3:   'RecommendationType' is defined but never used        @typescript-eslint/no-unused-vars
+  Line 13:10:  'wishlistApi' is defined but never used               @typescript-eslint/no-unused-vars
+  Line 17:10:  'posts' is assigned a value but never used            @typescript-eslint/no-unused-vars
+  Line 18:10:  'loading' is assigned a value but never used          @typescript-eslint/no-unused-vars
+  Line 19:24:  'setSelectedType' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 21:10:  'totalPages' is assigned a value but never used       @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 98:9:   'clearSearch' is assigned a value but never used                                                                @typescript-eslint/no-unused-vars
+  Line 110:6:  React Hook useEffect has a missing dependency: 'searchQuery'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 98:9:   'clearSearch' is assigned a value but never used                                                                @typescript-eslint/no-unused-vars
+  Line 110:6:  React Hook useEffect has a missing dependency: 'searchQuery'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 91:9:  'clearSearch' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 91:9:  'clearSearch' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 98:9:   'clearSearch' is assigned a value but never used                                                                @typescript-eslint/no-unused-vars
+  Line 110:6:  React Hook useEffect has a missing dependency: 'searchQuery'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 98:9:   'clearSearch' is assigned a value but never used                                                                @typescript-eslint/no-unused-vars
+  Line 110:6:  React Hook useEffect has a missing dependency: 'searchQuery'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 120:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 120:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/Posts.tsx
+Syntax error: JSX element 'div' has no corresponding closing tag (304:13)
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+ERROR in ./src/pages/Posts.tsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/jiny/dev-log/reading-club/frontend/src/pages/Posts.tsx: Expected corresponding JSX closing tag for <div>. (364:10)
+
+  362 |                 </div>
+  363 |             )}
+> 364 |           </form>
+      |           ^
+  365 |         </div>
+  366 |
+  367 |         {/* 필터 */}
+    at constructor (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:367:19)
+    at TypeScriptParserMixin.raise (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:6627:19)
+    at TypeScriptParserMixin.jsxParseElementAt (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:4757:16)
+    at TypeScriptParserMixin.jsxParseElementAt (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:4728:32)
+    at TypeScriptParserMixin.jsxParseElementAt (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:4728:32)
+    at TypeScriptParserMixin.jsxParseElementAt (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:4728:32)
+    at TypeScriptParserMixin.jsxParseElement (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:4779:17)
+    at TypeScriptParserMixin.parseExprAtom (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:4789:19)
+    at TypeScriptParserMixin.parseExprSubscripts (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11076:23)
+    at TypeScriptParserMixin.parseUpdate (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11061:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11041:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:9852:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10894:61)
+    at TypeScriptParserMixin.parseExprOps (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10899:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10876:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10826:21)
+    at /Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:9790:39
+    at TypeScriptParserMixin.tryParse (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:6935:20)
+    at TypeScriptParserMixin.parseMaybeAssign (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:9790:18)
+    at /Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10795:39
+    at TypeScriptParserMixin.allowInAnd (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:12427:12)
+    at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10795:17)
+    at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:12494:17)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11674:28)
+    at TypeScriptParserMixin.parseExprAtom (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11326:23)
+    at TypeScriptParserMixin.parseExprAtom (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:4794:20)
+    at TypeScriptParserMixin.parseExprSubscripts (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11076:23)
+    at TypeScriptParserMixin.parseUpdate (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11061:21)
+    at TypeScriptParserMixin.parseMaybeUnary (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11041:23)
+    at TypeScriptParserMixin.parseMaybeUnary (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:9852:18)
+    at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10894:61)
+    at TypeScriptParserMixin.parseExprOps (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10899:23)
+    at TypeScriptParserMixin.parseMaybeConditional (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10876:23)
+    at TypeScriptParserMixin.parseMaybeAssign (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10826:21)
+    at TypeScriptParserMixin.parseMaybeAssign (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:9801:20)
+    at TypeScriptParserMixin.parseExpressionBase (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10779:23)
+    at /Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10775:39
+    at TypeScriptParserMixin.allowInAnd (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:12422:16)
+    at TypeScriptParserMixin.parseExpression (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:10775:17)
+    at TypeScriptParserMixin.parseReturnStatement (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:13142:28)
+    at TypeScriptParserMixin.parseStatementContent (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:12798:21)
+    at TypeScriptParserMixin.parseStatementContent (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:9527:18)
+    at TypeScriptParserMixin.parseStatementLike (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:12767:17)
+    at TypeScriptParserMixin.parseStatementListItem (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:12747:17)
+    at TypeScriptParserMixin.parseBlockOrModuleBlockBody (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:13316:61)
+    at TypeScriptParserMixin.parseBlockBody (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:13309:10)
+    at TypeScriptParserMixin.parseBlock (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:13297:10)
+    at TypeScriptParserMixin.parseFunctionBody (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:12101:24)
+    at TypeScriptParserMixin.parseArrowExpression (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:12076:10)
+    at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/jiny/dev-log/reading-club/frontend/node_modules/@babel/parser/lib/index.js:11686:12)
+
+ERROR in [eslint] 
+src/pages/Posts.tsx
+  Line 304:13:  Parsing error: JSX element 'div' has no corresponding closing tag
+
+webpack compiled with 2 errors and 1 warning
+ERROR in src/pages/Posts.tsx:304:14
+TS17008: JSX element 'div' has no corresponding closing tag.
+    302 |         <div className="bg-white rounded-lg shadow p-6 mb-6">
+    303 |           <form onSubmit={handleSearchSubmit} className="space-y-4">
+  > 304 |             <div className="flex flex-col sm:flex-row gap-4">
+        |              ^^^
+    305 |               {/* 검색 타입 선택 */}
+    306 |               <div className="flex-shrink-0">
+    307 |                 <div className="relative inline-block">
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 120:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 120:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 120:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 120:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 120:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 120:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 120:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 120:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/pages/ReadingGroups.tsx:103:29
+TS2339: Property 'applyToGroup' does not exist on type '{ createGroup: (groupData: CreateReadingGroupRequest) => Promise<AxiosResponse<ApiResponse<ReadingGroup>, any>>; ... 11 more ...; leaveGroup: (groupId: number) => Promise<...>; }'.
+    101 |   const handleApply = async (groupId: number) => {
+    102 |     try {
+  > 103 |       await readingGroupApi.applyToGroup(groupId);
+        |                             ^^^^^^^^^^^^
+    104 |       alert('독서 모임 신청이 완료되었습니다!');
+    105 |     } catch (error) {
+    106 |       console.error('독서 모임 신청에 실패했습니다:', error);
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 120:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 120:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 120:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 120:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 120:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/api/posts.ts
+  Line 2:8:   'axios' is defined but never used       @typescript-eslint/no-unused-vars
+  Line 2:17:  'AxiosError' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/JoinGroupPage.tsx
+  Line 13:10:  'useAuth' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/pages/PostDetail.tsx
+  Line 27:6:  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+src/pages/Posts.tsx
+  Line 120:6:  React Hook useEffect has missing dependencies: 'fetchPosts', 'handleSearch', and 'searchQuery'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
