@@ -9,7 +9,6 @@ export interface Book {
   createdAt: string;
   updatedAt: string;
   user?: {
-    id: number;
     nickname: string;
   };
 }
