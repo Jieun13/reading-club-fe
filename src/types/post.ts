@@ -96,7 +96,6 @@ export interface PostListResponse {
 export interface PostFilters {
   postType?: PostType;
   visibility?: PostVisibility;
-  userId?: number;
   page?: number;
   size?: number;
 }

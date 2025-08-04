@@ -14,7 +14,6 @@ export const postsApi = {
     
     if (filters?.postType) params.append('postType', filters.postType);
     if (filters?.visibility) params.append('visibility', filters.visibility);
-    if (filters?.userId) params.append('userId', filters.userId.toString());
     if (filters?.page) params.append('page', filters.page.toString());
     if (filters?.size) params.append('size', filters.size.toString());
 

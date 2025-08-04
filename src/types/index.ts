@@ -8,12 +8,9 @@ export interface ApiResponse<T> {
 
 // 사용자 관련 타입
 export interface User {
-  id: number;
-  kakaoId: string;
   nickname: string;
   profileImage?: string;
   createdAt: string;
-  updatedAt: string;
 }
 
 export interface UserStatistics {
