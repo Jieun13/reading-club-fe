@@ -8,6 +8,7 @@ export interface ApiResponse<T> {
 
 // 사용자 관련 타입
 export interface User {
+  id: number;
   nickname: string;
   profileImage?: string;
   createdAt: string;
