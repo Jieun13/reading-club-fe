@@ -333,57 +333,47 @@ const Library: React.FC = () => {
                   <div
                       key={`${item.type}-${index}`}
                       className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer flex flex-col"
-                      onClick={() => handleItemClick(item)}
-                  >
-                    {/* 책 표지 + 상태 배지 */}
-                    <div className="relative w-full aspect-[2/3] flex-shrink-0">
+                      onClick={() => handleItemClick(item)}>
+                    {/* 표지 */}
+                    <div className="relative w-full aspect-[2/2.2] flex-shrink-0">
                       <img
                           src={isBook ? (bookData.coverImage || '/default-book-cover.jpg') : (wishlistData.coverImage || '/default-book-cover.jpg')}
                           alt={isBook ? bookData.title : wishlistData.title}
                           className="w-full h-full object-cover"
                       />
                       <div className="absolute top-2 right-2">
-            <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                isBook
-                    ? 'bg-green-100 text-green-800'
-                    : 'bg-purple-100 text-purple-800'
-            }`}>
-              {isBook ? '완독' : '읽고 싶은'}
-            </span>
+                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                            isBook ? 'bg-green-100 text-green-800' : 'bg-purple-100 text-purple-800'
+                        }`}>
+                          {isBook ? '완독' : '읽고 싶은'}
+                        </span>
                       </div>
                     </div>
 
-                    {/* 책 제목 */}
-                    <div className="p-3 bg-white border-t border-gray-100">
-                      <h3 className="font-medium text-sm text-gray-900 leading-tight overflow-hidden w-full" style={{
-                        display: '-webkit-box',
-                        WebkitLineClamp: 2,
-                        WebkitBoxOrient: 'vertical'
-                      }}>
+                    {/* 제목 */}
+                    <div className="p-2 bg-white border-t border-gray-100">
+                      <h3 className="font-medium text-sm text-gray-900 truncate">
                         {isBook ? (bookData.title || '제목 없음') : (wishlistData.title || '제목 없음')}
                       </h3>
                     </div>
 
-                    {/* 별점 (책 제목 아래로 이동) */}
+                    {/* 별점 */}
                     {isBook && (
-                        <div className="px-3 pb-3">
-                          <div className="flex items-center bg-gray-50 rounded-full px-3 py-1 w-fit">
+                        <div className="px-2 pb-2">
+                          <div className="flex items-center bg-gray-50 rounded-full px-2 py-1 w-fit">
                             {[...Array(5)].map((_, i) => (
                                 <svg
                                     key={i}
-                                    className={`w-3 h-3 ${
-                                        i < bookData.rating ? 'text-yellow-400' : 'text-gray-300'
-                                    }`}
+                                    className={`w-3 h-3 ${i < bookData.rating ? 'text-yellow-400' : 'text-gray-300'}`}
                                     fill="currentColor"
                                     viewBox="0 0 20 20"
                                 >
-                                  <path
-                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l..."/>
                                 </svg>
                             ))}
                             <span className="ml-1 text-xs text-gray-700 font-medium">
-                {bookData.rating}
-              </span>
+                              {bookData.rating}
+                            </span>
                           </div>
                         </div>
                     )}
