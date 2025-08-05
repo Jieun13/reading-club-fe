@@ -335,56 +335,49 @@ const Library: React.FC = () => {
                       className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer flex flex-col h-[260px]"
                       onClick={() => handleItemClick(item)}
                   >
-                    {/* 표지 */}
-                    <div className="relative w-full aspect-[1/1] flex-shrink-0">
+                    {/* 표지 + 제목 + 별점 전부 포함 */}
+                    <div className="relative w-full aspect-[10/14] flex-shrink-0 overflow-hidden">
                       <img
                           src={isBook ? (bookData.coverImage || '/default-book-cover.jpg') : (wishlistData.coverImage || '/default-book-cover.jpg')}
                           alt={isBook ? bookData.title : wishlistData.title}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover object-center"
                       />
-                      <div className="absolute top-2 right-2">
+
+                      {/* 상태 배지 */}
+                      <div className="absolute top-2 right-2 z-10">
                         <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                             isBook ? 'bg-green-100 text-green-800' : 'bg-purple-100 text-purple-800'
                         }`}>
                           {isBook ? '완독' : '읽고 싶은'}
                         </span>
                       </div>
-                    </div>
 
-                    {/* 제목 */}
-                    <div className="p-2 bg-white border-t border-gray-100 h-[36px] flex items-center">
-                      <h3 className="font-medium text-sm text-gray-900 truncate w-full">
-                        {isBook ? (bookData.title || '제목 없음') : (wishlistData.title || '제목 없음')}
-                      </h3>
-                    </div>
+                      {/* 제목 + 별점 */}
+                      <div
+                          className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-80 backdrop-blur-sm px-3 py-2 z-10">
+                        <h3 className="font-medium text-sm text-gray-900 truncate">
+                          {isBook ? (bookData.title || '제목 없음') : (wishlistData.title || '제목 없음')}
+                        </h3>
 
-                    {/* 별점 */}
-                    <div className="px-2 pb-3 mt-auto">
-                      {isBook ? (
-                          <div className="flex items-center bg-gray-50 rounded-full px-3 py-1 w-fit mx-auto">
-                            {[...Array(5)].map((_, i) => (
-                                <svg
-                                    key={i}
-                                    className={`w-3 h-3 ${i < bookData.rating ? 'text-yellow-400' : 'text-gray-300'}`}
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                >
-                                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0..." />
-                                </svg>
-                            ))}
-                            <span className="ml-1 text-xs text-gray-700 font-medium">
-                              {bookData.rating}
-                            </span>
-                          </div>
-                      ) : (
-                          // 별점 없는 경우 자리만 차지
-                          <div className="invisible flex items-center bg-gray-50 rounded-full px-3 py-1 w-fit mx-auto">
-                            {[...Array(5)].map((_, i) => (
-                                <svg key={i} className="w-3 h-3" />
-                            ))}
-                            <span className="ml-1 text-xs">0</span>
-                          </div>
-                      )}
+                        {/* 별점 */}
+                        {isBook && (
+                            <div className="flex items-center mt-1">
+                              {[...Array(5)].map((_, i) => (
+                                  <svg
+                                      key={i}
+                                      className={`w-3 h-3 ${i < bookData.rating ? 'text-yellow-400' : 'text-gray-300'}`}
+                                      fill="currentColor"
+                                      viewBox="0 0 20 20"
+                                  >
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0..."/>
+                                  </svg>
+                              ))}
+                              <span className="ml-1 text-xs text-gray-700 font-medium">
+                                {bookData.rating}
+                              </span>
+                            </div>
+                        )}
+                      </div>
                     </div>
                   </div>
               );
