@@ -133,18 +133,12 @@ const JoinGroupPage: React.FC = () => {
               <div className="space-y-2">
                 <div className="flex items-center text-sm text-gray-600">
                   <BookOpenIcon className="w-4 h-4 mr-2" />
-                  <span className="font-medium">{group.bookTitle}</span>
-                  {group.bookAuthor && <span className="ml-2">- {group.bookAuthor}</span>}
+                  {group.bookTitle} - {group.bookAuthor}
                 </div>
                 
                 <div className="flex items-center text-sm text-gray-600">
                   <CalendarIcon className="w-4 h-4 mr-2" />
-                  {new Date(group.startDateTime).toLocaleString('ko-KR')}
-                </div>
-                
-                <div className="flex items-center text-sm text-gray-600">
-                  <ClockIcon className="w-4 h-4 mr-2" />
-                  {group.durationHours}시간
+                  {new Date(group.createdAt).toLocaleString('ko-KR')}
                 </div>
                 
                 <div className="flex items-center text-sm text-gray-600">

@@ -17,15 +17,9 @@ interface ReadingGroupFormData {
   bookDescription: string;
 
   // 모임 설정
-  meetingDateTime: string;
-  durationHours: number;
   maxMembers: number;
   description: string;
   isPublic: boolean;
-
-  meetingType: 'OFFLINE' | 'ONLINE';
-  location: string;
-  meetingUrl: string;
   hasAssignment: boolean;
 }
 
@@ -47,15 +41,9 @@ const CreateReadingGroup: React.FC = () => {
     bookPublishedDate: '',
     bookDescription: '',
 
-    meetingDateTime: '',
-    durationHours: 2,
     maxMembers: 10,
     description: '',
     isPublic: true,
-
-    meetingType: 'OFFLINE',
-    location: '',
-    meetingUrl: '',
     hasAssignment: false,
   });
 
@@ -99,72 +87,56 @@ const CreateReadingGroup: React.FC = () => {
     setSearchTerm('');
   };
 
-  // 종료 시간 계산
-  const getEndDateTime = () => {
-    if (!formData.meetingDateTime) return '';
-    const start = new Date(formData.meetingDateTime);
-    const end = new Date(start.getTime() + formData.durationHours * 60 * 60 * 1000);
-    return end.toLocaleString('ko-KR');
-  };
-
-  // 제출 함수
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!selectedBook) {
-      alert('책을 선택해주세요.');
+    if (!formData.bookTitle.trim()) {
+      alert('책 제목을 입력해주세요.');
       return;
     }
-    if (!formData.meetingDateTime) {
-      alert('모임 시작 일시를 입력해주세요.');
-      return;
-    }
-    if (formData.meetingType === 'OFFLINE' && !formData.location.trim()) {
-      alert('오프라인 모임은 장소를 입력해야 합니다.');
-      return;
-    }
-    if (formData.meetingType === 'ONLINE' && !formData.meetingUrl.trim()) {
-      alert('온라인 모임은 접속 URL을 입력해야 합니다.');
+
+    if (!formData.description.trim()) {
+      alert('모임 설명을 입력해주세요.');
       return;
     }
 
     try {
       setSaving(true);
 
-      const startDate = new Date(formData.meetingDateTime);
-      const endDate = new Date(startDate.getTime() + formData.durationHours * 60 * 60 * 1000);
-      const endDateTimeIso = endDate.toISOString();
-
-      const createRequest: CreateReadingGroupRequest = {
-        endDateTime: endDateTimeIso,
-        name: selectedBook.title,
-        description: formData.description || `${selectedBook.title}에 대해 함께 이야기하는 독서 모임입니다.`,
+      const requestData: CreateReadingGroupRequest = {
+        name: `${formData.bookTitle} 독서 모임`,
+        description: formData.description,
         maxMembers: formData.maxMembers,
         isPublic: formData.isPublic,
         hasAssignment: formData.hasAssignment,
-        meetingType: formData.meetingType,
-        location: formData.location,
-        meetingUrl: formData.meetingUrl,
-        meetingDateTime: formData.meetingDateTime,
-        durationHours: formData.durationHours,
-
-        bookTitle: selectedBook.title,
-        bookAuthor: selectedBook.author && selectedBook.author.trim() !== '' ? selectedBook.author : '저자 미상',
-        bookCoverImage: selectedBook.cover || '',
-        bookPublisher: selectedBook.publisher && selectedBook.publisher.trim() !== '' ? selectedBook.publisher : '출판사 미상',
-        bookPublishedDate: selectedBook.pubDate || '',
-        bookDescription: selectedBook.description || ''
+        bookTitle: formData.bookTitle,
+        bookAuthor: formData.bookAuthor,
+        bookCoverImage: formData.bookCoverImage,
+        bookPublisher: formData.bookPublisher,
+        bookPublishedDate: formData.bookPublishedDate,
+        bookDescription: formData.bookDescription,
       };
 
-      const response = await readingGroupApi.createGroup(createRequest);
-      alert('독서 모임이 성공적으로 생성되었습니다!');
-      navigate(`/reading-groups/${response.data.data.id}`);
+      const response = await readingGroupApi.createGroup(requestData);
+      
+      if (response.data.success) {
+        alert('독서 모임이 생성되었습니다!');
+        navigate(`/reading-groups/${response.data.data.id}`);
+      }
     } catch (error) {
-      console.error('독서 모임 생성 실패:', error);
-      alert('독서 모임 생성에 실패했습니다. 다시 시도해주세요.');
+      console.error('모임 생성 실패:', error);
+      alert('모임 생성에 실패했습니다. 다시 시도해주세요.');
     } finally {
       setSaving(false);
     }
+  };
+
+  const isFormValid = () => {
+    return (
+      formData.bookTitle.trim() &&
+      formData.description.trim() &&
+      formData.maxMembers > 0
+    );
   };
 
   return (
@@ -288,14 +260,9 @@ const CreateReadingGroup: React.FC = () => {
                               bookPublisher: '',
                               bookPublishedDate: '',
                               bookDescription: '',
-                              meetingDateTime: '',
-                              durationHours: 2,
                               maxMembers: 10,
                               description: '',
                               isPublic: true,
-                              meetingType: 'OFFLINE',
-                              location: '',
-                              meetingUrl: '',
                               hasAssignment: false,
                             }));
                           }}
@@ -333,96 +300,6 @@ const CreateReadingGroup: React.FC = () => {
                     <h2 className="text-xl font-semibold text-gray-900 mb-6">2단계: 모임 설정</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {/* 시작 일시 */}
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">시작 일시 *</label>
-                        <input
-                            type="datetime-local"
-                            value={formData.meetingDateTime}
-                            onChange={(e) => setFormData(prev => ({ ...prev, meetingDateTime: e.target.value }))}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                            required
-                            min={new Date().toISOString().slice(0, 16)}
-                        />
-                      </div>
-
-                      {/* 진행 시간 */}
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">진행 시간</label>
-                        <select
-                            value={formData.durationHours}
-                            onChange={(e) => setFormData(prev => ({ ...prev, durationHours: Number(e.target.value) }))}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                        >
-                          <option value={1}>1시간</option>
-                          <option value={2}>2시간</option>
-                          <option value={3}>3시간</option>
-                          <option value={4}>4시간</option>
-                        </select>
-                      </div>
-
-                      {/* 종료 시간 표시 */}
-                      {formData.meetingDateTime && (
-                          <div className="md:col-span-2">
-                            <div className="p-3 bg-blue-50 border border-blue-200 rounded-md">
-                              <p className="text-sm text-blue-800">
-                                <strong>자동 종료 시간:</strong> {getEndDateTime()}
-                              </p>
-                            </div>
-                          </div>
-                      )}
-
-                      {/* 모임 방식 */}
-                      <div className="md:col-span-2">
-                        <label className="block text-sm font-medium text-gray-700 mb-2">모임 방식 *</label>
-                        <select
-                            value={formData.meetingType}
-                            onChange={(e) =>
-                                setFormData(prev => ({
-                                  ...prev,
-                                  meetingType: e.target.value as 'OFFLINE' | 'ONLINE',
-                                  // 선택 바뀌면 location, meetingUrl 초기화
-                                  location: '',
-                                  meetingUrl: '',
-                                }))
-                            }
-                            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                            required
-                        >
-                          <option value="OFFLINE">오프라인</option>
-                          <option value="ONLINE">온라인</option>
-                        </select>
-                      </div>
-
-                      {/* 장소 or URL */}
-                      {formData.meetingType === 'OFFLINE' && (
-                          <div className="md:col-span-2">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">모임 장소 *</label>
-                            <input
-                                type="text"
-                                value={formData.location}
-                                onChange={(e) => setFormData(prev => ({ ...prev, location: e.target.value }))}
-                                placeholder="예: 강남역 스터디카페, 홍대 카페 등"
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                                required
-                            />
-                          </div>
-                      )}
-
-                      {formData.meetingType === 'ONLINE' && (
-                          <div className="md:col-span-2">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">온라인 접속 URL *</label>
-                            <input
-                                type="url"
-                                value={formData.meetingUrl}
-                                onChange={(e) => setFormData(prev => ({ ...prev, meetingUrl: e.target.value }))}
-                                placeholder="예: https://zoom.us/xxxx"
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                                required
-                            />
-                          </div>
-                      )}
-
                       {/* 최대 참여자 수 */}
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">최대 참여자 수</label>
@@ -522,9 +399,9 @@ const CreateReadingGroup: React.FC = () => {
                   type="submit"
                   disabled={
                       saving ||
-                      !selectedBook ||
-                      !formData.meetingDateTime ||
-                      (formData.meetingType === 'OFFLINE' ? !formData.location.trim() : !formData.meetingUrl.trim())
+                      !formData.bookTitle.trim() ||
+                      !formData.description.trim() ||
+                      formData.maxMembers <= 0
                   }
                   className="w-full sm:w-auto btn btn-primary"
               >

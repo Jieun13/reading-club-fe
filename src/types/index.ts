@@ -48,11 +48,14 @@ export interface BookUpdateRequest extends BookCreateRequest {}
 
 export interface BookSearchResult {
   title: string;
-  authors: string[];
+  author?: string;
   publisher?: string;
-  publishedDate?: string;
+  pubDate?: string;
   description?: string;
-  thumbnail?: string;
+  cover?: string;
+  isbn?: string;
+  categoryName?: string;
+  priceStandard?: number;
 }
 
 export interface MonthlyStats {
@@ -102,4 +105,62 @@ export interface PageResponse<T> {
   first: boolean;
   numberOfElements: number;
   empty: boolean;
+}
+
+// 읽고 있는 책 관련 타입
+export enum ReadingType {
+  PAPER_BOOK = 'PAPER_BOOK',
+  LIBRARY_RENTAL = 'LIBRARY_RENTAL',
+  MILLIE = 'MILLIE',
+  E_BOOK = 'E_BOOK'
+}
+
+export interface CurrentlyReading {
+  id: number;
+  title: string;
+  author?: string;
+  coverImage?: string;
+  publisher?: string;
+  publishedDate?: string;
+  description?: string;
+  readingType: ReadingType;
+  readingTypeDisplay: string;
+  dueDate?: string;
+  progressPercentage: number;
+  memo?: string;
+  isOverdue: boolean;
+  createdAt: string;
+  updatedAt: string;
+  user: User;
+}
+
+export interface CurrentlyReadingCreateRequest {
+  title: string;
+  author?: string;
+  coverImage?: string;
+  publisher?: string;
+  publishedDate?: string;
+  description?: string;
+  readingType: ReadingType;
+  dueDate?: string;
+  progressPercentage: number;
+  memo?: string;
+}
+
+export interface CurrentlyReadingUpdateRequest extends CurrentlyReadingCreateRequest {}
+
+export interface ProgressUpdateRequest {
+  progressPercentage: number;
+  memo?: string;
+}
+
+export interface DuplicateCheckResponse {
+  duplicate: boolean;
+  duplicateBooks: CurrentlyReading[];
+}
+
+export interface BooksWithCurrentlyReadingResponse {
+  books: PageResponse<Book>;
+  currentlyReading: CurrentlyReading[];
+  totalCurrentlyReading: number;
 }

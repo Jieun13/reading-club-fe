@@ -13,7 +13,7 @@ import { wishlistApi } from '../api/wishlists';
 import { useAuth } from '../contexts/AuthContext';
 
 const PostDetail: React.FC = () => {
-  const { postId } = useParams<{ postId: string }>();
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
   const [post, setPost] = useState<Post | null>(null);
@@ -21,16 +21,15 @@ const PostDetail: React.FC = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    if (postId) {
-      fetchPost(parseInt(postId));
+    if (id) {
+      fetchPost(parseInt(id));
     }
-  }, [postId]);
+  }, [id]);
 
   const fetchPost = async (id: number) => {
     setLoading(true);
     try {
       const response = await postsApi.getPost(id);
-      console.log('게시글 상세 API 응답:', response); // 디버깅용
       setPost(response.data);
     } catch (error) {
       console.error('게시글 조회 실패:', error);
@@ -219,7 +218,7 @@ const PostDetail: React.FC = () => {
     return (
       <div className="max-w-4xl mx-auto p-6">
         <div className="flex justify-center items-center h-64">
-          <div className="text-lg text-gray-600">게시글을 불러오는 중...</div>
+          <div className="text-lg text-gray-600">게시글을 불러오는 중... (postId: {id})</div>
         </div>
       </div>
     );

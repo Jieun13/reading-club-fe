@@ -4,7 +4,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { authApi } from '../../api/auth';
 
 const Header: React.FC = () => {
-  const { user, isAuthenticated, logout } = useAuth();
+  const { user, isAuthenticated, logout, devLogin, isLoading } = useAuth();
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -27,6 +27,12 @@ const Header: React.FC = () => {
   return (
     <header className="bg-white shadow-sm border-b">
       <div className="container">
+        {/* 개발 환경에서만 노출되는 개발용 더미 로그인 버튼 */}
+        {process.env.NODE_ENV === 'development' && !isAuthenticated && (
+          <button onClick={devLogin} style={{marginRight: 16, background: '#eee', padding: '4px 12px', borderRadius: 4}}>
+            개발용 더미 로그인
+          </button>
+        )}
         <div className="flex justify-between items-center" style={{ height: '4rem' }}>
           {/* 로고 */}
           <div className="flex items-center">
@@ -49,6 +55,7 @@ const Header: React.FC = () => {
                 >
                   서재
                 </Link>
+
                 <Link
                   to="/reading-groups"
                   className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium"
@@ -84,23 +91,26 @@ const Header: React.FC = () => {
 
           {/* 사용자 메뉴 */}
           <div className="flex items-center space-x-4">
-            {isAuthenticated ? (
+            {isLoading ? (
+              <div className="flex items-center space-x-2 animate-pulse">
+                <div className="w-8 h-8 bg-gray-200 rounded-full" />
+                <span className="text-gray-300">로딩 중...</span>
+              </div>
+            ) : isAuthenticated && user ? (
               <div style={{ position: 'relative' }}>
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className="flex items-center space-x-2 text-gray-700 hover:text-primary-600"
                 >
                   <img
-                    src={user?.profileImage || '/default-avatar.png'}
-                    alt={user?.nickname}
+                    src={user.profileImage || '/default-avatar.png'}
+                    alt={user.nickname}
                     className="w-8 h-8 rounded-full"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiNFNUU3RUIiLz4KPHN2ZyB4PSI4IiB5PSI4IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSI+CjxwYXRoIGQ9Ik0yMCAyMXYtMmE0IDQgMCAwIDAtNC00SDhhNCA0IDAgMCAwLTQgNHYyIiBzdHJva2U9IiM2QjcyODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxjaXJjbGUgY3g9IjEyIiBjeT0iNyIgcj0iNCIgc3Ryb2tlPSIjNkI3MjgwIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4KPC9zdmc+';
+                      (e.target as HTMLImageElement).src = '/default-avatar.png';
                     }}
                   />
-                  <span className="text-sm font-medium" style={{ display: window.innerWidth >= 768 ? 'block' : 'none' }}>
-                    {user?.nickname}
-                  </span>
+                  <span>{user.nickname}</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
@@ -137,12 +147,10 @@ const Header: React.FC = () => {
                 )}
               </div>
             ) : (
-              <button
-                onClick={handleKakaoLogin}
-                className="btn btn-yellow px-4 py-2 text-sm font-medium flex items-center space-x-2"
-              >
-                <span>카카오 로그인</span>
-              </button>
+              <div className="flex items-center space-x-2">
+                <img src="/default-avatar.png" alt="사용자" className="w-8 h-8 rounded-full" />
+                <span className="text-gray-400">사용자</span>
+              </div>
             )}
           </div>
 
@@ -174,6 +182,7 @@ const Header: React.FC = () => {
                 >
                   서재
                 </Link>
+
                 <Link
                   to="/reading-groups"
                   className="block px-3 py-2 text-gray-700 hover:text-primary-600"

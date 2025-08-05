@@ -275,14 +275,13 @@ const ReadingGroupDetail: React.FC = () => {
                   <dt className="text-sm font-medium text-gray-500">모임 일시</dt>
                   <dd className="mt-1 text-sm text-gray-900 flex items-center">
                     <CalendarIcon className="w-4 h-4 mr-2 text-gray-400" />
-                    {new Date(group.startDateTime).toLocaleString('ko-KR')}
+                    {new Date(group.createdAt).toLocaleString('ko-KR')}
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-sm font-medium text-gray-500">진행 시간</dt>
-                  <dd className="mt-1 text-sm text-gray-900 flex items-center">
-                    <ClockIcon className="w-4 h-4 mr-2 text-gray-400" />
-                    {group.durationHours}시간
+                  <dt className="text-sm font-medium text-gray-500">모임 상태</dt>
+                  <dd className="mt-1 text-sm text-gray-900">
+                    {group.status === 'ACTIVE' ? '활성' : group.status === 'INACTIVE' ? '비활성' : '보관됨'}
                   </dd>
                 </div>
                 <div>

@@ -76,4 +76,12 @@ export const authApi = {
     
     return `https://kauth.kakao.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=code`;
   },
+
+  // 개발용 더미 로그인
+  devLogin: async () => {
+    const response = await axios.post<ApiResponse<LoginResponse>>(
+      `${API_BASE_URL}/auth/dev-login`
+    );
+    return response;
+  },
 };

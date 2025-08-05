@@ -6,9 +6,11 @@ import Home from './pages/Home';
 import Library from './pages/Library';
 import AddBook from './pages/AddBook';
 import EditBook from './pages/EditBook';
-import Wishlist from './pages/Wishlist';
 import AddWishlist from './pages/AddWishlist';
 import EditWishlist from './pages/EditWishlist';
+
+import AddCurrentlyReading from './pages/AddCurrentlyReading';
+import EditCurrentlyReading from './pages/EditCurrentlyReading';
 import ReadingGroups from './pages/ReadingGroups';
 import CreateReadingGroup from './pages/CreateReadingGroup';
 import ReadingGroupDetail from './pages/ReadingGroupDetail';
@@ -104,11 +106,7 @@ const AppContent: React.FC = () => {
               <EditBook />
             </ProtectedRoute>
           } />
-          <Route path="/wishlist" element={
-            <ProtectedRoute>
-              <Wishlist />
-            </ProtectedRoute>
-          } />
+
           <Route path="/wishlists/add" element={
             <ProtectedRoute>
               <AddWishlist />
@@ -117,6 +115,17 @@ const AppContent: React.FC = () => {
           <Route path="/wishlists/edit/:id" element={
             <ProtectedRoute>
               <EditWishlist />
+            </ProtectedRoute>
+          } />
+
+          <Route path="/currently-reading/add" element={
+            <ProtectedRoute>
+              <AddCurrentlyReading />
+            </ProtectedRoute>
+          } />
+          <Route path="/currently-reading/edit/:id" element={
+            <ProtectedRoute>
+              <EditCurrentlyReading />
             </ProtectedRoute>
           } />
           <Route path="/reading-groups" element={
@@ -129,27 +138,27 @@ const AppContent: React.FC = () => {
               <CreateReadingGroup />
             </ProtectedRoute>
           } />
-          <Route path="/reading-groups/:groupId" element={
+          <Route path="/reading-groups/:id" element={
             <ProtectedRoute>
               <ReadingGroupDetail />
             </ProtectedRoute>
           } />
-          <Route path="/reading-groups/join/:inviteCode" element={
+          <Route path="/reading-groups/:id/join" element={
             <ProtectedRoute>
               <JoinGroupPage />
             </ProtectedRoute>
           } />
-          <Route path="/reading-groups/:groupId/select-book" element={
-            <ProtectedRoute>
-              <SelectMonthlyBook />
-            </ProtectedRoute>
-          } />
-          <Route path="/reading-groups/:groupId/members" element={
+          <Route path="/reading-groups/:id/members" element={
             <ProtectedRoute>
               <GroupMembers />
             </ProtectedRoute>
           } />
-          <Route path="/reading-groups/:groupId/books/:monthlyBookId/reviews" element={
+          <Route path="/reading-groups/:id/select-monthly-book" element={
+            <ProtectedRoute>
+              <SelectMonthlyBook />
+            </ProtectedRoute>
+          } />
+          <Route path="/reading-groups/:id/monthly-books/:monthlyBookId/reviews" element={
             <ProtectedRoute>
               <BookReviews />
             </ProtectedRoute>
@@ -164,12 +173,12 @@ const AppContent: React.FC = () => {
               <CreatePost />
             </ProtectedRoute>
           } />
-          <Route path="/posts/:postId" element={
+          <Route path="/posts/:id" element={
             <ProtectedRoute>
               <PostDetail />
             </ProtectedRoute>
           } />
-          <Route path="/posts/:postId/edit" element={
+          <Route path="/posts/:id/edit" element={
             <ProtectedRoute>
               <EditPost />
             </ProtectedRoute>

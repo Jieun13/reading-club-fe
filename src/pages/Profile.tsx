@@ -5,7 +5,7 @@ import { authApi } from '../api/auth';
 import { userApi } from '../api/user';
 
 const Profile: React.FC = () => {
-  const { user, logout, updateUser } = useAuth();
+  const { user, logout, updateUser, isLoading } = useAuth();
   const [activeTab, setActiveTab] = useState<'profile' | 'settings'>('profile');
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -15,8 +15,17 @@ const Profile: React.FC = () => {
   useEffect(() => {
     if (user) {
       setNickname(user.nickname);
+    } else {
+      setNickname('');
     }
   }, [user]);
+
+  if (isLoading) {
+    return <div className="container py-8 text-gray-400">로딩 중...</div>;
+  }
+  if (!user) {
+    return <div className="container py-8 text-gray-400">유저 정보를 불러올 수 없습니다.</div>;
+  }
 
   const handleLogout = async () => {
     if (window.confirm('정말 로그아웃하시겠습니까?')) {

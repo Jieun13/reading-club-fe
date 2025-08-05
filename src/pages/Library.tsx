@@ -1,29 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { Book } from '../types/book';
 import { Wishlist } from '../types/wishlist';
+import { CurrentlyReading, ReadingType } from '../types';
 import { bookApi } from '../api/book';
 import { wishlistApi } from '../api/wishlists';
+import { currentlyReadingApi } from '../api/currentlyReading';
 
 enum LibraryFilter {
   ALL = 'ALL',
   COMPLETED = 'COMPLETED',
+  CURRENTLY_READING = 'CURRENTLY_READING',
   WISHLIST = 'WISHLIST'
 }
 
 const Library: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [wishlistItems, setWishlistItems] = useState<Wishlist[]>([]);
+  const [currentlyReading, setCurrentlyReading] = useState<CurrentlyReading[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<LibraryFilter>(LibraryFilter.ALL);
   const [searchTerm, setSearchTerm] = useState('');
   const [ratingFilter, setRatingFilter] = useState<number | null>(null);
-  const [selectedItem, setSelectedItem] = useState<{ type: 'book' | 'wishlist', data: Book | Wishlist } | null>(null);
+  const [selectedItem, setSelectedItem] = useState<{ type: 'book' | 'wishlist' | 'currentlyReading', data: Book | Wishlist | CurrentlyReading } | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [showCompleteModal, setShowCompleteModal] = useState(false);
+  const [showCurrentlyReadingModal, setShowCurrentlyReadingModal] = useState(false);
   const [completeFormData, setCompleteFormData] = useState({
     rating: 5,
     review: '',
     finishedDate: new Date().toISOString().split('T')[0]
+  });
+  const [currentlyReadingFormData, setCurrentlyReadingFormData] = useState({
+    readingType: ReadingType.PAPER_BOOK,
+    dueDate: '',
+    progressPercentage: 0,
+    memo: ''
   });
 
   useEffect(() => {
@@ -33,12 +44,14 @@ const Library: React.FC = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [booksResponse, wishlistResponse] = await Promise.all([
+      const [booksResponse, wishlistResponse, currentlyReadingResponse] = await Promise.all([
         bookApi.getMyBooks({}),
-        wishlistApi.getWishlists()
+        wishlistApi.getWishlists(),
+        currentlyReadingApi.getCurrentlyReading()
       ]);
       setBooks(booksResponse.data.content || []);
       setWishlistItems(wishlistResponse.data.data.content || []);
+      setCurrentlyReading(currentlyReadingResponse.data.content || []);
     } catch (error) {
       console.error('데이터 조회 실패:', error);
     } finally {
@@ -47,21 +60,25 @@ const Library: React.FC = () => {
   };
 
   const getFilteredItems = () => {
-    let items: Array<{ type: 'book' | 'wishlist', data: Book | Wishlist }> = [];
-
+    let items: Array<{ type: 'book' | 'wishlist' | 'currentlyReading', data: Book | Wishlist | CurrentlyReading }> = [];
+    
     if (filter === LibraryFilter.ALL || filter === LibraryFilter.COMPLETED) {
       let filteredBooks = books;
-      
       // 별점 필터링 (완독한 책만)
       if (ratingFilter !== null) {
         filteredBooks = books.filter(book => book.rating === ratingFilter);
       }
-      
       items = items.concat(
         filteredBooks.map(book => ({ type: 'book' as const, data: book }))
       );
     }
-
+    
+    if (filter === LibraryFilter.ALL || filter === LibraryFilter.CURRENTLY_READING) {
+      items = items.concat(
+        currentlyReading.map(book => ({ type: 'currentlyReading' as const, data: book }))
+      );
+    }
+    
     if (filter === LibraryFilter.ALL || filter === LibraryFilter.WISHLIST) {
       items = items.concat(
         wishlistItems.map(item => ({ type: 'wishlist' as const, data: item }))
@@ -73,12 +90,15 @@ const Library: React.FC = () => {
       items = items.filter(item => {
         const title = item.type === 'book' 
           ? (item.data as Book).title 
+          : item.type === 'currentlyReading'
+          ? (item.data as CurrentlyReading).title
           : (item.data as Wishlist).title;
         const author = item.type === 'book' 
           ? (item.data as Book).author 
+          : item.type === 'currentlyReading'
+          ? (item.data as CurrentlyReading).author || ''
           : (item.data as Wishlist).author || '';
-        
-        return title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        return title.toLowerCase().includes(searchTerm.toLowerCase()) || 
                (author && author.toLowerCase().includes(searchTerm.toLowerCase()));
       });
     }
@@ -91,7 +111,7 @@ const Library: React.FC = () => {
     return date.toLocaleDateString('ko-KR');
   };
 
-  const handleItemClick = (item: { type: 'book' | 'wishlist', data: Book | Wishlist }) => {
+  const handleItemClick = (item: { type: 'book' | 'wishlist' | 'currentlyReading', data: Book | Wishlist | CurrentlyReading }) => {
     setSelectedItem(item);
     setShowModal(true);
   };
@@ -101,7 +121,7 @@ const Library: React.FC = () => {
     setSelectedItem(null);
   };
 
-  const handleDelete = async (item: { type: 'book' | 'wishlist', data: Book | Wishlist }) => {
+  const handleDelete = async (item: { type: 'book' | 'wishlist' | 'currentlyReading', data: Book | Wishlist | CurrentlyReading }) => {
     if (!window.confirm('정말 삭제하시겠습니까?')) {
       return;
     }
@@ -111,6 +131,10 @@ const Library: React.FC = () => {
         await bookApi.deleteBook((item.data as Book).id);
         setBooks(books.filter(book => book.id !== (item.data as Book).id));
         alert('완독한 책이 삭제되었습니다.');
+      } else if (item.type === 'currentlyReading') {
+        await currentlyReadingApi.deleteCurrentlyReading((item.data as CurrentlyReading).id);
+        setCurrentlyReading(currentlyReading.filter(book => book.id !== (item.data as CurrentlyReading).id));
+        alert('읽고 있는 책이 삭제되었습니다.');
       } else {
         await wishlistApi.deleteWishlist((item.data as Wishlist).id);
         setWishlistItems(wishlistItems.filter(wishlist => wishlist.id !== (item.data as Wishlist).id));
@@ -123,8 +147,59 @@ const Library: React.FC = () => {
     }
   };
 
-  const handleMarkAsRead = (wishlistItem: Wishlist) => {
-    // 완료 폼 데이터 초기화
+  // 읽고 싶은 책을 읽고 있는 책으로 이동
+  const handleStartReading = (wishlistItem: Wishlist) => {
+    setCurrentlyReadingFormData({
+      readingType: ReadingType.PAPER_BOOK,
+      dueDate: '',
+      progressPercentage: 0,
+      memo: ''
+    });
+    setShowCurrentlyReadingModal(true);
+  };
+
+  // 읽고 있는 책을 읽고 있는 책으로 추가하는 함수
+  const handleStartReadingSubmit = async () => {
+    if (!selectedItem || selectedItem.type !== 'wishlist') return;
+    
+    const wishlistItem = selectedItem.data as Wishlist;
+    
+    try {
+      // 읽고 있는 책으로 추가
+      const currentlyReadingData = {
+        title: wishlistItem.title,
+        author: wishlistItem.author || '',
+        coverImage: wishlistItem.coverImage || '',
+        publisher: wishlistItem.publisher || '',
+        publishedDate: wishlistItem.publishedDate || '',
+        description: wishlistItem.description || '',
+        readingType: currentlyReadingFormData.readingType,
+        dueDate: currentlyReadingFormData.dueDate || undefined,
+        progressPercentage: currentlyReadingFormData.progressPercentage,
+        memo: currentlyReadingFormData.memo
+      };
+      
+      const newCurrentlyReadingResponse = await currentlyReadingApi.addCurrentlyReading(currentlyReadingData);
+      
+      // 위시리스트에서 삭제
+      await wishlistApi.deleteWishlist(wishlistItem.id);
+      
+      // 상태 업데이트
+      setWishlistItems(wishlistItems.filter(item => item.id !== wishlistItem.id));
+      setCurrentlyReading([...currentlyReading, newCurrentlyReadingResponse.data]);
+      
+      // 모달들 닫기
+      setShowCurrentlyReadingModal(false);
+      setShowModal(false);
+      alert('읽고 있는 책으로 이동되었습니다!');
+    } catch (error) {
+      console.error('읽고 있는 책 추가 실패:', error);
+      alert('읽고 있는 책 추가에 실패했습니다. 다시 시도해주세요.');
+    }
+  };
+
+  // 읽고 있는 책을 완독한 책으로 이동
+  const handleMarkAsRead = (currentlyReadingItem: CurrentlyReading) => {
     setCompleteFormData({
       rating: 5,
       review: '',
@@ -134,34 +209,33 @@ const Library: React.FC = () => {
   };
 
   const handleCompleteSubmit = async () => {
-    if (!selectedItem || selectedItem.type !== 'wishlist') return;
-
-    const wishlistItem = selectedItem.data as Wishlist;
-
+    if (!selectedItem || selectedItem.type !== 'currentlyReading') return;
+    
+    const currentlyReadingItem = selectedItem.data as CurrentlyReading;
+    
     try {
       // 완독한 책으로 추가
       const bookData = {
-        title: wishlistItem.title,
-        author: wishlistItem.author || '',
-        coverImage: wishlistItem.coverImage || '',
+        title: currentlyReadingItem.title,
+        author: currentlyReadingItem.author || '',
+        coverImage: currentlyReadingItem.coverImage || '',
         rating: completeFormData.rating,
         review: completeFormData.review,
         finishedDate: completeFormData.finishedDate
       };
-
+      
       const newBookResponse = await bookApi.createBook(bookData);
       
-      // 위시리스트에서 삭제
-      await wishlistApi.deleteWishlist(wishlistItem.id);
+      // 읽고 있는 책에서 삭제
+      await currentlyReadingApi.deleteCurrentlyReading(currentlyReadingItem.id);
       
       // 상태 업데이트
       setBooks([...books, newBookResponse.data]);
-      setWishlistItems(wishlistItems.filter(item => item.id !== wishlistItem.id));
+      setCurrentlyReading(currentlyReading.filter(item => item.id !== currentlyReadingItem.id));
       
       // 모달들 닫기
       setShowCompleteModal(false);
       setShowModal(false);
-      
       alert('완독한 책으로 이동되었습니다!');
     } catch (error) {
       console.error('읽기 완료 처리 실패:', error);
@@ -171,6 +245,27 @@ const Library: React.FC = () => {
 
   const closeCompleteModal = () => {
     setShowCompleteModal(false);
+  };
+
+  const closeCurrentlyReadingModal = () => {
+    setShowCurrentlyReadingModal(false);
+  };
+
+  const getReadingTypeDisplay = (type: string) => {
+    switch (type) {
+      case 'PAPER_BOOK': return '종이책 소장';
+      case 'LIBRARY_RENTAL': return '도서관 대여';
+      case 'MILLIE': return '밀리의 서재';
+      case 'E_BOOK': return '전자책 소장';
+      default: return type;
+    }
+  };
+
+  const getProgressColor = (percentage: number) => {
+    if (percentage < 25) return 'bg-red-500';
+    if (percentage < 50) return 'bg-yellow-500';
+    if (percentage < 75) return 'bg-blue-500';
+    return 'bg-green-500';
   };
 
   const filteredItems = getFilteredItems();
@@ -209,7 +304,7 @@ const Library: React.FC = () => {
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
-                전체 ({books.length + wishlistItems.length})
+                전체 ({books.length + currentlyReading.length + wishlistItems.length})
               </button>
               <button
                 onClick={() => setFilter(LibraryFilter.COMPLETED)}
@@ -220,6 +315,19 @@ const Library: React.FC = () => {
                 }`}
               >
                 완독한 책 ({books.length})
+              </button>
+              <button
+                onClick={() => {
+                  setFilter(LibraryFilter.CURRENTLY_READING);
+                  setRatingFilter(null);
+                }}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  filter === LibraryFilter.CURRENTLY_READING
+                    ? 'bg-orange-600 text-white'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                읽고 있는 책 ({currentlyReading.length})
               </button>
               <button
                 onClick={() => {
@@ -235,7 +343,6 @@ const Library: React.FC = () => {
                 읽고 싶은 책 ({wishlistItems.length})
               </button>
             </div>
-
             {/* 책 추가 버튼들 */}
             <div className="flex gap-2">
               <a
@@ -243,6 +350,12 @@ const Library: React.FC = () => {
                 className="inline-block bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
               >
                 완독한 책 추가
+              </a>
+              <a
+                href="/currently-reading/add"
+                className="inline-block bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors text-sm font-medium"
+              >
+                읽고 있는 책 추가
               </a>
               <a
                 href="/wishlists/add"
@@ -314,6 +427,12 @@ const Library: React.FC = () => {
                 완독한 책 등록하기
               </a>
               <a
+                href="/currently-reading/add"
+                className="inline-block bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors"
+              >
+                읽고 있는 책 추가하기
+              </a>
+              <a
                 href="/wishlists/add"
                 className="inline-block bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"
               >
@@ -323,127 +442,152 @@ const Library: React.FC = () => {
           )}
         </div>
       ) : (
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
-            {filteredItems.map((item, index) => {
-              const isBook = item.type === 'book';
-              const bookData = item.data as Book;
-              const wishlistData = item.data as Wishlist;
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
+          {filteredItems.map((item, index) => {
+            const isBook = item.type === 'book';
+            const isCurrentlyReading = item.type === 'currentlyReading';
+            const bookData = item.data as Book;
+            const currentlyReadingData = item.data as CurrentlyReading;
+            const wishlistData = item.data as Wishlist;
 
-              return (
-                  <div
-                      key={`${item.type}-${index}`}
-                      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer flex flex-col w-full"
-                      onClick={() => handleItemClick(item)}
-                  >
-                    {/* 표지 이미지 */}
-                    <div className="relative w-full aspect-[10/12] overflow-hidden">
-                      <img
-                          src={
-                            isBook
-                                ? bookData.coverImage || '/default-book-cover.jpg'
-                                : wishlistData.coverImage || '/default-book-cover.jpg'
-                          }
-                          alt={isBook ? bookData.title : wishlistData.title}
-                          className="w-full h-full object-cover object-center"
-                      />
+            return (
+              <div
+                key={`${item.type}-${index}`}
+                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer flex flex-col w-full"
+                onClick={() => handleItemClick(item)}
+              >
+                {/* 표지 이미지 */}
+                <div className="relative w-full aspect-[10/12] overflow-hidden">
+                  <img
+                    src={
+                      isBook
+                        ? bookData.coverImage || '/default-book-cover.jpg'
+                        : isCurrentlyReading
+                        ? currentlyReadingData.coverImage || '/default-book-cover.jpg'
+                        : wishlistData.coverImage || '/default-book-cover.jpg'
+                    }
+                    alt={
+                      isBook 
+                        ? bookData.title 
+                        : isCurrentlyReading 
+                        ? currentlyReadingData.title 
+                        : wishlistData.title
+                    }
+                    className="w-full h-full object-cover object-center"
+                  />
 
-                      {/* 상태 배지 */}
-                      <div className="absolute top-2 right-2 z-10">
-                        <span
-                            className={`px-2 py-1 rounded-full text-xs font-medium ${
-                                isBook ? 'bg-green-100 text-green-800' : 'bg-purple-100 text-purple-800'
-                            }`}
-                        >
-                          {isBook ? '완독' : '읽고 싶은'}
-                        </span>
+                  {/* 상태 배지 */}
+                  <div className="absolute top-2 right-2 z-10">
+                    <span
+                      className={`px-2 py-1 rounded-full text-xs font-medium ${
+                        isBook ? 'bg-green-100 text-green-800' 
+                        : isCurrentlyReading ? 'bg-orange-100 text-orange-800'
+                        : 'bg-purple-100 text-purple-800'
+                      }`}
+                    >
+                      {isBook ? '완독' : isCurrentlyReading ? '읽는 중' : '읽고 싶은'}
+                    </span>
+                  </div>
+
+
+                </div>
+
+                {/* 하단 영역: 제목 + 별점 */}
+                <div className="bg-white border-t border-gray-100 px-3 py-2 h-[60px] flex flex-col justify-center relative">
+                  {/* 진행률 표시 (읽고 있는 책만) */}
+                  {isCurrentlyReading && (
+                    <div className="absolute top-0 left-0 right-0">
+                      <div className="bg-gray-200 h-1">
+                        <div
+                          className={`h-1 ${getProgressColor(currentlyReadingData.progressPercentage)}`}
+                          style={{ width: `${currentlyReadingData.progressPercentage}%` }}
+                        />
                       </div>
                     </div>
-
-                    {/* 하단 영역: 제목 + 별점 */}
-                    <div className="bg-white border-t border-gray-100 px-3 py-2 h-[60px] flex flex-col justify-center">
-                      <h3 className="font-medium text-sm text-gray-900 truncate">
-                        {isBook ? bookData.title || '제목 없음' : wishlistData.title || '제목 없음'}
-                      </h3>
-
-                      {/*{isBook && (*/}
-                      {/*    <div className="flex items-center mt-1">*/}
-                      {/*      {[...Array(5)].map((_, i) => (*/}
-                      {/*          <span key={i} className={i < bookData.rating ? '' : 'text-gray-300'}>*/}
-                      {/*            ★*/}
-                      {/*          </span>*/}
-                      {/*      ))}*/}
-                      {/*      <span className="ml-1 text-xs text-gray-700 font-medium">{bookData.rating}</span>*/}
-                      {/*    </div>*/}
-                      {/*)}*/}
-                    </div>
-                  </div>
-              );
-            })}
-          </div>
+                  )}
+                  <h3 className="font-medium text-sm text-gray-900 truncate">
+                    {isBook ? bookData.title || '제목 없음' 
+                     : isCurrentlyReading ? currentlyReadingData.title || '제목 없음'
+                     : wishlistData.title || '제목 없음'}
+                  </h3>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       )}
 
       {/* 상세 보기 모달 */}
       {showModal && selectedItem && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-              <div className="p-6">
-                {/* 모달 헤더 */}
-                <div className="flex justify-between items-start mb-6">
-                  <h2 className="text-2xl font-bold text-gray-900">
-                    {selectedItem.type === 'book' ? '완독한 책' : '읽고 싶은 책'}
-                  </h2>
-                  <button
-                      onClick={closeModal}
-                      className="text-gray-400 hover:text-gray-600 text-2xl"
-                  >
-                    ×
-                  </button>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="p-6">
+              {/* 모달 헤더 */}
+              <div className="flex justify-between items-start mb-6">
+                <h2 className="text-2xl font-bold text-gray-900">
+                  {selectedItem.type === 'book' ? '완독한 책' 
+                   : selectedItem.type === 'currentlyReading' ? '읽고 있는 책'
+                   : '읽고 싶은 책'}
+                </h2>
+                <button
+                  onClick={closeModal}
+                  className="text-gray-400 hover:text-gray-600 text-2xl"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* 책 정보 */}
+              <div className="flex flex-col md:flex-row gap-6">
+                {/* 책 표지 */}
+                <div className="flex-shrink-0">
+                  <img
+                    src={selectedItem.type === 'book'
+                      ? ((selectedItem.data as Book).coverImage || '/default-book-cover.jpg')
+                      : selectedItem.type === 'currentlyReading'
+                      ? ((selectedItem.data as CurrentlyReading).coverImage || '/default-book-cover.jpg')
+                      : ((selectedItem.data as Wishlist).coverImage || '/default-book-cover.jpg')
+                    }
+                    alt={selectedItem.type === 'book' 
+                      ? (selectedItem.data as Book).title 
+                      : selectedItem.type === 'currentlyReading'
+                      ? (selectedItem.data as CurrentlyReading).title
+                      : (selectedItem.data as Wishlist).title
+                    }
+                    className="w-48 h-64 object-cover rounded-lg shadow-md mx-auto md:mx-0"
+                  />
                 </div>
 
-                {/* 책 정보 */}
-                <div className="flex flex-col md:flex-row gap-6">
-                  {/* 책 표지 */}
-                  <div className="flex-shrink-0">
-                    <img
-                        src={selectedItem.type === 'book'
-                            ? ((selectedItem.data as Book).coverImage || '/default-book-cover.jpg')
-                            : ((selectedItem.data as Wishlist).coverImage || '/default-book-cover.jpg')
-                        }
-                        alt={selectedItem.type === 'book'
-                            ? (selectedItem.data as Book).title
-                            : (selectedItem.data as Wishlist).title
-                        }
-                        className="w-48 h-64 object-cover rounded-lg shadow-md mx-auto md:mx-0"
-                    />
-                  </div>
+                {/* 책 상세 정보 */}
+                <div className="flex-1 relative">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    {selectedItem.type === 'book' 
+                      ? (selectedItem.data as Book).title 
+                      : selectedItem.type === 'currentlyReading'
+                      ? (selectedItem.data as CurrentlyReading).title
+                      : (selectedItem.data as Wishlist).title
+                    }
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    {selectedItem.type === 'book' 
+                      ? ((selectedItem.data as Book).author || '저자 미상')
+                      : selectedItem.type === 'currentlyReading'
+                      ? ((selectedItem.data as CurrentlyReading).author || '저자 미상')
+                      : ((selectedItem.data as Wishlist).author || '저자 미상')
+                    }
+                  </p>
 
-                  {/* 책 상세 정보 */}
-                  <div className="flex-1 relative">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      {selectedItem.type === 'book'
-                          ? (selectedItem.data as Book).title
-                          : (selectedItem.data as Wishlist).title
-                      }
-                    </h3>
-
-                    <p className="text-gray-600 mb-4">
-                      {selectedItem.type === 'book'
-                          ? ((selectedItem.data as Book).author || '저자 미상')
-                          : ((selectedItem.data as Wishlist).author || '저자 미상')
-                      }
-                    </p>
-
-                    {/* 완독한 책의 경우 별점과 완독일 표시 */}
-                    {selectedItem.type === 'book' && (
-                        <>
-                          <div className="flex items-center mb-4">
-                            <span className="text-sm text-gray-600 mr-2">별점:</span>
-                            <div className="flex items-center">
-                              {[...Array(5)].map((_, i) => (
-                                  <svg
-                                      key={i}
-                                      className={`w-5 h-5 ${
-                                          i < (selectedItem.data as Book).rating ? 'text-yellow-400' : 'text-gray-300'
+                  {/* 완독한 책의 경우 별점과 완독일 표시 */}
+                  {selectedItem.type === 'book' && (
+                    <>
+                      <div className="flex items-center mb-4">
+                        <span className="text-sm text-gray-600 mr-2">별점:</span>
+                        <div className="flex items-center">
+                          {[...Array(5)].map((_, i) => (
+                            <svg
+                              key={i}
+                              className={`w-5 h-5 ${
+                                i < (selectedItem.data as Book).rating ? 'text-yellow-400' : 'text-gray-300'
                               }`}
                               fill="currentColor"
                               viewBox="0 0 20 20"
@@ -456,20 +600,52 @@ const Library: React.FC = () => {
                           </span>
                         </div>
                       </div>
-
                       <div className="mb-4">
                         <span className="text-sm text-gray-600">완독일: </span>
                         <span className="text-sm text-gray-900">
                           {formatDate((selectedItem.data as Book).finishedDate)}
                         </span>
                       </div>
-
                       {/* 한줄평 */}
                       {(selectedItem.data as Book).review && (
                         <div className="mb-4">
                           <h4 className="text-sm font-medium text-gray-900 mb-2">한줄평</h4>
                           <p className="text-gray-700 bg-gray-50 p-3 rounded-lg">
                             {(selectedItem.data as Book).review}
+                          </p>
+                        </div>
+                      )}
+                    </>
+                  )}
+
+                  {/* 읽고 있는 책의 경우 읽기 정보 표시 */}
+                  {selectedItem.type === 'currentlyReading' && (
+                    <>
+                      <div className="mb-4">
+                        <span className="text-sm text-gray-600">읽기 형태: </span>
+                        <span className="text-sm text-gray-900">
+                          {getReadingTypeDisplay((selectedItem.data as CurrentlyReading).readingType)}
+                        </span>
+                      </div>
+                      <div className="mb-4">
+                        <span className="text-sm text-gray-600">진행률: </span>
+                        <span className="text-sm text-gray-900">
+                          {(selectedItem.data as CurrentlyReading).progressPercentage}%
+                        </span>
+                      </div>
+                      {(selectedItem.data as CurrentlyReading).dueDate && (
+                        <div className="mb-4">
+                          <span className="text-sm text-gray-600">대여 종료일: </span>
+                          <span className="text-sm text-gray-900">
+                            {formatDate((selectedItem.data as CurrentlyReading).dueDate!)}
+                          </span>
+                        </div>
+                      )}
+                      {(selectedItem.data as CurrentlyReading).memo && (
+                        <div className="mb-4">
+                          <h4 className="text-sm font-medium text-gray-900 mb-2">메모</h4>
+                          <p className="text-gray-700 bg-gray-50 p-3 rounded-lg">
+                            {(selectedItem.data as CurrentlyReading).memo}
                           </p>
                         </div>
                       )}
@@ -485,7 +661,6 @@ const Library: React.FC = () => {
                           {formatDate((selectedItem.data as Wishlist).createdAt)}
                         </span>
                       </div>
-
                       {/* 메모 */}
                       {(selectedItem.data as Wishlist).memo && (
                         <div className="mb-4">
@@ -495,15 +670,26 @@ const Library: React.FC = () => {
                           </p>
                         </div>
                       )}
-
                     </>
                   )}
 
-                  {/* 읽고 싶은 책의 경우 읽기 완료 버튼을 오른쪽 아래에 배치 */}
+                  {/* 읽고 싶은 책의 경우 읽는 중 버튼을 오른쪽 아래에 배치 */}
                   {selectedItem.type === 'wishlist' && (
                     <div className="absolute bottom-0 right-0">
                       <button
-                        onClick={() => handleMarkAsRead(selectedItem.data as Wishlist)}
+                        onClick={() => handleStartReading(selectedItem.data as Wishlist)}
+                        className="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors text-sm font-medium"
+                      >
+                        읽는 중
+                      </button>
+                    </div>
+                  )}
+
+                  {/* 읽고 있는 책의 경우 읽기 완료 버튼을 오른쪽 아래에 배치 */}
+                  {selectedItem.type === 'currentlyReading' && (
+                    <div className="absolute bottom-0 right-0">
+                      <button
+                        onClick={() => handleMarkAsRead(selectedItem.data as CurrentlyReading)}
                         className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
                       >
                         읽기 완료
@@ -516,6 +702,8 @@ const Library: React.FC = () => {
                     <a
                       href={selectedItem.type === 'book'
                         ? `/books/edit/${(selectedItem.data as Book).id}`
+                        : selectedItem.type === 'currentlyReading'
+                        ? `/currently-reading/edit/${(selectedItem.data as CurrentlyReading).id}`
                         : `/wishlists/edit/${(selectedItem.data as Wishlist).id}`
                       }
                       className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm"
@@ -536,16 +724,16 @@ const Library: React.FC = () => {
         </div>
       )}
 
-      {/* 읽기 완료 모달 */}
-      {showCompleteModal && selectedItem && selectedItem.type === 'wishlist' && (
+      {/* 읽는 중 모달 */}
+      {showCurrentlyReadingModal && selectedItem && selectedItem.type === 'wishlist' && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg max-w-md w-full">
             <div className="p-6">
               {/* 모달 헤더 */}
               <div className="flex justify-between items-start mb-6">
-                <h2 className="text-xl font-bold text-gray-900">읽기 완료</h2>
+                <h2 className="text-xl font-bold text-gray-900">읽는 중으로 이동</h2>
                 <button
-                  onClick={closeCompleteModal}
+                  onClick={closeCurrentlyReadingModal}
                   className="text-gray-400 hover:text-gray-600 text-2xl"
                 >
                   ×
@@ -566,6 +754,132 @@ const Library: React.FC = () => {
                     </h3>
                     <p className="text-sm text-gray-600">
                       {(selectedItem.data as Wishlist).author || '저자 미상'}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 읽기 형태 */}
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  읽기 형태 *
+                </label>
+                <select
+                  value={currentlyReadingFormData.readingType}
+                  onChange={(e) => setCurrentlyReadingFormData(prev => ({ ...prev, readingType: e.target.value as ReadingType }))}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                  required
+                >
+                  {Object.values(ReadingType).map((type) => (
+                    <option key={type} value={type}>
+                      {getReadingTypeDisplay(type)}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* 대여 종료일 */}
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  대여 종료일
+                </label>
+                <input
+                  type="date"
+                  value={currentlyReadingFormData.dueDate}
+                  onChange={(e) => setCurrentlyReadingFormData(prev => ({ ...prev, dueDate: e.target.value }))}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                />
+              </div>
+
+              {/* 진행률 */}
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  진행률: {currentlyReadingFormData.progressPercentage}%
+                </label>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={currentlyReadingFormData.progressPercentage}
+                  onChange={(e) => setCurrentlyReadingFormData(prev => ({ ...prev, progressPercentage: parseInt(e.target.value) }))}
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+                  style={{
+                    background: `linear-gradient(to right, #3b82f6 0%, #3b82f6 ${currentlyReadingFormData.progressPercentage}%, #e5e7eb ${currentlyReadingFormData.progressPercentage}%, #e5e7eb 100%)`
+                  }}
+                />
+                <div className="flex justify-between text-xs text-gray-500 mt-1">
+                  <span>0%</span>
+                  <span>25%</span>
+                  <span>50%</span>
+                  <span>75%</span>
+                  <span>100%</span>
+                </div>
+              </div>
+
+              {/* 메모 */}
+              <div className="mb-6">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  메모
+                </label>
+                <textarea
+                  value={currentlyReadingFormData.memo}
+                  onChange={(e) => setCurrentlyReadingFormData(prev => ({ ...prev, memo: e.target.value }))}
+                  placeholder="이 책을 읽고 있는 소감이나 기록을 적어보세요..."
+                  rows={3}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
+                />
+              </div>
+
+              {/* 버튼 */}
+              <div className="flex gap-3">
+                <button
+                  onClick={closeCurrentlyReadingModal}
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors"
+                >
+                  취소
+                </button>
+                <button
+                  onClick={handleStartReadingSubmit}
+                  className="flex-1 px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors"
+                >
+                  읽는 중으로 이동
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 읽기 완료 모달 */}
+      {showCompleteModal && selectedItem && selectedItem.type === 'currentlyReading' && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg max-w-md w-full">
+            <div className="p-6">
+              {/* 모달 헤더 */}
+              <div className="flex justify-between items-start mb-6">
+                <h2 className="text-xl font-bold text-gray-900">읽기 완료</h2>
+                <button
+                  onClick={closeCompleteModal}
+                  className="text-gray-400 hover:text-gray-600 text-2xl"
+                >
+                  ×
+                </button>
+              </div>
+
+              {/* 책 정보 */}
+              <div className="mb-6">
+                <div className="flex items-center gap-4">
+                  <img
+                    src={(selectedItem.data as CurrentlyReading).coverImage || '/default-book-cover.jpg'}
+                    alt={(selectedItem.data as CurrentlyReading).title}
+                    className="w-16 h-24 object-cover rounded"
+                  />
+                  <div>
+                    <h3 className="font-semibold text-gray-900">
+                      {(selectedItem.data as CurrentlyReading).title}
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      {(selectedItem.data as CurrentlyReading).author || '저자 미상'}
                     </p>
                   </div>
                 </div>

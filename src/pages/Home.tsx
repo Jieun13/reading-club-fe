@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { authApi } from '../api/auth';
 
 const Home: React.FC = () => {
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated, user, isLoading } = useAuth();
 
   const handleKakaoLogin = () => {
     const kakaoLoginUrl = authApi.getKakaoLoginUrl();
@@ -31,10 +31,12 @@ const Home: React.FC = () => {
 
           {/* CTA 버튼 */}
           <div className="mb-8" style={{ marginBottom: '4rem' }}>
-            {isAuthenticated ? (
+            {isLoading ? (
+              <div className="text-lg text-gray-400">로딩 중...</div>
+            ) : isAuthenticated && user ? (
               <div className="space-y-4">
                 <p className="text-lg text-gray-700">
-                  안녕하세요, <span className="font-semibold text-primary-600">{user?.nickname}</span>님! 👋
+                  안녕하세요, <span className="font-semibold text-primary-600">{user.nickname}</span>님! 👋
                 </p>
                 <div className="flex flex-col gap-4 justify-center" style={{ gap: '1rem' }}>
                   <Link

@@ -9,9 +9,43 @@ import {
   BookOpenIcon
 } from '@heroicons/react/24/outline';
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid';
-// import { reviewApi } from '../api/meetings';
-import { BookReview, CreateReviewRequest } from '../types/meeting';
 import Loading from '../components/common/Loading';
+
+// BookReview 타입 정의 (meeting.ts에서 이동)
+interface BookReview {
+  id: number;
+  user: {
+    id: number;
+    nickname: string;
+    profileImage?: string;
+  };
+  monthlyBook: {
+    id: number;
+    bookTitle: string;
+    bookAuthor: string;
+    bookCoverImage?: string;
+  };
+  rating: number;
+  title: string;
+  content: string;
+  favoriteQuote?: string;
+  recommendation?: string;
+  status: 'DRAFT' | 'PUBLISHED';
+  isPublic: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface CreateReviewRequest {
+  monthlyBookId: number;
+  rating: number;
+  title: string;
+  content: string;
+  favoriteQuote?: string;
+  recommendation?: string;
+  isPublic: boolean;
+  status: 'DRAFT' | 'PUBLISHED';
+}
 
 const BookReviews: React.FC = () => {
   const { groupId, monthlyBookId } = useParams<{ groupId: string; monthlyBookId: string }>();

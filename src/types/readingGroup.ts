@@ -17,14 +17,6 @@ export interface ReadingGroup {
   currentMemberCount: number;
   hasAssignment: boolean;
   
-  // 일정 정보 (백엔드와 일치)
-  startDateTime: string;
-  endDateTime: string;
-  durationHours: number;
-  location: string;
-  meetingType: 'ONLINE' | 'OFFLINE';
-  meetingUrl?: string;
-  
   // 책 정보
   bookTitle?: string;
   bookAuthor?: string;
@@ -77,14 +69,6 @@ export interface ReadingGroupListItem {
   status: 'ACTIVE' | 'INACTIVE' | 'ARCHIVED';
   hasAssignment: boolean;
 
-  // 일회성 모임 정보 👇
-  startDateTime: string;
-  endDateTime: string;
-  durationHours: number;
-  location: string;
-  meetingType: 'ONLINE' | 'OFFLINE';
-  meetingUrl?: string;
-
   createdAt: string;
 }
 
@@ -93,14 +77,6 @@ export interface CreateReadingGroupRequest {
   description?: string;
   maxMembers: number;
   isPublic: boolean;
-
-  // 일회성 모임 정보
-  meetingDateTime: string;
-  endDateTime: string;
-  durationHours: number;
-  location: string;
-  meetingType: 'OFFLINE' | 'ONLINE';
-  meetingUrl?: string;
   hasAssignment: boolean;
 
   // 책 정보
