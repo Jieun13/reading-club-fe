@@ -360,26 +360,21 @@ const Library: React.FC = () => {
                     </div>
 
                     {/* 하단 영역: 제목 + 별점 */}
-                    <div className="bg-white border-t border-gray-100 px-3 py-2 h-[56px] flex flex-col justify-center">
+                    <div className="bg-white border-t border-gray-100 px-3 py-2 h-[60px] flex flex-col justify-center">
                       <h3 className="font-medium text-sm text-gray-900 truncate">
                         {isBook ? bookData.title || '제목 없음' : wishlistData.title || '제목 없음'}
                       </h3>
 
-                      {isBook && (
-                          <div className="flex items-center mt-1">
-                            {[...Array(5)].map((_, i) => (
-                                <svg
-                                    key={i}
-                                    className={`w-3 h-3 ${i < bookData.rating ? 'text-yellow-400' : 'text-gray-300'}`}
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                >
-                                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0..." />
-                                </svg>
-                            ))}
-                            <span className="ml-1 text-xs text-gray-700 font-medium">{bookData.rating}</span>
-                          </div>
-                      )}
+                      {/*{isBook && (*/}
+                      {/*    <div className="flex items-center mt-1">*/}
+                      {/*      {[...Array(5)].map((_, i) => (*/}
+                      {/*          <span key={i} className={i < bookData.rating ? '' : 'text-gray-300'}>*/}
+                      {/*            ★*/}
+                      {/*          </span>*/}
+                      {/*      ))}*/}
+                      {/*      <span className="ml-1 text-xs text-gray-700 font-medium">{bookData.rating}</span>*/}
+                      {/*    </div>*/}
+                      {/*)}*/}
                     </div>
                   </div>
               );
