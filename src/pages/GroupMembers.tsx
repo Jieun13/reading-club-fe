@@ -33,7 +33,7 @@ interface GroupInfo {
 }
 
 const GroupMembers: React.FC = () => {
-  const { groupId } = useParams<{ groupId: string }>();
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
   const [loading, setLoading] = useState(true);
@@ -42,13 +42,13 @@ const GroupMembers: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!groupId) return;
+      if (!id) return;
 
       try {
         setLoading(true);
         
         // 그룹 정보 가져오기
-        const groupResponse = await readingGroupApi.getGroup(Number(groupId));
+        const groupResponse = await readingGroupApi.getGroup(Number(id));
         setGroupInfo({
           id: groupResponse.data.data.id,
           name: groupResponse.data.data.name,
@@ -56,7 +56,7 @@ const GroupMembers: React.FC = () => {
         });
 
         // 멤버 목록 가져오기 (임시 데이터)
-        // 실제로는 readingGroupApi.getMembers(Number(groupId)) 같은 API 호출
+        // 실제로는 readingGroupApi.getMembers(Number(id)) 같은 API 호출
         const mockMembers: GroupMember[] = [
           {
             id: 1,
@@ -83,7 +83,7 @@ const GroupMembers: React.FC = () => {
     };
 
     fetchData();
-  }, [groupId, navigate]);
+  }, [id, navigate]);
 
   const handleRemoveMember = async (memberId: number, memberName: string) => {
     if (!window.confirm(`정말로 ${memberName}님을 모임에서 내보내시겠습니까?`)) {
@@ -91,7 +91,7 @@ const GroupMembers: React.FC = () => {
     }
 
     try {
-      // 실제로는 readingGroupApi.removeMember(groupId, memberId) 같은 API 호출
+              // 실제로는 readingGroupApi.removeMember(id, memberId) 같은 API 호출
       alert('멤버가 성공적으로 제거되었습니다.');
       // 멤버 목록 새로고침
       setMembers(prev => prev.filter(member => member.id !== memberId));
@@ -124,7 +124,7 @@ const GroupMembers: React.FC = () => {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center">
             <Link
-              to={`/reading-groups/${groupId}`}
+              to={`/reading-groups/${id}`}
               className="mr-4 p-2 text-gray-600 hover:text-gray-900 rounded-md hover:bg-gray-100"
             >
               <ArrowLeftIcon className="w-5 h-5" />

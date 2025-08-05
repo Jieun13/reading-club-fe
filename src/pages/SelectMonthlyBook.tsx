@@ -20,7 +20,7 @@ interface MonthlyBookData {
 }
 
 const SelectMonthlyBook: React.FC = () => {
-  const { groupId } = useParams<{ groupId: string }>();
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<BookSearchResult[]>([]);
@@ -86,7 +86,7 @@ const SelectMonthlyBook: React.FC = () => {
       console.log('월간 도서 선정 데이터:', formData);
       
       alert('월간 도서가 성공적으로 선정되었습니다!');
-      navigate(`/reading-groups/${groupId}`);
+              navigate(`/reading-groups/${id}`);
     } catch (error) {
       console.error('월간 도서 선정에 실패했습니다:', error);
       alert('월간 도서 선정에 실패했습니다. 다시 시도해주세요.');
@@ -101,7 +101,7 @@ const SelectMonthlyBook: React.FC = () => {
         {/* 헤더 */}
         <div className="flex items-center mb-8">
           <button
-            onClick={() => navigate(`/reading-groups/${groupId}`)}
+            onClick={() => navigate(`/reading-groups/${id}`)}
             className="mr-4 p-2 text-gray-600 hover:text-gray-900 rounded-md hover:bg-gray-100"
           >
             <ArrowLeftIcon className="w-5 h-5" />
@@ -324,7 +324,7 @@ const SelectMonthlyBook: React.FC = () => {
             <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-4">
               <button
                 type="button"
-                onClick={() => navigate(`/reading-groups/${groupId}`)}
+                onClick={() => navigate(`/reading-groups/${id}`)}
                 className="w-full sm:w-auto px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
               >
                 취소

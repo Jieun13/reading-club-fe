@@ -17,7 +17,7 @@ import { useAuth } from '../contexts/AuthContext';
 import Loading from '../components/common/Loading';
 
 const ReadingGroupDetail: React.FC = () => {
-  const { groupId } = useParams<{ groupId: string }>();
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
   
@@ -31,14 +31,14 @@ const ReadingGroupDetail: React.FC = () => {
 
   useEffect(() => {
     const fetchGroupData = async () => {
-      if (groupId) {
+      if (id) {
         try {
           setLoading(true);
-          const response = await readingGroupApi.getGroup(Number(groupId));
+          const response = await readingGroupApi.getGroup(Number(id));
           setGroup(response.data.data);
           
           // 멤버 목록 가져오기
-          await fetchMembers(Number(groupId));
+          await fetchMembers(Number(id));
         } catch (error) {
           console.error('독서 모임을 불러오는데 실패했습니다:', error);
           alert('독서 모임을 찾을 수 없습니다.');
@@ -50,11 +50,11 @@ const ReadingGroupDetail: React.FC = () => {
     };
 
     fetchGroupData();
-  }, [groupId, navigate]);
+  }, [id, navigate]);
 
-  const fetchMembers = async (groupId: number) => {
+  const fetchMembers = async (id: number) => {
     try {
-      const response = await readingGroupApi.getGroupMembers(groupId);
+      const response = await readingGroupApi.getGroupMembers(id);
       setMembers(response.data.data || []);
     } catch (error) {
       console.error('멤버 목록 조회 실패:', error);
@@ -275,13 +275,27 @@ const ReadingGroupDetail: React.FC = () => {
                   <dt className="text-sm font-medium text-gray-500">모임 일시</dt>
                   <dd className="mt-1 text-sm text-gray-900 flex items-center">
                     <CalendarIcon className="w-4 h-4 mr-2 text-gray-400" />
-                    {new Date(group.createdAt).toLocaleString('ko-KR')}
+                    {group.startDateTime ? new Date(group.startDateTime).toLocaleString('ko-KR') : '미정'}
                   </dd>
                 </div>
                 <div>
-                  <dt className="text-sm font-medium text-gray-500">모임 상태</dt>
+                  <dt className="text-sm font-medium text-gray-500">진행 시간</dt>
+                  <dd className="mt-1 text-sm text-gray-900 flex items-center">
+                    <ClockIcon className="w-4 h-4 mr-2 text-gray-400" />
+                    {group.durationHours ? `${group.durationHours}시간` : '미정'}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-sm font-medium text-gray-500">모임 방식</dt>
                   <dd className="mt-1 text-sm text-gray-900">
-                    {group.status === 'ACTIVE' ? '활성' : group.status === 'INACTIVE' ? '비활성' : '보관됨'}
+                    {group.meetingType === 'OFFLINE' ? '오프라인' : group.meetingType === 'ONLINE' ? '온라인' : '미정'}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="text-sm font-medium text-gray-500">모임 장소</dt>
+                  <dd className="mt-1 text-sm text-gray-900">
+                    {group.meetingType === 'OFFLINE' && group.location ? group.location : 
+                     group.meetingType === 'ONLINE' && group.meetingUrl ? group.meetingUrl : '미정'}
                   </dd>
                 </div>
                 <div>

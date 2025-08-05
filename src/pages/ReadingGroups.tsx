@@ -228,14 +228,37 @@ const ReadingGroups: React.FC = () => {
                   </div>
 
                   {/* 모임 정보 */}
-                  <div className="mt-4 bg-gray-50 rounded-lg p-3 text-sm text-gray-800 space-y-1">
-                    <div className="flex items-center">
-                      <span className="font-medium mr-2">📚</span>
-                      {group.bookTitle} - {group.bookAuthor}
+                  <div
+                      className="mt-4 bg-gray-50 rounded-lg p-3 h-[90px] text-sm text-gray-800 space-y-1 overflow-hidden">
+                    <div className="flex items-center truncate">
+                      <span className="font-medium mr-2">📅</span>
+                      {group.startDateTime ? (
+                        <>
+                          {new Date(group.startDateTime).toLocaleDateString('ko-KR', {
+                            month: 'long',
+                            day: 'numeric',
+                            weekday: 'short'
+                          })}{' '}
+                          {new Date(group.startDateTime).toLocaleTimeString('ko-KR', {
+                            hour: '2-digit',
+                            minute: '2-digit'
+                          })}
+                        </>
+                      ) : (
+                        '일정 미정'
+                      )}
                     </div>
-                    <div className="flex items-center">
-                      <span className="font-medium mr-2">👥</span>
-                      {group.currentMemberCount}/{group.maxMembers}명 참여
+                    <div className="flex items-center truncate">
+                      <span className="font-medium mr-2">⏱️</span>
+                      {group.durationHours ? `${group.durationHours}시간 진행` : '진행 시간 미정'}
+                    </div>
+                    <div className="flex items-center truncate">
+                      <span className="font-medium mr-2">📍</span>
+                      {group.meetingType === 'OFFLINE'
+                          ? group.location || '장소 미정'
+                          : group.meetingUrl
+                              ? '온라인 참여 링크'
+                              : '온라인 주소 미정'}
                     </div>
                   </div>
 

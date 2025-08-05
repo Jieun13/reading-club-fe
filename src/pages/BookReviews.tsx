@@ -48,7 +48,7 @@ interface CreateReviewRequest {
 }
 
 const BookReviews: React.FC = () => {
-  const { groupId, monthlyBookId } = useParams<{ groupId: string; monthlyBookId: string }>();
+  const { id, monthlyBookId } = useParams<{ id: string; monthlyBookId: string }>();
   const navigate = useNavigate();
   const [reviews, setReviews] = useState<BookReview[]>([]);
   const [myReview, setMyReview] = useState<BookReview | null>(null);
@@ -219,7 +219,7 @@ const BookReviews: React.FC = () => {
         {/* 헤더 */}
         <div className="flex items-center mb-8">
           <button
-            onClick={() => navigate(`/reading-groups/${groupId}`)}
+            onClick={() => navigate(`/reading-groups/${id}`)}
             className="mr-4 p-2 text-gray-600 hover:text-gray-900 rounded-md hover:bg-gray-100"
           >
             <ArrowLeftIcon className="w-5 h-5" />
