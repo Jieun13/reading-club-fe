@@ -332,8 +332,9 @@ const Library: React.FC = () => {
               return (
                   <div
                       key={`${item.type}-${index}`}
-                      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer flex flex-col"
-                      onClick={() => handleItemClick(item)}>
+                      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer flex flex-col h-[260px]"
+                      onClick={() => handleItemClick(item)}
+                  >
                     {/* 표지 */}
                     <div className="relative w-full aspect-[1/1] flex-shrink-0">
                       <img
@@ -351,10 +352,39 @@ const Library: React.FC = () => {
                     </div>
 
                     {/* 제목 */}
-                    <div className="p-2 bg-white border-t border-gray-100">
-                      <h3 className="font-medium text-sm text-gray-900 truncate">
+                    <div className="p-2 bg-white border-t border-gray-100 h-[36px] flex items-center">
+                      <h3 className="font-medium text-sm text-gray-900 truncate w-full">
                         {isBook ? (bookData.title || '제목 없음') : (wishlistData.title || '제목 없음')}
                       </h3>
+                    </div>
+
+                    {/* 별점 */}
+                    <div className="px-2 pb-3 mt-auto">
+                      {isBook ? (
+                          <div className="flex items-center bg-gray-50 rounded-full px-3 py-1 w-fit mx-auto">
+                            {[...Array(5)].map((_, i) => (
+                                <svg
+                                    key={i}
+                                    className={`w-3 h-3 ${i < bookData.rating ? 'text-yellow-400' : 'text-gray-300'}`}
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0..." />
+                                </svg>
+                            ))}
+                            <span className="ml-1 text-xs text-gray-700 font-medium">
+                              {bookData.rating}
+                            </span>
+                          </div>
+                      ) : (
+                          // 별점 없는 경우 자리만 차지
+                          <div className="invisible flex items-center bg-gray-50 rounded-full px-3 py-1 w-fit mx-auto">
+                            {[...Array(5)].map((_, i) => (
+                                <svg key={i} className="w-3 h-3" />
+                            ))}
+                            <span className="ml-1 text-xs">0</span>
+                          </div>
+                      )}
                     </div>
                   </div>
               );
@@ -436,7 +466,7 @@ const Library: React.FC = () => {
                           </span>
                         </div>
                       </div>
-                      
+
                       <div className="mb-4">
                         <span className="text-sm text-gray-600">완독일: </span>
                         <span className="text-sm text-gray-900">
@@ -494,7 +524,7 @@ const Library: React.FC = () => {
                   {/* 수정/삭제 버튼 */}
                   <div className="flex gap-2 mt-6">
                     <a
-                      href={selectedItem.type === 'book' 
+                      href={selectedItem.type === 'book'
                         ? `/books/edit/${(selectedItem.data as Book).id}`
                         : `/wishlists/edit/${(selectedItem.data as Wishlist).id}`
                       }
