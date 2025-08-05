@@ -95,6 +95,8 @@ export interface CreateReadingGroupRequest {
   isPublic: boolean;
   hasAssignment: boolean;
 
+  meetingDateTime: string;
+
   // 모임 일정 정보
   startDateTime?: string;
   endDateTime?: string;

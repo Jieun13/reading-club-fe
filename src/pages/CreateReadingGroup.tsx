@@ -145,7 +145,7 @@ const CreateReadingGroup: React.FC = () => {
         meetingType: formData.meetingType,
         location: formData.location,
         meetingUrl: formData.meetingUrl,
-        startDateTime: formData.meetingDateTime,
+        meetingDateTime: formData.meetingDateTime,
         durationHours: formData.durationHours,
 
         bookTitle: selectedBook.title,
