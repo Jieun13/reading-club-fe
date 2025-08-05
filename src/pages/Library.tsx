@@ -335,7 +335,7 @@ const Library: React.FC = () => {
                       className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer flex flex-col"
                       onClick={() => handleItemClick(item)}>
                     {/* 표지 */}
-                    <div className="relative w-full aspect-[2/2.2] flex-shrink-0">
+                    <div className="relative w-full aspect-[1/1] flex-shrink-0">
                       <img
                           src={isBook ? (bookData.coverImage || '/default-book-cover.jpg') : (wishlistData.coverImage || '/default-book-cover.jpg')}
                           alt={isBook ? bookData.title : wishlistData.title}
@@ -356,27 +356,6 @@ const Library: React.FC = () => {
                         {isBook ? (bookData.title || '제목 없음') : (wishlistData.title || '제목 없음')}
                       </h3>
                     </div>
-
-                    {/* 별점 */}
-                    {isBook && (
-                        <div className="px-2 pb-2">
-                          <div className="flex items-center bg-gray-50 rounded-full px-2 py-1 w-fit">
-                            {[...Array(5)].map((_, i) => (
-                                <svg
-                                    key={i}
-                                    className={`w-3 h-3 ${i < bookData.rating ? 'text-yellow-400' : 'text-gray-300'}`}
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                >
-                                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l..."/>
-                                </svg>
-                            ))}
-                            <span className="ml-1 text-xs text-gray-700 font-medium">
-                              {bookData.rating}
-                            </span>
-                          </div>
-                        </div>
-                    )}
                   </div>
               );
             })}
