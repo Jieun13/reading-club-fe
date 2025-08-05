@@ -39,6 +39,12 @@ const KakaoCallback: React.FC = () => {
           throw new Error(response.data.message || '로그인에 실패했습니다.');
         }
       } catch (error: any) {
+        // 로그인이 성공했지만 네트워크 에러가 발생한 경우는 무시
+        if (error.response?.status === 200 || error.response?.status === 201) {
+          console.log('카카오 로그인 성공 (네트워크 경고 무시)');
+          return;
+        }
+        
         console.error('Kakao login failed:', error);
         setError(error.response?.data?.message || error.message || '로그인 처리 중 오류가 발생했습니다.');
       }

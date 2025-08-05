@@ -21,8 +21,7 @@ export const authApi = {
   // 카카오 로그인 콜백
   kakaoCallback: async (code: string) => {
     const response = await axios.get<ApiResponse<LoginResponse>>(
-      `${API_BASE_URL}/auth/kakao/callback?code=${code}`,
-        { withCredentials: true }
+      `${API_BASE_URL}/auth/kakao/callback?code=${code}`
     );
     return response;
   },
