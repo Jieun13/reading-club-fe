@@ -323,51 +323,51 @@ const Library: React.FC = () => {
           )}
         </div>
       ) : (
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
-          {filteredItems.map((item, index) => {
-            const isBook = item.type === 'book';
-            const bookData = item.data as Book;
-            const wishlistData = item.data as Wishlist;
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
+            {filteredItems.map((item, index) => {
+              const isBook = item.type === 'book';
+              const bookData = item.data as Book;
+              const wishlistData = item.data as Wishlist;
 
-            return (
-              <div
-                key={`${item.type}-${index}`}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer flex flex-col"
-                onClick={() => handleItemClick(item)}
-              >
-                {/* 책 표지와 상태 배지 */}
-                <div className="relative h-40 flex-shrink-0">
-                  <img
-                    src={isBook ? (bookData.coverImage || '/default-book-cover.jpg') : (wishlistData.coverImage || '/default-book-cover.jpg')}
-                    alt={isBook ? bookData.title : wishlistData.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-2 right-2">
-                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                      isBook 
-                        ? 'bg-green-100 text-green-800' 
-                        : 'bg-purple-100 text-purple-800'
-                    }`}>
-                      {isBook ? '완독' : '읽고 싶은'}
-                    </span>
-                  </div>
+              return (
+                  <div
+                      key={`${item.type}-${index}`}
+                      className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer flex flex-col"
+                      onClick={() => handleItemClick(item)}
+                  >
+                    {/* 책 표지 + 상태 배지 */}
+                    <div className="relative w-full aspect-[2/3] flex-shrink-0">
+                      <img
+                          src={isBook ? (bookData.coverImage || '/default-book-cover.jpg') : (wishlistData.coverImage || '/default-book-cover.jpg')}
+                          alt={isBook ? bookData.title : wishlistData.title}
+                          className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-2 right-2">
+            <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                isBook
+                    ? 'bg-green-100 text-green-800'
+                    : 'bg-purple-100 text-purple-800'
+            }`}>
+              {isBook ? '완독' : '읽고 싶은'}
+            </span>
+                      </div>
+                    </div>
 
-                {/* 책 제목 */}
-                <div className="p-4 h-20 flex items-start bg-white border-t border-gray-100 flex-shrink-0">
-                  <h3 className="font-medium text-sm text-gray-900 w-full leading-tight overflow-hidden" style={{
-                    display: '-webkit-box',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical'
-                  }}>
-                    {isBook ? (bookData.title || '제목 없음') : (wishlistData.title || '제목 없음')}
-                  </h3>
-                </div>
+                    {/* 책 제목 */}
+                    <div className="p-3 bg-white border-t border-gray-100">
+                      <h3 className="font-medium text-sm text-gray-900 leading-tight overflow-hidden w-full" style={{
+                        display: '-webkit-box',
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: 'vertical'
+                      }}>
+                        {isBook ? (bookData.title || '제목 없음') : (wishlistData.title || '제목 없음')}
+                      </h3>
+                    </div>
 
-                  {/* 완독한 책의 별점 표시 */}
-                  {isBook && (
-                      <div className="absolute bottom-2 left-2">
-                        <div className="bg-white rounded-full px-3 py-1 shadow-sm">
-                          <div className="flex items-center">
+                    {/* 별점 (책 제목 아래로 이동) */}
+                    {isBook && (
+                        <div className="px-3 pb-3">
+                          <div className="flex items-center bg-gray-50 rounded-full px-3 py-1 w-fit">
                             {[...Array(5)].map((_, i) => (
                                 <svg
                                     key={i}
@@ -377,85 +377,84 @@ const Library: React.FC = () => {
                                     fill="currentColor"
                                     viewBox="0 0 20 20"
                                 >
-                                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                  <path
+                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                                 </svg>
                             ))}
                             <span className="ml-1 text-xs text-gray-700 font-medium">
-                            {bookData.rating}
-                          </span>
+                {bookData.rating}
+              </span>
                           </div>
                         </div>
-                      </div>
-                  )}
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                    )}
+                  </div>
+              );
+            })}
+          </div>
       )}
 
       {/* 상세 보기 모달 */}
       {showModal && selectedItem && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <div className="p-6">
-              {/* 모달 헤더 */}
-              <div className="flex justify-between items-start mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">
-                  {selectedItem.type === 'book' ? '완독한 책' : '읽고 싶은 책'}
-                </h2>
-                <button
-                  onClick={closeModal}
-                  className="text-gray-400 hover:text-gray-600 text-2xl"
-                >
-                  ×
-                </button>
-              </div>
-
-              {/* 책 정보 */}
-              <div className="flex flex-col md:flex-row gap-6">
-                {/* 책 표지 */}
-                <div className="flex-shrink-0">
-                  <img
-                    src={selectedItem.type === 'book' 
-                      ? ((selectedItem.data as Book).coverImage || '/default-book-cover.jpg')
-                      : ((selectedItem.data as Wishlist).coverImage || '/default-book-cover.jpg')
-                    }
-                    alt={selectedItem.type === 'book' 
-                      ? (selectedItem.data as Book).title
-                      : (selectedItem.data as Wishlist).title
-                    }
-                    className="w-48 h-64 object-cover rounded-lg shadow-md mx-auto md:mx-0"
-                  />
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="p-6">
+                {/* 모달 헤더 */}
+                <div className="flex justify-between items-start mb-6">
+                  <h2 className="text-2xl font-bold text-gray-900">
+                    {selectedItem.type === 'book' ? '완독한 책' : '읽고 싶은 책'}
+                  </h2>
+                  <button
+                      onClick={closeModal}
+                      className="text-gray-400 hover:text-gray-600 text-2xl"
+                  >
+                    ×
+                  </button>
                 </div>
 
-                {/* 책 상세 정보 */}
-                <div className="flex-1 relative">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {selectedItem.type === 'book' 
-                      ? (selectedItem.data as Book).title
-                      : (selectedItem.data as Wishlist).title
-                    }
-                  </h3>
-                  
-                  <p className="text-gray-600 mb-4">
-                    {selectedItem.type === 'book' 
-                      ? ((selectedItem.data as Book).author || '저자 미상')
-                      : ((selectedItem.data as Wishlist).author || '저자 미상')
-                    }
-                  </p>
+                {/* 책 정보 */}
+                <div className="flex flex-col md:flex-row gap-6">
+                  {/* 책 표지 */}
+                  <div className="flex-shrink-0">
+                    <img
+                        src={selectedItem.type === 'book'
+                            ? ((selectedItem.data as Book).coverImage || '/default-book-cover.jpg')
+                            : ((selectedItem.data as Wishlist).coverImage || '/default-book-cover.jpg')
+                        }
+                        alt={selectedItem.type === 'book'
+                            ? (selectedItem.data as Book).title
+                            : (selectedItem.data as Wishlist).title
+                        }
+                        className="w-48 h-64 object-cover rounded-lg shadow-md mx-auto md:mx-0"
+                    />
+                  </div>
 
-                  {/* 완독한 책의 경우 별점과 완독일 표시 */}
-                  {selectedItem.type === 'book' && (
-                    <>
-                      <div className="flex items-center mb-4">
-                        <span className="text-sm text-gray-600 mr-2">별점:</span>
-                        <div className="flex items-center">
-                          {[...Array(5)].map((_, i) => (
-                            <svg
-                              key={i}
-                              className={`w-5 h-5 ${
-                                i < (selectedItem.data as Book).rating ? 'text-yellow-400' : 'text-gray-300'
+                  {/* 책 상세 정보 */}
+                  <div className="flex-1 relative">
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      {selectedItem.type === 'book'
+                          ? (selectedItem.data as Book).title
+                          : (selectedItem.data as Wishlist).title
+                      }
+                    </h3>
+
+                    <p className="text-gray-600 mb-4">
+                      {selectedItem.type === 'book'
+                          ? ((selectedItem.data as Book).author || '저자 미상')
+                          : ((selectedItem.data as Wishlist).author || '저자 미상')
+                      }
+                    </p>
+
+                    {/* 완독한 책의 경우 별점과 완독일 표시 */}
+                    {selectedItem.type === 'book' && (
+                        <>
+                          <div className="flex items-center mb-4">
+                            <span className="text-sm text-gray-600 mr-2">별점:</span>
+                            <div className="flex items-center">
+                              {[...Array(5)].map((_, i) => (
+                                  <svg
+                                      key={i}
+                                      className={`w-5 h-5 ${
+                                          i < (selectedItem.data as Book).rating ? 'text-yellow-400' : 'text-gray-300'
                               }`}
                               fill="currentColor"
                               viewBox="0 0 20 20"
