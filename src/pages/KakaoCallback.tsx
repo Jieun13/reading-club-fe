@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { authApi } from '../api/auth';
@@ -10,7 +10,13 @@ const KakaoCallback: React.FC = () => {
   const { login } = useAuth();
   const [error, setError] = useState<string | null>(null);
 
+  // 중복 호출 방지를 위한 ref
+  const calledRef = useRef(false);
+
   useEffect(() => {
+    if (calledRef.current) return; // 이미 호출했다면 무시
+    calledRef.current = true;
+
     const handleKakaoCallback = async () => {
       try {
         const code = searchParams.get('code');
@@ -24,27 +30,20 @@ const KakaoCallback: React.FC = () => {
           throw new Error('인증 코드가 없습니다.');
         }
 
-        // 백엔드 카카오 콜백 API 호출
         const response = await authApi.kakaoCallback(code);
 
         if (response.data.success) {
           const loginData = response.data.data;
-          
-          // 사용자 정보 설정 (AuthContext의 login 함수가 토큰 저장도 처리)
           login(loginData);
-          
-          // 서재 페이지로 이동
           navigate('/library', { replace: true });
         } else {
           throw new Error(response.data.message || '로그인에 실패했습니다.');
         }
       } catch (error: any) {
-        // 로그인이 성공했지만 네트워크 에러가 발생한 경우는 무시
         if (error.response?.status === 200 || error.response?.status === 201) {
           console.log('카카오 로그인 성공 (네트워크 경고 무시)');
           return;
         }
-        
         console.error('Kakao login failed:', error);
         setError(error.response?.data?.message || error.message || '로그인 처리 중 오류가 발생했습니다.');
       }
@@ -58,7 +57,7 @@ const KakaoCallback: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="max-w-md w-full bg-white rounded-lg shadow-md p-6">
           <div className="text-center">
-            <div 
+            <div
               className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
               style={{ backgroundColor: '#fef2f2' }}
             >
@@ -82,7 +81,7 @@ const KakaoCallback: React.FC = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="max-w-md w-full bg-white rounded-lg shadow-md p-6">
         <div className="text-center">
-          <div 
+          <div
             className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
             style={{ backgroundColor: '#fef3c7' }}
           >
