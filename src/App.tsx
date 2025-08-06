@@ -22,8 +22,10 @@ import Posts from './pages/Posts';
 import CreatePost from './pages/CreatePost';
 import PostDetail from './pages/PostDetail';
 import EditPost from './pages/EditPost';
+import MyPosts from './pages/MyPosts';
 import Statistics from './pages/Statistics';
 import Profile from './pages/Profile';
+import UserProfile from './pages/UserProfile';
 import KakaoCallback from './pages/KakaoCallback';
 import Loading from './components/common/Loading';
 import { useAuth } from './contexts/AuthContext';
@@ -168,6 +170,11 @@ const AppContent: React.FC = () => {
               <Posts />
             </ProtectedRoute>
           } />
+          <Route path="/posts/my" element={
+            <ProtectedRoute>
+              <MyPosts />
+            </ProtectedRoute>
+          } />
           <Route path="/posts/create" element={
             <ProtectedRoute>
               <CreatePost />
@@ -191,6 +198,11 @@ const AppContent: React.FC = () => {
           <Route path="/profile" element={
             <ProtectedRoute>
               <Profile />
+            </ProtectedRoute>
+          } />
+          <Route path="/users/:userId" element={
+            <ProtectedRoute>
+              <UserProfile />
             </ProtectedRoute>
           } />
         </Routes>
