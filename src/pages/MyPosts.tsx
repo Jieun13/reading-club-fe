@@ -14,6 +14,7 @@ import { wishlistApi } from '../api/wishlists';
 import { bookApi } from '../api/books';
 import { currentlyReadingApi } from '../api/currentlyReading';
 import { useAuth } from '../contexts/AuthContext';
+import { convertToHttps, handleImageError } from '../utils/imageUtils';
 import { CurrentlyReading } from '../types';
 
 const MyPosts: React.FC = () => {
@@ -253,12 +254,10 @@ const MyPosts: React.FC = () => {
       <div className="mb-6 flex justify-between items-start">
         <div className="flex items-center space-x-4">
           <img
-            src={user?.profileImage || '/default-avatar.png'}
+            src={convertToHttps(user?.profileImage)}
             alt={user?.nickname || '사용자'}
             className="w-16 h-16 rounded-full object-cover"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = '/default-avatar.png';
-            }}
+            onError={(e) => handleImageError(e)}
           />
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">

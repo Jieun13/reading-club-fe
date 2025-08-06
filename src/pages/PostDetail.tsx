@@ -11,6 +11,7 @@ import {
 import { postsApi, commentApi } from '../api/posts';
 import { wishlistApi } from '../api/wishlists';
 import { useAuth } from '../contexts/AuthContext';
+import { convertToHttps, handleImageError } from '../utils/imageUtils';
 import { Comment, CommentCreateRequest } from '../types';
 
 const PostDetail: React.FC = () => {
@@ -303,9 +304,10 @@ const PostDetail: React.FC = () => {
               >
                 {comment.user.profileImage && (
                   <img
-                    src={comment.user.profileImage}
+                    src={convertToHttps(comment.user.profileImage)}
                     alt={comment.user.nickname}
                     className="w-6 h-6 rounded-full cursor-pointer"
+                    onError={(e) => handleImageError(e)}
                   />
                 )}
                 <span className="text-sm font-medium text-gray-900 cursor-pointer">
@@ -498,9 +500,10 @@ const PostDetail: React.FC = () => {
               >
                 {post.userProfileImage && (
                     <img
-                        src={post.userProfileImage}
+                        src={convertToHttps(post.userProfileImage)}
                         alt={post.userName}
                         className="w-8 h-8 rounded-full cursor-pointer"
+                        onError={(e) => handleImageError(e)}
                     />
                 )}
                 <div>

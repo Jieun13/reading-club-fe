@@ -15,6 +15,7 @@ import { wishlistApi } from '../api/wishlists';
 import { ReadingGroup, GroupMember } from '../types/readingGroup';
 import { useAuth } from '../contexts/AuthContext';
 import Loading from '../components/common/Loading';
+import { convertToHttps, handleImageError } from '../utils/imageUtils';
 
 const ReadingGroupDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -425,9 +426,10 @@ const ReadingGroupDetail: React.FC = () => {
                       >
                         {member.user.profileImage ? (
                           <img
-                            src={member.user.profileImage}
+                            src={convertToHttps(member.user.profileImage)}
                             alt={member.user.nickname}
                             className="w-10 h-10 rounded-full object-cover"
+                            onError={(e) => handleImageError(e)}
                           />
                         ) : (
                           <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
