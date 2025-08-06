@@ -40,7 +40,7 @@ const Header: React.FC = () => {
               <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">📚</span>
               </div>
-              <span className="text-xl font-bold text-gray-900">독서모임</span>
+              <span className="text-xl font-bold text-gray-900">readingwithme</span>
             </Link>
           </div>
 
