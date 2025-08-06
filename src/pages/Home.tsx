@@ -21,7 +21,7 @@ const Home: React.FC = () => {
               <span style={{ fontSize: '2.5rem' }}>📚</span>
             </div>
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              독서모임
+              readingwithme
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               읽은 책을 기록하고, 독서 습관을 만들어보세요. 
