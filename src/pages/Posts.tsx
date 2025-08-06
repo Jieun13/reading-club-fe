@@ -12,6 +12,7 @@ import {
 import { postsApi, commentApi } from '../api/posts';
 import { wishlistApi } from '../api/wishlists';
 import { useAuth } from '../contexts/AuthContext';
+import { convertToHttps, handleImageError } from '../utils/imageUtils';
 
 const Posts: React.FC = () => {
   const { user } = useAuth();
@@ -575,9 +576,10 @@ const Posts: React.FC = () => {
                             >
                               {post.userProfileImage && (
                                   <img
-                                      src={post.userProfileImage}
+                                      src={convertToHttps(post.userProfileImage)}
                                       alt={post.userName}
                                       className="w-5 h-5 rounded-full cursor-pointer"
+                                      onError={(e) => handleImageError(e)}
                                   />
                               )}
                               <span className="text-xs text-gray-600 cursor-pointer">

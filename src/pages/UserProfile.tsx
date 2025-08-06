@@ -4,6 +4,7 @@ import { userApi } from '../api/user';
 import { UserProfile as UserProfileType } from '../types';
 import { PostType, RecommendationPost, RecommendationType } from '../types/post';
 import Loading from '../components/common/Loading';
+import { convertToHttps, handleImageError } from '../utils/imageUtils';
 
 interface UserProfileProps {}
 
@@ -111,12 +112,10 @@ const UserProfile: React.FC<UserProfileProps> = () => {
       {/* 헤더 */}
       <div className="mb-6 flex items-center space-x-4">
         <img
-          src={targetUser.profileImage || '/default-avatar.png'}
+          src={convertToHttps(targetUser.profileImage)}
           alt={targetUser.nickname || '사용자'}
           className="w-16 h-16 rounded-full object-cover"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = '/default-avatar.png';
-          }}
+          onError={(e) => handleImageError(e)}
         />
         <div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
