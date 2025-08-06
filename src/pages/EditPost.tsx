@@ -13,7 +13,7 @@ import {
 import { postsApi } from '../api/posts';
 
 const EditPost: React.FC = () => {
-  const { postId } = useParams<{ postId: string }>();
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   
   const [post, setPost] = useState<Post | null>(null);
@@ -56,10 +56,10 @@ const EditPost: React.FC = () => {
   };
 
   useEffect(() => {
-    if (postId) {
-      fetchPost(parseInt(postId));
+    if (id) {
+      fetchPost(parseInt(id));
     }
-  }, [postId]);
+  }, [id]);
 
   const fetchPost = async (id: number) => {
     setLoading(true);
