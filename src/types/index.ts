@@ -1,3 +1,5 @@
+import { Post } from './post';
+
 // API 공통 응답 타입
 export interface ApiResponse<T> {
   success: boolean;
@@ -14,11 +16,24 @@ export interface User {
   createdAt: string;
 }
 
+export interface UserProfile {
+  id: number;
+  nickname: string;
+  profileImage?: string;
+  createdAt: string;
+  updatedAt: string;
+  statistics: UserStatistics;
+  currentlyReading: CurrentlyReading[];
+  recentPublicPosts: Post[];
+}
+
 export interface UserStatistics {
   totalBooks: number;
-  averageRating: number;
-  booksThisMonth: number;
-  booksThisYear: number;
+  currentlyReadingCount: number;
+  wishlistCount: number;
+  totalPosts: number;
+  thisMonthPosts: number;
+  thisMonthBooks: number;
 }
 
 // 책 관련 타입
@@ -163,4 +178,39 @@ export interface BooksWithCurrentlyReadingResponse {
   books: PageResponse<Book>;
   currentlyReading: CurrentlyReading[];
   totalCurrentlyReading: number;
+}
+
+export interface Comment {
+  id: number;
+  content: string;
+  isDeleted: boolean;
+  isReply: boolean;
+  parentId: number | null;
+  replyCount: number;
+  canDelete: boolean;
+  createdAt: string;
+  updatedAt: string;
+  user: {
+    id: number;
+    nickname: string;
+    profileImage: string;
+  };
+  replies?: Comment[];
+}
+
+export interface CommentCreateRequest {
+  content: string;
+  parentId?: number | null;
+}
+
+export interface CommentListResponse {
+  comments: {
+    content: Comment[];
+    totalElements: number;
+    totalPages: number;
+    number: number;
+    size: number;
+  };
+  totalComments: number;
+  activeComments: number;
 }

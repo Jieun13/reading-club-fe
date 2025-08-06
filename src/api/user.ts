@@ -1,5 +1,5 @@
 import { apiClient } from './client';
-import { ApiResponse, User, UserStatistics } from '../types';
+import { ApiResponse, User, UserStatistics, UserProfile } from '../types';
 
 export const userApi = {
   // 내 정보 조회
@@ -23,6 +23,12 @@ export const userApi = {
   // 내 독서 통계 조회
   getMyStatistics: async (): Promise<ApiResponse<UserStatistics>> => {
     const response = await apiClient.get<ApiResponse<UserStatistics>>('/users/me/statistics');
+    return response.data;
+  },
+
+  // 특정 사용자 프로필 조회
+  getUserProfile: async (userId: number): Promise<ApiResponse<UserProfile>> => {
+    const response = await apiClient.get<ApiResponse<UserProfile>>(`/users/${userId}`);
     return response.data;
   },
 };

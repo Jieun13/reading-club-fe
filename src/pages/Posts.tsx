@@ -9,15 +9,18 @@ import {
   QuotePost,
   RecommendationType
 } from '../types/post';
-import { postsApi } from '../api/posts';
+import { postsApi, commentApi } from '../api/posts';
 import { wishlistApi } from '../api/wishlists';
+import { useAuth } from '../contexts/AuthContext';
 
 const Posts: React.FC = () => {
+  const { user } = useAuth();
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedType, setSelectedType] = useState<PostType | 'ALL'>('ALL');
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
+  const [commentCounts, setCommentCounts] = useState<{ [postId: number]: number }>({});
 
   // 검색 관련 상태
   const [searchMode, setSearchMode] = useState(false);
@@ -35,17 +38,37 @@ const Posts: React.FC = () => {
       };
 
       console.log('API 호출 전, filters:', filters);
-      const response = await postsApi.getPosts(filters);
+      const response = await postsApi.getAllPosts(filters);
       console.log('API 응답 전체:', response);
       console.log('posts 데이터:', response.data?.posts);
       console.log('totalPages:', response.data?.totalPages);
 
-      setPosts(response.data?.posts || []);
+      const postsData = response.data?.posts || [];
+      setPosts(postsData);
       setTotalPages(response.data?.totalPages || 1);
+      
+      // 댓글 개수 조회
+      const commentCountPromises = postsData.map(async (post: Post) => {
+        try {
+          const commentResponse = await commentApi.getComments(post.id, 0, 1);
+          return { postId: post.id, count: commentResponse.data?.totalComments || 0 };
+        } catch (error) {
+          console.error(`댓글 개수 조회 실패 (postId: ${post.id}):`, error);
+          return { postId: post.id, count: 0 };
+        }
+      });
+      
+      const commentCountsData = await Promise.all(commentCountPromises);
+      const countsMap: { [postId: number]: number } = {};
+      commentCountsData.forEach(({ postId, count }) => {
+        countsMap[postId] = count;
+      });
+      setCommentCounts(countsMap);
     } catch (error) {
       console.error('게시글 목록 조회 실패:', error);
       setPosts([]); // 에러 시 빈 배열로 설정
       setTotalPages(1);
+      setCommentCounts({});
     } finally {
       setLoading(false);
     }
@@ -68,12 +91,32 @@ const Posts: React.FC = () => {
       };
 
       const response = await postsApi.searchPosts(searchParams);
-      setPosts(response.data?.content || []);
+      const postsData = response.data?.content || [];
+      setPosts(postsData);
       setTotalPages(response.data?.totalPages || 1);
+      
+      // 댓글 개수 조회
+      const commentCountPromises = postsData.map(async (post: Post) => {
+        try {
+          const commentResponse = await commentApi.getComments(post.id, 0, 1);
+          return { postId: post.id, count: commentResponse.data?.totalComments || 0 };
+        } catch (error) {
+          console.error(`댓글 개수 조회 실패 (postId: ${post.id}):`, error);
+          return { postId: post.id, count: 0 };
+        }
+      });
+      
+      const commentCountsData = await Promise.all(commentCountPromises);
+      const countsMap: { [postId: number]: number } = {};
+      commentCountsData.forEach(({ postId, count }) => {
+        countsMap[postId] = count;
+      });
+      setCommentCounts(countsMap);
     } catch (error) {
       console.error('게시글 검색 실패:', error);
       setPosts([]);
       setTotalPages(1);
+      setCommentCounts({});
     } finally {
       setLoading(false);
     }
@@ -193,7 +236,7 @@ const Posts: React.FC = () => {
         const reviewPost = post as ReviewPost;
         return (
             <div>
-              <h3 className="font-semibold text-lg text-gray-900 mb-2">
+              <h3 className="font-semibold text-l text-gray-900 mb-2">
                 {reviewPost.title}
               </h3>
               <p className="text-gray-600 line-clamp-3 leading-relaxed">
@@ -419,13 +462,13 @@ const Posts: React.FC = () => {
                 첫 번째 게시글을 작성해보세요!
               </Link>
             </div>
-        ) : (
-            <div className="space-y-6">
+                ) : (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {posts && posts.map((post) => (
                   <Link
                       key={post.id}
                       to={`/posts/${post.id}`}
-                      className="block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden h-48"
+                      className="block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden h-48 border border-gray-300"
                   >
                     <div className="flex h-full">
                       {/* 왼쪽: 책 정보 (연한 회색 배경) */}
@@ -474,32 +517,43 @@ const Posts: React.FC = () => {
                       {/* 오른쪽: 게시글 정보 */}
                       <div className="flex-1 p-4 flex flex-col h-full">
                         {/* 상단: 게시글 타입과 공개 설정 */}
-                        <div className="flex items-center space-x-2 mb-3">
-                          {post.postType === PostType.RECOMMENDATION ? (
-                              // 추천/비추천 게시글의 경우 추천/비추천 여부를 표시
-                              <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                                  (post as RecommendationPost).recommendationType === RecommendationType.RECOMMEND
-                                      ? 'bg-green-100 text-green-800'
-                                      : 'bg-red-100 text-red-800'
-                              }`}>
-                        {(post as RecommendationPost).recommendationType === RecommendationType.RECOMMEND ? '추천' : '비추천'}
-                      </span>
-                          ) : (
-                              // 다른 게시글 타입의 경우 기존 태그 표시
-                              <span className={`px-2 py-1 rounded-full text-xs font-medium ${getPostTypeColor(post.postType)}`}>
-                        {getPostTypeLabel(post.postType)}
-                      </span>
-                          )}
-                          {post.visibility === PostVisibility.PRIVATE && (
-                              <span className="px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
-                        비공개
-                      </span>
-                          )}
+                        <div className="flex items-center justify-between mb-3">
+                          <div className="flex items-center space-x-2">
+                            {post.postType === PostType.RECOMMENDATION ? (
+                                // 추천/비추천 게시글의 경우 추천/비추천 여부를 표시
+                                <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                                    (post as RecommendationPost).recommendationType === RecommendationType.RECOMMEND
+                                        ? 'bg-green-100 text-green-800'
+                                        : 'bg-red-100 text-red-800'
+                                }`}>
+                          {(post as RecommendationPost).recommendationType === RecommendationType.RECOMMEND ? '추천' : '비추천'}
+                        </span>
+                            ) : (
+                                // 다른 게시글 타입의 경우 기존 태그 표시
+                                <span className={`px-2 py-1 rounded-full text-xs font-medium ${getPostTypeColor(post.postType)}`}>
+                          {getPostTypeLabel(post.postType)}
+                        </span>
+                            )}
+                            {post.visibility === PostVisibility.PRIVATE && (
+                                <span className="px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                          비공개
+                        </span>
+                            )}
+
+                          </div>
+                          
+                          {/* 댓글 개수 표시 */}
+                          <div className="flex items-center space-x-1 text-xs text-gray-500">
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                            </svg>
+                            <span>{commentCounts[post.id] || 0}</span>
+                          </div>
                         </div>
 
                         {/* 중간: 게시글 내용 */}
                         <div className="flex-1 mb-3 overflow-hidden">
-                          <div className="text-m text-gray-700 overflow-hidden" style={{
+                          <div className="text-sm text-gray-700 overflow-hidden" style={{
                             display: '-webkit-box',
                             WebkitLineClamp: 5,
                             WebkitBoxOrient: 'vertical'
@@ -511,16 +565,25 @@ const Posts: React.FC = () => {
                         {/* 하단: 작성자 정보와 작성일 */}
                         <div className="flex items-center justify-between pt-2 border-t border-gray-200 mt-auto">
                           <div className="flex items-center space-x-2">
-                            {post.userProfileImage && (
-                                <img
-                                    src={post.userProfileImage}
-                                    alt={post.userName}
-                                    className="w-5 h-5 rounded-full"
-                                />
-                            )}
-                            <span className="text-xs text-gray-600">
-                        {post.userName}
-                      </span>
+                            <Link
+                              to={`/users/${post.userId}`}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                              }}
+                              className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+                            >
+                              {post.userProfileImage && (
+                                  <img
+                                      src={post.userProfileImage}
+                                      alt={post.userName}
+                                      className="w-5 h-5 rounded-full cursor-pointer"
+                                  />
+                              )}
+                              <span className="text-xs text-gray-600 cursor-pointer">
+                                {post.userName}
+                              </span>
+                            </Link>
                           </div>
                           <div className="text-xs text-gray-500">
                             {formatDate(post.createdAt)}

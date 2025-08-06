@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { ChartBarIcon, BookOpenIcon, CalendarIcon, StarIcon } from '@heroicons/react/24/outline';
+import { ChartBarIcon, BookOpenIcon, CalendarIcon, StarIcon, DocumentTextIcon } from '@heroicons/react/24/outline';
 import { bookApi } from '../api/books';
+import { postsApi } from '../api/posts';
 import { Book, MonthlyStats } from '../types/book';
 import Loading from '../components/common/Loading';
 
 const Statistics: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [monthlyStats, setMonthlyStats] = useState<MonthlyStats[]>([]);
+  const [postCount, setPostCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
 
@@ -17,13 +19,15 @@ const Statistics: React.FC = () => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const [booksResponse, statsResponse] = await Promise.all([
+      const [booksResponse, statsResponse, postsResponse] = await Promise.all([
         bookApi.getBooks(0, 100),
-        bookApi.getMonthlyStatistics()
+        bookApi.getMonthlyStatistics(),
+        postsApi.getMyPosts()
       ]);
       
       setBooks(booksResponse.data.data.content);
       setMonthlyStats(statsResponse.data.data);
+      setPostCount(postsResponse.data?.posts?.length || 0);
     } catch (error) {
       console.error('데이터를 불러오는데 실패했습니다:', error);
     } finally {
@@ -124,6 +128,18 @@ const Statistics: React.FC = () => {
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-600">월평균</p>
               <p className="text-2xl font-bold text-gray-900">{averagePerMonth}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-lg shadow p-6">
+          <div className="flex items-center">
+            <div className="p-2 bg-purple-100 rounded-lg">
+              <DocumentTextIcon className="w-6 h-6 text-purple-600" />
+            </div>
+            <div className="ml-4">
+              <p className="text-sm font-medium text-gray-600">게시글</p>
+              <p className="text-2xl font-bold text-gray-900">{postCount}</p>
             </div>
           </div>
         </div>

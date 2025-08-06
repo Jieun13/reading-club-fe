@@ -97,60 +97,30 @@ const Header: React.FC = () => {
                 <span className="text-gray-300">로딩 중...</span>
               </div>
             ) : isAuthenticated && user ? (
-              <div style={{ position: 'relative' }}>
-                <button
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="flex items-center space-x-2 text-gray-700 hover:text-primary-600"
+              <div className="flex items-center space-x-4">
+                <Link
+                  to="/posts/my"
+                  className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium"
+                  style={{ textDecoration: 'none' }}
                 >
-                  <img
-                    src={user.profileImage || '/default-avatar.png'}
-                    alt={user.nickname}
-                    className="w-8 h-8 rounded-full"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/default-avatar.png';
-                    }}
-                  />
-                  <span>{user.nickname}</span>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
+                  MY
+                </Link>
+                <button
+                  onClick={handleLogout}
+                  className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium"
+                  style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+                >
+                  로그아웃
                 </button>
-
-                {isMenuOpen && (
-                  <div 
-                    className="bg-white rounded-md shadow-lg py-2"
-                    style={{ 
-                      position: 'absolute',
-                      right: 0,
-                      top: '100%',
-                      marginTop: '0.5rem',
-                      width: '12rem',
-                      zIndex: 50
-                    }}
-                  >
-                    <Link
-                      to="/profile"
-                      className="block px-4 py-2 text-sm text-gray-700"
-                      style={{ textDecoration: 'none' }}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      프로필 설정
-                    </Link>
-                    <button
-                      onClick={handleLogout}
-                      className="block w-full text-left px-4 py-2 text-sm text-gray-700"
-                      style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-                    >
-                      로그아웃
-                    </button>
-                  </div>
-                )}
               </div>
             ) : (
-              <div className="flex items-center space-x-2">
-                <img src="/default-avatar.png" alt="사용자" className="w-8 h-8 rounded-full" />
-                <span className="text-gray-400">사용자</span>
-              </div>
+              <button
+                onClick={handleKakaoLogin}
+                className="bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-2 rounded-md text-sm font-medium"
+                style={{ textDecoration: 'none' }}
+              >
+                카카오 로그인
+              </button>
             )}
           </div>
 
@@ -207,16 +177,32 @@ const Header: React.FC = () => {
                 >
                   통계
                 </Link>
+                <button
+                  onClick={handleLogout}
+                  className="block w-full text-left px-3 py-2 text-gray-700 hover:text-primary-600"
+                  style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+                >
+                  로그아웃
+                </button>
               </>
             ) : (
-              <Link
-                to="/about"
-                className="block px-3 py-2 text-gray-700 hover:text-primary-600"
-                style={{ textDecoration: 'none' }}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                소개
-              </Link>
+              <>
+                <Link
+                  to="/about"
+                  className="block px-3 py-2 text-gray-700 hover:text-primary-600"
+                  style={{ textDecoration: 'none' }}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  소개
+                </Link>
+                <button
+                  onClick={handleKakaoLogin}
+                  className="block w-full text-left px-3 py-2 bg-yellow-400 hover:bg-yellow-500 text-black rounded-md"
+                  style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+                >
+                  카카오 로그인
+                </button>
+              </>
             )}
           </div>
         </div>

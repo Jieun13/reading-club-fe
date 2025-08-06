@@ -419,7 +419,10 @@ const ReadingGroupDetail: React.FC = () => {
                 {members.length > 0 ? (
                   members.map((member) => (
                     <div key={member.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                      <div className="flex items-center space-x-3">
+                      <Link
+                        to={`/users/${member.user.id}`}
+                        className="flex items-center space-x-3 hover:opacity-80 transition-opacity cursor-pointer"
+                      >
                         {member.user.profileImage ? (
                           <img
                             src={member.user.profileImage}
@@ -452,7 +455,7 @@ const ReadingGroupDetail: React.FC = () => {
                             <p className="text-sm text-gray-600 mt-1">{member.introduction}</p>
                           )}
                         </div>
-                      </div>
+                      </Link>
                       
                       {/* 멤버 삭제 버튼 (모임장만, 자신과 다른 모임장은 제외) */}
                       {isCreator && member.role !== 'CREATOR' && member.user.id !== user?.id && (
