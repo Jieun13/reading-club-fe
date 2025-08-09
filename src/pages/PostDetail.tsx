@@ -190,11 +190,11 @@ const PostDetail: React.FC = () => {
         const reviewPost = post as ReviewPost;
         return (
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-gray-900">
+            <h2 className="text-l font-bold text-gray-900">
               {reviewPost.title}
             </h2>
             <div className="prose max-w-none">
-              <div className="whitespace-pre-wrap text-gray-700 leading-relaxed">
+              <div className="text-m whitespace-pre-wrap text-gray-700 leading-relaxed">
                 {reviewPost.content}
               </div>
             </div>
@@ -215,7 +215,7 @@ const PostDetail: React.FC = () => {
               </span>
             </div>
             <div className="prose max-w-none">
-              <div className="whitespace-pre-wrap text-gray-700 leading-relaxed">
+              <div className="text-m whitespace-pre-wrap text-gray-700 leading-relaxed">
                 {recommendationPost.reason}
               </div>
             </div>
@@ -229,18 +229,18 @@ const PostDetail: React.FC = () => {
         if (quotePost.quotes && quotePost.quotes.length > 0) {
           return (
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-gray-900">
-                {quotePost.bookInfo?.title || '문장 수집'}
+              <h2 className="text-sm font-bold text-gray-900">
+                수집한 문장들
               </h2>
               <div className="space-y-6">
                 {quotePost.quotes.map((quote, index) => (
                   <div key={index} className="border-l-4 border-gray-300 pl-6 py-4 bg-gray-50 rounded-r-lg">
                     <div className="flex items-center mb-3">
-                      <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-sm">
+                      <span className="px-3 py-1 bg-gray-200 text-gray-700 rounded-full text-xs">
                         {quote.page}p
                       </span>
                     </div>
-                    <blockquote className="text-l text-gray-800 leading-relaxed pr-4">
+                    <blockquote className="text-sm text-gray-800 leading-relaxed pr-4">
                       "{quote.text}"
                     </blockquote>
                   </div>
@@ -255,7 +255,7 @@ const PostDetail: React.FC = () => {
           return (
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <h2 className="text-2xl font-bold text-gray-900">
+                <h2 className="text-xl font-bold text-gray-900">
                   {quotePost.bookInfo?.title || '문장 수집'}
                 </h2>
                 <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
@@ -295,7 +295,7 @@ const PostDetail: React.FC = () => {
     
     return (
       <div key={comment.id} className={`${isReply ? 'ml-8 border-l-2 border-gray-200 pl-4' : ''}`}>
-        <div className="bg-gray-50 rounded-lg p-4 mb-3">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-3">
           <div className="flex items-start justify-between">
             <div className="flex items-center space-x-2 mb-2">
               <Link
@@ -349,6 +349,13 @@ const PostDetail: React.FC = () => {
           )}
         </div>
         
+        {/* 대댓글들 */}
+        {comment.replies && comment.replies.length > 0 && (
+          <div className="space-y-2">
+            {comment.replies.map((reply) => renderComment(reply, true))}
+          </div>
+        )}
+        
         {/* 대댓글 폼 */}
         {showReplyForm === comment.id && (
           <div className="ml-8 mb-3">
@@ -376,13 +383,6 @@ const PostDetail: React.FC = () => {
                 </button>
               </div>
             </form>
-          </div>
-        )}
-        
-        {/* 대댓글들 */}
-        {comment.replies && comment.replies.length > 0 && (
-          <div className="space-y-2">
-            {comment.replies.map((reply) => renderComment(reply, true))}
           </div>
         )}
       </div>
@@ -454,37 +454,68 @@ const PostDetail: React.FC = () => {
 
         {/* 본문 */}
         <div className="p-6">
-          <div className="flex space-x-6">
-            {/* 책 정보 */}
-            {post.bookInfo && (
-                <div className="w-36 flex-shrink-0">
-                  <img
-                      src={post.bookInfo.cover}
-                      alt={post.bookInfo.title}
-                      className="w-full h-44 object-cover rounded shadow-lg"
-                  />
-                  <div className="mt-4 text-left break-words">
-                    <h3 className="font-medium text-gray-900 text-sm leading-snug">
-                      {post.bookInfo.title}
-                    </h3>
-                    <p className="text-xs text-gray-600 mt-1">
-                      {post.bookInfo.author}
-                    </p>
-                    <p className="text-xs text-gray-500 mt-1">
-                      {post.bookInfo.publisher}
-                    </p>
-                    <button
-                        onClick={handleAddToWishlist}
-                        className="mt-3 text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded hover:bg-purple-200 transition-colors"
-                    >
-                      읽고 싶은 책 추가
-                    </button>
-                  </div>
+          {/* 책 정보 - 모바일에서는 상단에, 데스크톱에서는 왼쪽에 */}
+          {post.bookInfo && (
+            <div className="lg:hidden mb-6">
+              {/* 모바일용 책 정보 레이아웃 */}
+              <div className="flex items-start space-x-4">
+                <img
+                  src={post.bookInfo.cover}
+                  alt={post.bookInfo.title}
+                  className="w-20 h-28 object-cover rounded shadow-lg flex-shrink-0"
+                />
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-sm text-gray-900 text-base leading-snug">
+                    {post.bookInfo.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 mt-1">
+                    {post.bookInfo.author}
+                  </p>
+                  <p className="text-sm text-gray-500 mt-1">
+                    {post.bookInfo.publisher}
+                  </p>
+                  <button
+                    onClick={handleAddToWishlist}
+                    className="mt-3 text-sm bg-purple-100 text-purple-700 px-3 py-2 rounded hover:bg-purple-200 transition-colors"
+                  >
+                    읽고 싶은 책 추가
+                  </button>
                 </div>
+              </div>
+            </div>
+          )}
+
+          <div className="flex flex-col lg:flex-row lg:space-x-6">
+            {/* 책 정보 - 데스크톱용 (왼쪽) */}
+            {post.bookInfo && (
+              <div className="hidden lg:block w-36 flex-shrink-0">
+                <img
+                  src={post.bookInfo.cover}
+                  alt={post.bookInfo.title}
+                  className="w-full h-44 object-cover rounded shadow-lg"
+                />
+                <div className="mt-4 text-left break-words">
+                  <h3 className="font-medium text-gray-900 text-sm leading-snug">
+                    {post.bookInfo.title}
+                  </h3>
+                  <p className="text-xs text-gray-600 mt-1">
+                    {post.bookInfo.author}
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    {post.bookInfo.publisher}
+                  </p>
+                  <button
+                    onClick={handleAddToWishlist}
+                    className="mt-3 text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded hover:bg-purple-200 transition-colors"
+                  >
+                    읽고 싶은 책 추가
+                  </button>
+                </div>
+              </div>
             )}
 
             {/* 게시글 내용 */}
-            <div className="flex-1 min-w-0">
+            <div className="flex-1 min-w-0 bg-gray-50 border border-gray-200 rounded-lg p-4">
               {renderPostContent(post)}
             </div>
           </div>
@@ -547,8 +578,21 @@ const PostDetail: React.FC = () => {
           </h3>
         </div>
 
+        {/* 댓글 목록 */}
+        <div className="px-6 py-4">
+          {comments.length === 0 ? (
+            <div className="text-center py-8 text-gray-500">
+              아직 댓글이 없습니다. 첫 번째 댓글을 작성해보세요!
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {comments.map((comment) => renderComment(comment))}
+            </div>
+          )}
+        </div>
+
         {/* 댓글 작성 폼 */}
-        <div className="px-6 py-4 border-b border-gray-200">
+        <div className="px-6 py-4 border-t border-gray-200">
           <form onSubmit={handleCommentSubmit} className="space-y-3">
             <textarea
               value={commentContent}
@@ -567,19 +611,6 @@ const PostDetail: React.FC = () => {
               </button>
             </div>
           </form>
-        </div>
-
-        {/* 댓글 목록 */}
-        <div className="px-6 py-4">
-          {comments.length === 0 ? (
-            <div className="text-center py-8 text-gray-500">
-              아직 댓글이 없습니다. 첫 번째 댓글을 작성해보세요!
-            </div>
-          ) : (
-            <div className="space-y-4">
-              {comments.map((comment) => renderComment(comment))}
-            </div>
-          )}
         </div>
       </div>
     </div>
