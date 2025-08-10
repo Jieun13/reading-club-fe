@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Post,
   PostType,
@@ -16,6 +16,7 @@ import { convertToHttps, handleImageError } from '../utils/imageUtils';
 
 const Posts: React.FC = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedType, setSelectedType] = useState<PostType | 'ALL'>('ALL');
@@ -29,7 +30,6 @@ const Posts: React.FC = () => {
   const [searchType, setSearchType] = useState<'bookTitle' | 'keyword'>('bookTitle');
 
   const fetchPosts = useCallback(async () => {
-    console.log('fetchPosts 시작, filters:', { selectedType, currentPage });
     setLoading(true);
     try {
       const filters = {
@@ -38,11 +38,7 @@ const Posts: React.FC = () => {
         size: 10
       };
 
-      console.log('API 호출 전, filters:', filters);
       const response = await postsApi.getAllPosts(filters);
-      console.log('API 응답 전체:', response);
-      console.log('posts 데이터:', response.data?.posts);
-      console.log('totalPages:', response.data?.totalPages);
 
       const postsData = response.data?.posts || [];
       setPosts(postsData);
@@ -54,7 +50,6 @@ const Posts: React.FC = () => {
           const commentResponse = await commentApi.getComments(post.id, 0, 1);
           return { postId: post.id, count: commentResponse.data?.totalComments || 0 };
         } catch (error) {
-          console.error(`댓글 개수 조회 실패 (postId: ${post.id}):`, error);
           return { postId: post.id, count: 0 };
         }
       });
@@ -66,7 +61,6 @@ const Posts: React.FC = () => {
       });
       setCommentCounts(countsMap);
     } catch (error) {
-      console.error('게시글 목록 조회 실패:', error);
       setPosts([]); // 에러 시 빈 배열로 설정
       setTotalPages(1);
       setCommentCounts({});
@@ -102,7 +96,6 @@ const Posts: React.FC = () => {
           const commentResponse = await commentApi.getComments(post.id, 0, 1);
           return { postId: post.id, count: commentResponse.data?.totalComments || 0 };
         } catch (error) {
-          console.error(`댓글 개수 조회 실패 (postId: ${post.id}):`, error);
           return { postId: post.id, count: 0 };
         }
       });
@@ -114,7 +107,6 @@ const Posts: React.FC = () => {
       });
       setCommentCounts(countsMap);
     } catch (error) {
-      console.error('게시글 검색 실패:', error);
       setPosts([]);
       setTotalPages(1);
       setCommentCounts({});
@@ -213,7 +205,6 @@ const Posts: React.FC = () => {
       await wishlistApi.addWishlist(wishlistData);
       alert('읽고 싶은 책에 추가되었습니다!');
     } catch (error) {
-      console.error('위시리스트 추가 실패:', error);
       alert('읽고 싶은 책 추가에 실패했습니다. 다시 시도해주세요.');
     }
   };
@@ -316,9 +307,8 @@ const Posts: React.FC = () => {
     });
   };
 
-  if (loading) {
-    console.log('로딩 중...');
-    return (
+      if (loading) {
+      return (
         <div className="max-w-6xl mx-auto p-6">
           <div className="flex justify-center items-center h-64">
             <div className="text-lg text-gray-600">게시글을 불러오는 중...</div>
@@ -327,7 +317,7 @@ const Posts: React.FC = () => {
     );
   }
 
-  console.log('렌더링 시점 - posts:', posts, 'posts.length:', posts?.length);
+
 
   return (
       <div className="max-w-6xl mx-auto p-6">
@@ -466,10 +456,10 @@ const Posts: React.FC = () => {
                 ) : (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {posts && posts.map((post) => (
-                  <Link
+                  <div
                       key={post.id}
-                      to={`/posts/${post.id}`}
-                      className="block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden h-48 border border-gray-300"
+                      className="block bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden h-48 border border-gray-300 cursor-pointer"
+                      onClick={() => navigate(`/posts/${post.id}`)}
                   >
                     <div className="flex h-full">
                       {/* 왼쪽: 책 정보 (연한 회색 배경) */}
@@ -536,7 +526,7 @@ const Posts: React.FC = () => {
                         </span>
                             )}
                             {post.visibility === PostVisibility.PRIVATE && (
-                                <span className="px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                                <span className="px-2 px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
                           비공개
                         </span>
                             )}
@@ -593,7 +583,7 @@ const Posts: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                  </Link>
+                  </div>
               ))}
             </div>
         )}

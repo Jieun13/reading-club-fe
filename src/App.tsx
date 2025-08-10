@@ -11,6 +11,8 @@ import EditWishlist from './pages/EditWishlist';
 
 import AddCurrentlyReading from './pages/AddCurrentlyReading';
 import EditCurrentlyReading from './pages/EditCurrentlyReading';
+import AddDroppedBook from './pages/AddDroppedBook';
+import EditDroppedBook from './pages/EditDroppedBook';
 import ReadingGroups from './pages/ReadingGroups';
 import CreateReadingGroup from './pages/CreateReadingGroup';
 import ReadingGroupDetail from './pages/ReadingGroupDetail';
@@ -130,6 +132,16 @@ const AppContent: React.FC = () => {
               <EditCurrentlyReading />
             </ProtectedRoute>
           } />
+          <Route path="/dropped-books/add" element={
+            <ProtectedRoute>
+              <AddDroppedBook />
+            </ProtectedRoute>
+          } />
+          <Route path="/dropped-books/edit/:id" element={
+            <ProtectedRoute>
+              <EditDroppedBook />
+            </ProtectedRoute>
+          } />
           <Route path="/reading-groups" element={
             <ProtectedRoute>
               <ReadingGroups />
@@ -170,7 +182,7 @@ const AppContent: React.FC = () => {
               <Posts />
             </ProtectedRoute>
           } />
-          <Route path="/posts/my" element={
+          <Route path="/my" element={
             <ProtectedRoute>
               <MyPosts />
             </ProtectedRoute>

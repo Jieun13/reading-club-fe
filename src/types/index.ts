@@ -1,4 +1,6 @@
 import { Post } from './post';
+import { DroppedBook } from './droppedBook';
+import { Wishlist } from './wishlist';
 
 // API 공통 응답 타입
 export interface ApiResponse<T> {
@@ -31,9 +33,11 @@ export interface UserStatistics {
   totalBooks: number;
   currentlyReadingCount: number;
   wishlistCount: number;
+  droppedBooksCount: number;
   totalPosts: number;
   thisMonthPosts: number;
   thisMonthBooks: number;
+  thisMonthDroppedBooks: number;
 }
 
 // 책 관련 타입
@@ -213,4 +217,27 @@ export interface CommentListResponse {
   };
   totalComments: number;
   activeComments: number;
+}
+
+export interface AllBooksResponse {
+  success: boolean;
+  message: string;
+  data: {
+    finishedBooks: {
+      content: Book[];
+      totalElements: number;
+      totalPages: number;
+      size: number;
+      number: number;
+    };
+    currentlyReading: CurrentlyReading[];
+    droppedBooks: DroppedBook[];
+    wishlistBooks: Wishlist[];
+    
+    // 각 상태별 총 개수
+    totalFinishedBooks: number;
+    totalCurrentlyReading: number;
+    totalDroppedBooks: number;
+    totalWishlistBooks: number;
+  };
 }
