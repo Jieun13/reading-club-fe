@@ -99,7 +99,7 @@ const Header: React.FC = () => {
             ) : isAuthenticated && user ? (
               <div className="flex items-center space-x-4">
                 <Link
-                  to="/posts/my"
+                  to="/my"
                   className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium"
                   style={{ textDecoration: 'none' }}
                 >

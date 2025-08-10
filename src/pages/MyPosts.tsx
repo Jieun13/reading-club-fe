@@ -16,6 +16,7 @@ import { currentlyReadingApi } from '../api/currentlyReading';
 import { useAuth } from '../contexts/AuthContext';
 import { convertToHttps, handleImageError } from '../utils/imageUtils';
 import { CurrentlyReading } from '../types';
+import { BookOpenIcon, HeartIcon, DocumentTextIcon } from '@heroicons/react/24/outline';
 
 const MyPosts: React.FC = () => {
   const { user } = useAuth();
@@ -311,90 +312,66 @@ const MyPosts: React.FC = () => {
       </div>
 
       {/* 통계 섹션 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        {/* 전체 통계 */}
         <div className="bg-white rounded-lg shadow-md p-6">
-          <div className="flex items-center mb-4">
-            <svg className="w-6 h-6 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
-            <h3 className="text-lg font-semibold text-gray-900">서재 통계</h3>
-          </div>
-          <div className="space-y-3">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">전체 통계</h3>
+          <div className="space-y-4">
             <div className="flex justify-between items-center">
               <div className="flex items-center">
-                <svg className="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+                <BookOpenIcon className="w-4 h-4 text-green-600 mr-2" />
                 <span className="text-gray-600">완독한 책</span>
               </div>
-              <span className="font-semibold">{completedBooksCount}</span>
+              <span className="font-semibold text-lg">{completedBooksCount}</span>
             </div>
             <div className="flex justify-between items-center">
               <div className="flex items-center">
-                <svg className="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                </svg>
+                <BookOpenIcon className="w-4 h-4 text-blue-600 mr-2" />
                 <span className="text-gray-600">읽고 있는 책</span>
               </div>
-              <span className="font-semibold">{currentlyReadingCount}</span>
+              <span className="font-semibold text-lg">{currentlyReadingCount}</span>
             </div>
             <div className="flex justify-between items-center">
               <div className="flex items-center">
-                <svg className="w-4 h-4 text-yellow-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-                <span className="text-gray-600">읽고 싶은 책</span>
+                <HeartIcon className="w-4 h-4 text-pink-600 mr-2" />
+                <span className="text-gray-600">위시리스트</span>
               </div>
-              <span className="font-semibold">{wishlistCount}</span>
+              <span className="font-semibold text-lg">{wishlistCount}</span>
             </div>
           </div>
         </div>
 
+        {/* 이번 달 통계 */}
         <div className="bg-white rounded-lg shadow-md p-6">
-          <div className="flex items-center mb-4">
-            <svg className="w-6 h-6 text-purple-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-            </svg>
-            <h3 className="text-lg font-semibold text-gray-900">게시글 통계</h3>
-          </div>
-          <div className="space-y-3">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">이번 달 통계</h3>
+          <div className="space-y-4">
             <div className="flex justify-between items-center">
               <div className="flex items-center">
-                <svg className="w-4 h-4 text-purple-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                </svg>
-                <span className="text-gray-600">총 게시글</span>
-              </div>
-              <span className="font-semibold">{postCount}</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <div className="flex items-center">
-                <svg className="w-4 h-4 text-indigo-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <span className="text-gray-600">이번 달 게시글</span>
-              </div>
-              <span className="font-semibold">{thisMonthPostsCount}</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <div className="flex items-center mb-4">
-            <svg className="w-6 h-6 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-            <h3 className="text-lg font-semibold text-gray-900">이번 달 완독</h3>
-          </div>
-          <div className="space-y-3">
-            <div className="flex justify-between items-center">
-              <div className="flex items-center">
-                <svg className="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+                <BookOpenIcon className="w-4 h-4 text-green-600 mr-2" />
                 <span className="text-gray-600">완독한 책</span>
               </div>
-              <span className="font-semibold">{thisMonthCompletedCount}</span>
+              <span className="font-semibold text-lg">{thisMonthCompletedCount}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* 게시글 통계 */}
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">게시글 통계</h3>
+          <div className="space-y-4">
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <DocumentTextIcon className="w-4 h-4 text-purple-600 mr-2" />
+                <span className="text-gray-600">총 게시글</span>
+              </div>
+              <span className="font-semibold text-lg">{postCount}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <DocumentTextIcon className="w-4 h-4 text-purple-600 mr-2" />
+                <span className="text-gray-600">이번 달 게시글</span>
+              </div>
+              <span className="font-semibold text-lg">{thisMonthPostsCount}</span>
             </div>
           </div>
         </div>

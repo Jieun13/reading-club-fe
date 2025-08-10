@@ -12,14 +12,16 @@ import {
 } from '../types';
 
 export const currentlyReadingApi = {
-  // 읽고 있는 책 목록 조회
+  // 읽고 있는 책 목록 조회 - 키워드 검색 통일
   getCurrentlyReading: async (page: number = 0, size: number = 10, search?: string) => {
     const params = new URLSearchParams({
       page: page.toString(),
       size: size.toString(),
     });
     
-    if (search) params.append('search', search);
+    if (search && search.trim()) {
+      params.append('search', search.trim());
+    }
     
     const response = await apiClient.get<ApiResponse<PageResponse<CurrentlyReading>>>(`/currently-reading?${params}`);
     return response.data;

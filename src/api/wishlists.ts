@@ -51,18 +51,16 @@ interface PageResponse<T> {
 }
 
 export const wishlistApi = {
-  // 위시리스트 목록 조회 (페이징)
-  getWishlists: async (page: number = 0, size: number = 100, filters?: {
-    priority?: number;
-    search?: string;
-  }) => {
+  // 위시리스트 목록 조회 (페이징) - 키워드 검색 통일
+  getWishlists: async (page: number = 0, size: number = 10, search?: string) => {
     const params = new URLSearchParams({
       page: page.toString(),
       size: size.toString(),
     });
     
-    if (filters?.priority) params.append('priority', filters.priority.toString());
-    if (filters?.search) params.append('search', filters.search);
+    if (search && search.trim()) {
+      params.append('search', search.trim());
+    }
     
     const response = await api.get<ApiResponse<PageResponse<Wishlist>>>(`/wishlists?${params}`);
     return response;

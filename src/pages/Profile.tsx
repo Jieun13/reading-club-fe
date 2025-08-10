@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { UserIcon, Cog6ToothIcon, ArrowRightOnRectangleIcon, PencilIcon } from '@heroicons/react/24/outline';
+import { 
+  UserIcon, 
+  Cog6ToothIcon, 
+  ArrowRightOnRectangleIcon, 
+  PencilIcon
+} from '@heroicons/react/24/outline';
 import { useAuth } from '../contexts/AuthContext';
 import { authApi } from '../api/auth';
 import { userApi } from '../api/user';
+import { convertToHttps, handleImageError } from '../utils/imageUtils';
 
 const Profile: React.FC = () => {
   const { user, logout, updateUser, isLoading } = useAuth();
@@ -12,6 +18,7 @@ const Profile: React.FC = () => {
   const [nickname, setNickname] = useState(user?.nickname || '');
   const [isUpdating, setIsUpdating] = useState(false);
 
+
   useEffect(() => {
     if (user) {
       setNickname(user.nickname);
@@ -19,6 +26,8 @@ const Profile: React.FC = () => {
       setNickname('');
     }
   }, [user]);
+
+
 
   if (isLoading) {
     return <div className="container py-8 text-gray-400">로딩 중...</div>;
@@ -124,9 +133,10 @@ const Profile: React.FC = () => {
                   <div className="flex-shrink-0">
                     {user?.profileImage ? (
                       <img
-                        src={user.profileImage}
+                        src={convertToHttps(user.profileImage)}
                         alt="프로필"
                         className="w-24 h-24 rounded-full object-cover"
+                        onError={(e) => handleImageError(e)}
                       />
                     ) : (
                       <div className="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center">
@@ -177,6 +187,8 @@ const Profile: React.FC = () => {
                     </p>
                   </div>
                 </div>
+
+
               </div>
             )}
 
