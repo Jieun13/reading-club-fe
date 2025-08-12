@@ -84,6 +84,15 @@ export interface MonthlyStats {
   averageRating: number;
 }
 
+// 월간 책 표지 URL 타입
+export interface MonthlyBookCovers {
+  completedBookCovers: string[];
+  currentlyReadingCovers: string[];
+  droppedBookCovers: string[];
+  wishlistCovers: string[];
+  totalCount: number;
+}
+
 // 인증 관련 타입
 export interface LoginResponse {
   accessToken: string;
