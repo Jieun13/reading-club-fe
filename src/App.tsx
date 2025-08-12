@@ -28,6 +28,7 @@ import MyPosts from './pages/MyPosts';
 import Statistics from './pages/Statistics';
 import Profile from './pages/Profile';
 import UserProfile from './pages/UserProfile';
+import CoverPalette from './pages/CoverPalette';
 import KakaoCallback from './pages/KakaoCallback';
 import Loading from './components/common/Loading';
 import { useAuth } from './contexts/AuthContext';
@@ -205,6 +206,12 @@ const AppContent: React.FC = () => {
           <Route path="/statistics" element={
             <ProtectedRoute>
               <Statistics />
+            </ProtectedRoute>
+          } />
+
+          <Route path="/cover-palette" element={
+            <ProtectedRoute>
+              <CoverPalette />
             </ProtectedRoute>
           } />
           <Route path="/profile" element={

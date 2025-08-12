@@ -77,6 +77,14 @@ const Header: React.FC = () => {
                 >
                   통계
                 </Link>
+
+                <Link
+                  to="/cover-palette"
+                  className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium"
+                  style={{ textDecoration: 'none' }}
+                >
+                  커버팔레트
+                </Link>
               </>
             ) : (
               <Link
@@ -176,6 +184,15 @@ const Header: React.FC = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   통계
+                </Link>
+
+                <Link
+                  to="/cover-palette"
+                  className="block px-3 py-2 text-gray-700 hover:text-primary-600"
+                  style={{ textDecoration: 'none' }}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  커버팔레트
                 </Link>
                 <button
                   onClick={handleLogout}
