@@ -547,7 +547,7 @@ const Library: React.FC = () => {
               </button>
               {showAddBookDropdown && (
                   <div
-                      className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-50 border border-gray-200">
+                      className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-50 border border-gray-200 sm:right-0 right-auto left-0">
                     <a
                         href="/books/add"
                         className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-t-lg"
@@ -615,12 +615,12 @@ const Library: React.FC = () => {
 
         {/* 책 목록 */}
         {filteredItems.length === 0 ? (
-            <div className="bg-white rounded-lg shadow-md p-12 text-center justify-end">
+            <div className="bg-white rounded-lg shadow-md p-12 text-center">
               <div className="text-gray-500 text-lg mb-4">
                 {searchTerm ? '검색 결과가 없습니다.' : '책이 없습니다.'}
               </div>
               {!searchTerm && (
-                  <div className="space-x-4">
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <a
                         href="/books/add"
                         className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
@@ -630,24 +630,24 @@ const Library: React.FC = () => {
                     <a
                         href="/currently-reading/add"
                         className="inline-block bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors"
-              >
-                읽고 있는 책 추가하기
-              </a>
-              <a
-                href="/wishlists/add"
-                className="inline-block bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"
-              >
-                읽고 싶은 책 추가하기
-              </a>
-              <a
-                href="/dropped-books/add"
-                className="inline-block bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors"
-              >
-                읽다 만 책 추가하기
-              </a>
+                    >
+                      읽고 있는 책 추가하기
+                    </a>
+                    <a
+                        href="/wishlists/add"
+                        className="inline-block bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"
+                    >
+                      읽고 싶은 책 추가하기
+                    </a>
+                    <a
+                        href="/dropped-books/add"
+                        className="inline-block bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors"
+                    >
+                      읽다 만 책 추가하기
+                    </a>
+                  </div>
+              )}
             </div>
-          )}
-        </div>
       ) : (
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6">
           {filteredItems.map((item, index) => {
