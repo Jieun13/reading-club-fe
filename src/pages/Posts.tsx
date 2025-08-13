@@ -307,6 +307,15 @@ const Posts: React.FC = () => {
     });
   };
 
+  const formatDateMobile = (dateString: string) => {
+    const date = new Date(dateString);
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    return `${month}/${day} ${hours}:${minutes}`;
+  };
+
       if (loading) {
       return (
         <div className="max-w-6xl mx-auto p-6">
@@ -578,7 +587,7 @@ const Posts: React.FC = () => {
                             </Link>
                           </div>
                           <div className="text-xs text-gray-500">
-                            {formatDate(post.createdAt)}
+                            <span className="hidden sm:inline">{formatDate(post.createdAt)}</span>
                           </div>
                         </div>
                       </div>

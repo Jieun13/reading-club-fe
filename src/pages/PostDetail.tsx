@@ -289,6 +289,15 @@ const PostDetail: React.FC = () => {
     });
   };
 
+  const formatDateMobile = (dateString: string) => {
+    const date = new Date(dateString);
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    return `${month}/${day} ${hours}:${minutes}`;
+  };
+
   // 댓글 렌더링
   const renderComment = (comment: Comment, isReply: boolean = false) => {
     const commentDate = formatDate(comment.createdAt);
@@ -315,7 +324,8 @@ const PostDetail: React.FC = () => {
                 </span>
               </Link>
               <span className="text-xs text-gray-500">
-                {commentDate}
+                <span className="hidden sm:inline">{commentDate}</span>
+                <span className="sm:hidden">{formatDateMobile(comment.createdAt)}</span>
               </span>
             </div>
             
@@ -441,7 +451,8 @@ const PostDetail: React.FC = () => {
                 {getPostTypeLabel(post.postType)}
               </span>
               <span className="text-sm text-gray-500">
-                {formatDate(post.createdAt)}
+                <span className="hidden sm:inline">{formatDate(post.createdAt)}</span>
+                <span className="sm:hidden">{formatDateMobile(post.createdAt)}</span>
               </span>
               {post.createdAt !== post.updatedAt && (
                 <span className="text-sm text-gray-400">
