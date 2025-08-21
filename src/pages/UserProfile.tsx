@@ -133,6 +133,39 @@ const UserProfile: React.FC<UserProfileProps> = () => {
         </div>
       </div>
 
+      {/* 현재 읽고 있는 책 */}
+      {targetUser.currentlyReading && targetUser.currentlyReading.length > 0 && (
+        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+          <h2 className="text-xl font-semibold text-gray-900 mb-4">현재 읽고 있는 책</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {targetUser.currentlyReading.map((book) => (
+              <div key={book.id} className="bg-gray-50 rounded-lg p-4">
+                <div className="flex items-start space-x-3">
+                  <img
+                    src={book.coverImage}
+                    alt={book.title}
+                    className="w-12 h-16 object-cover rounded shadow-sm flex-shrink-0"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-semibold text-gray-900 text-sm mb-1 line-clamp-2">
+                      {book.title}
+                    </h3>
+                    <p className="text-xs text-gray-600 mb-2">{book.author}</p>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        className="bg-blue-600 h-2 rounded-full"
+                        style={{ width: `${book.progressPercentage || 0}%` }}
+                      />
+                    </div>
+                    <p className="text-xs text-gray-500 mt-1">{book.progressPercentage || 0}% 완료</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* 통계 섹션 */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
         {/* 전체 통계 */}
@@ -221,39 +254,6 @@ const UserProfile: React.FC<UserProfileProps> = () => {
           </div>
         </div>
       </div>
-
-      {/* 현재 읽고 있는 책 */}
-      {targetUser.currentlyReading && targetUser.currentlyReading.length > 0 && (
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">현재 읽고 있는 책</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {targetUser.currentlyReading.map((book) => (
-              <div key={book.id} className="bg-gray-50 rounded-lg p-4">
-                <div className="flex items-start space-x-3">
-                  <img
-                    src={book.coverImage}
-                    alt={book.title}
-                    className="w-12 h-16 object-cover rounded shadow-sm flex-shrink-0"
-                  />
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-gray-900 text-sm mb-1 line-clamp-2">
-                      {book.title}
-                    </h3>
-                    <p className="text-xs text-gray-600 mb-2">{book.author}</p>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div
-                        className="bg-blue-600 h-2 rounded-full"
-                        style={{ width: `${book.progressPercentage || 0}%` }}
-                      />
-                    </div>
-                    <p className="text-xs text-gray-500 mt-1">{book.progressPercentage || 0}% 완료</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
 
       {/* 최근 공개 게시글 */}
       {targetUser.recentPublicPosts && targetUser.recentPublicPosts.length > 0 && (
