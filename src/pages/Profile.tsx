@@ -3,12 +3,25 @@ import {
   UserIcon, 
   Cog6ToothIcon, 
   ArrowRightOnRectangleIcon, 
-  PencilIcon
+  PencilIcon,
+  BookOpenIcon,
+  StarIcon,
+  CalendarIcon,
+  DocumentTextIcon
 } from '@heroicons/react/24/outline';
 import { useAuth } from '../contexts/AuthContext';
 import { authApi } from '../api/auth';
 import { userApi } from '../api/user';
+import { bookApi } from '../api/books';
+import { currentlyReadingApi } from '../api/currentlyReading';
+import { droppedBooksApi } from '../api/droppedBooks';
+import { wishlistApi } from '../api/wishlists';
 import { convertToHttps, handleImageError } from '../utils/imageUtils';
+import { Book } from '../types/book';
+import { CurrentlyReading } from '../types';
+import { DroppedBook } from '../types/droppedBook';
+import { Wishlist } from '../types/wishlist';
+import BookModal from '../components/library/BookModal';
 
 const Profile: React.FC = () => {
   const { user, logout, updateUser, isLoading } = useAuth();
@@ -17,7 +30,17 @@ const Profile: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [nickname, setNickname] = useState(user?.nickname || '');
   const [isUpdating, setIsUpdating] = useState(false);
-
+  
+  // 통계 및 책 데이터 상태
+  const [books, setBooks] = useState<Book[]>([]);
+  const [currentlyReading, setCurrentlyReading] = useState<CurrentlyReading[]>([]);
+  const [droppedBooks, setDroppedBooks] = useState<DroppedBook[]>([]);
+  const [wishlistItems, setWishlistItems] = useState<Wishlist[]>([]);
+  const [statsLoading, setStatsLoading] = useState(true);
+  
+  // 모달 상태
+  const [selectedItem, setSelectedItem] = useState<{ type: 'book' | 'wishlist' | 'currentlyReading' | 'droppedBook', data: Book | Wishlist | CurrentlyReading | DroppedBook } | null>(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -27,7 +50,67 @@ const Profile: React.FC = () => {
     }
   }, [user]);
 
+  useEffect(() => {
+    if (user) {
+      fetchStatsData();
+    }
+  }, [user]);
 
+  const fetchStatsData = async () => {
+    try {
+      setStatsLoading(true);
+      const [booksResponse, currentlyReadingResponse, droppedBooksResponse, wishlistResponse] = await Promise.all([
+        bookApi.getBooks(0, 100),
+        currentlyReadingApi.getCurrentlyReading(0, 10),
+        droppedBooksApi.getDroppedBooks(0, 10),
+        wishlistApi.getWishlists(0, 10)
+      ]);
+      
+      setBooks(booksResponse.data.data.content);
+      setCurrentlyReading(currentlyReadingResponse.data.content);
+      setDroppedBooks(droppedBooksResponse.data.content);
+      setWishlistItems(wishlistResponse.data.data.content);
+    } catch (error) {
+      console.error('통계 데이터를 불러오는데 실패했습니다:', error);
+    } finally {
+      setStatsLoading(false);
+    }
+  };
+
+  const handleItemClick = (item: { type: 'book' | 'wishlist' | 'currentlyReading' | 'droppedBook', data: Book | Wishlist | CurrentlyReading | DroppedBook }) => {
+    setSelectedItem(item);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedItem(null);
+  };
+
+  const handleDelete = async (item: { type: 'book' | 'wishlist' | 'currentlyReading' | 'droppedBook', data: Book | Wishlist | CurrentlyReading | DroppedBook }) => {
+    // 삭제 로직은 여기서는 구현하지 않음 (프로필 페이지에서는 읽기 전용)
+    closeModal();
+  };
+
+  const handleStartReading = (wishlistItem: Wishlist) => {
+    // 읽기 시작 로직은 여기서는 구현하지 않음
+    closeModal();
+  };
+
+  const handleMarkAsRead = (currentlyReadingItem: CurrentlyReading) => {
+    // 읽기 완료 로직은 여기서는 구현하지 않음
+    closeModal();
+  };
+
+  const handleDropBook = (currentlyReadingItem: CurrentlyReading) => {
+    // 책 중단 로직은 여기서는 구현하지 않음
+    closeModal();
+  };
+
+  const handleResumeReading = (droppedBook: DroppedBook) => {
+    // 다시 읽기 로직은 여기서는 구현하지 않음
+    closeModal();
+  };
 
   if (isLoading) {
     return <div className="container py-8 text-gray-400">로딩 중...</div>;
@@ -89,6 +172,15 @@ const Profile: React.FC = () => {
       day: 'numeric'
     });
   };
+
+  // 통계 계산
+  const totalBooks = books.length;
+  const averageRating = totalBooks > 0 
+    ? (books.reduce((sum, book) => sum + book.rating, 0) / totalBooks).toFixed(1)
+    : '0';
+  const thisYearCount = books.filter(book => 
+    new Date(book.finishedDate).getFullYear() === new Date().getFullYear()
+  ).length;
 
   return (
     <div className="container py-8">
@@ -188,7 +280,150 @@ const Profile: React.FC = () => {
                   </div>
                 </div>
 
+                {/* 통계 요약 */}
+                {!statsLoading && (
+                  <div className="bg-gray-50 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">독서 현황</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-primary-600">
+                          {totalBooks}
+                        </div>
+                        <div className="text-sm text-gray-600">전체 책</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-yellow-600">
+                          {averageRating}
+                        </div>
+                        <div className="text-sm text-gray-600">평균 별점</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-green-600">
+                          {currentlyReading.length}
+                        </div>
+                        <div className="text-sm text-gray-600">읽고 있는 책</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-blue-600">
+                          {thisYearCount}
+                        </div>
+                        <div className="text-sm text-gray-600">올해 완독</div>
+                      </div>
+                    </div>
+                  </div>
+                )}
 
+                {/* 읽고 있는 책 */}
+                {!statsLoading && currentlyReading.length > 0 && (
+                  <div className="bg-white border border-gray-200 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">읽고 있는 책</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {currentlyReading.map((book) => (
+                        <div 
+                          key={book.id} 
+                          className="flex items-start space-x-3 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
+                          onClick={() => handleItemClick({ type: 'currentlyReading', data: book })}
+                        >
+                          {book.coverImage ? (
+                            <img
+                              src={convertToHttps(book.coverImage)}
+                              alt={book.title}
+                              className="w-12 h-16 object-cover rounded flex-shrink-0"
+                            />
+                          ) : (
+                            <div className="w-12 h-16 bg-gray-200 rounded flex items-center justify-center flex-shrink-0">
+                              <BookOpenIcon className="w-6 h-6 text-gray-400" />
+                            </div>
+                          )}
+                          <div className="flex-1 min-w-0">
+                            <h4 className="text-sm font-medium text-gray-900 line-clamp-2 mb-1">
+                              {book.title}
+                            </h4>
+                            <p className="text-xs text-gray-600 mb-1">{book.author || '저자 미상'}</p>
+                            <div className="flex items-center space-x-2">
+                              <div className="text-xs text-gray-500">
+                                진행률: {book.progressPercentage}%
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* 읽다 만 책 */}
+                {!statsLoading && droppedBooks.length > 0 && (
+                  <div className="bg-white border border-gray-200 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">읽다 만 책</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {droppedBooks.map((book) => (
+                        <div 
+                          key={book.id} 
+                          className="flex items-start space-x-3 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
+                          onClick={() => handleItemClick({ type: 'droppedBook', data: book })}
+                        >
+                          {book.coverImage ? (
+                            <img
+                              src={convertToHttps(book.coverImage)}
+                              alt={book.title}
+                              className="w-12 h-16 object-cover rounded flex-shrink-0"
+                            />
+                          ) : (
+                            <div className="w-12 h-16 bg-gray-200 rounded flex items-center justify-center flex-shrink-0">
+                              <BookOpenIcon className="w-6 h-6 text-gray-400" />
+                            </div>
+                          )}
+                          <div className="flex-1 min-w-0">
+                            <h4 className="text-sm font-medium text-gray-900 line-clamp-2 mb-1">
+                              {book.title}
+                            </h4>
+                            <p className="text-xs text-gray-600 mb-1">{book.author || '저자 미상'}</p>
+                            <div className="flex items-center space-x-2">
+                              <div className="text-xs text-gray-500">
+                                진행률: {book.progressPercentage || 0}%
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* 읽고 싶은 책 */}
+                {!statsLoading && wishlistItems.length > 0 && (
+                  <div className="bg-white border border-gray-200 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">읽고 싶은 책</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {wishlistItems.map((book) => (
+                        <div 
+                          key={book.id} 
+                          className="flex items-start space-x-3 p-4 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
+                          onClick={() => handleItemClick({ type: 'wishlist', data: book })}
+                        >
+                          {book.coverImage ? (
+                            <img
+                              src={convertToHttps(book.coverImage)}
+                              alt={book.title}
+                              className="w-12 h-16 object-cover rounded flex-shrink-0"
+                            />
+                          ) : (
+                            <div className="w-12 h-16 bg-gray-200 rounded flex items-center justify-center flex-shrink-0">
+                              <BookOpenIcon className="w-6 h-6 text-gray-400" />
+                            </div>
+                          )}
+                          <div className="flex-1 min-w-0">
+                            <h4 className="text-sm font-medium text-gray-900 line-clamp-2 mb-1">
+                              {book.title}
+                            </h4>
+                            <p className="text-xs text-gray-600 mb-1">{book.author || '저자 미상'}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 
@@ -217,6 +452,18 @@ const Profile: React.FC = () => {
             )}
           </div>
         </div>
+
+        {/* 책 모달 */}
+        <BookModal
+          selectedItem={selectedItem}
+          showModal={showModal}
+          onClose={closeModal}
+          onDelete={handleDelete}
+          onStartReading={handleStartReading}
+          onMarkAsRead={handleMarkAsRead}
+          onDropBook={handleDropBook}
+          onResumeReading={handleResumeReading}
+        />
       </div>
     </div>
   );

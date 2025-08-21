@@ -11,6 +11,8 @@ const Statistics: React.FC = () => {
   const [postCount, setPostCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+  
+
 
   useEffect(() => {
     fetchData();
@@ -34,6 +36,8 @@ const Statistics: React.FC = () => {
       setLoading(false);
     }
   };
+
+
 
   // 기본 통계 계산
   const totalBooks = books.length;
@@ -144,6 +148,8 @@ const Statistics: React.FC = () => {
           </div>
         </div>
       </div>
+
+
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         {/* 월별 완독 통계 */}
@@ -261,6 +267,8 @@ const Statistics: React.FC = () => {
           </div>
         </div>
       )}
+
+
     </div>
   );
 };

@@ -17,6 +17,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { convertToHttps, handleImageError } from '../utils/imageUtils';
 import { CurrentlyReading } from '../types';
 import { BookOpenIcon, HeartIcon, DocumentTextIcon } from '@heroicons/react/24/outline';
+import BookModal from '../components/library/BookModal';
 
 const MyPosts: React.FC = () => {
   const { user } = useAuth();
@@ -32,9 +33,14 @@ const MyPosts: React.FC = () => {
   const [completedBooksCount, setCompletedBooksCount] = useState(0);
   const [currentlyReadingCount, setCurrentlyReadingCount] = useState(0);
   const [wishlistCount, setWishlistCount] = useState(0);
+  const [droppedBooksCount, setDroppedBooksCount] = useState(0);
   const [postCount, setPostCount] = useState(0);
   const [thisMonthPostsCount, setThisMonthPostsCount] = useState(0);
   const [thisMonthCompletedCount, setThisMonthCompletedCount] = useState(0);
+
+  // 모달 상태
+  const [selectedItem, setSelectedItem] = useState<{ type: 'book' | 'wishlist' | 'currentlyReading' | 'droppedBook', data: any } | null>(null);
+  const [showModal, setShowModal] = useState(false);
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -63,6 +69,7 @@ const MyPosts: React.FC = () => {
       setCurrentlyReadingCount(currentlyReadingData.length);
       setCompletedBooksCount(booksData.length);
       setWishlistCount(wishlistData.length);
+      setDroppedBooksCount(0); // 기본값으로 설정
 
       // 이번 달 통계 계산
       const now = new Date();
@@ -92,6 +99,41 @@ const MyPosts: React.FC = () => {
       setLoading(false);
     }
   }, []);
+
+  const handleItemClick = (book: CurrentlyReading) => {
+    setSelectedItem({ type: 'currentlyReading', data: book });
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedItem(null);
+  };
+
+  const handleDelete = async (item: { type: 'book' | 'wishlist' | 'currentlyReading' | 'droppedBook', data: any }) => {
+    // 삭제 로직은 여기서는 구현하지 않음 (my페이지에서는 읽기 전용)
+    closeModal();
+  };
+
+  const handleStartReading = (wishlistItem: any) => {
+    // 읽기 시작 로직은 여기서는 구현하지 않음
+    closeModal();
+  };
+
+  const handleMarkAsRead = (currentlyReadingItem: CurrentlyReading) => {
+    // 읽기 완료 로직은 여기서는 구현하지 않음
+    closeModal();
+  };
+
+  const handleDropBook = (currentlyReadingItem: CurrentlyReading) => {
+    // 책 중단 로직은 여기서는 구현하지 않음
+    closeModal();
+  };
+
+  const handleResumeReading = (droppedBook: any) => {
+    // 다시 읽기 로직은 여기서는 구현하지 않음
+    closeModal();
+  };
 
   const handleTypeChange = (type: PostType | 'ALL') => {
     setSelectedType(type);
@@ -280,7 +322,11 @@ const MyPosts: React.FC = () => {
         <h2 className="text-xl font-semibold text-gray-900 mb-4">현재 읽고 있는 책</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {currentlyReading.map((book) => (
-            <div key={book.id} className="bg-gray-50 rounded-lg p-4">
+            <div 
+              key={book.id} 
+              className="bg-gray-50 rounded-lg p-4 hover:bg-gray-100 cursor-pointer transition-colors"
+              onClick={() => handleItemClick(book)}
+            >
               <div className="flex items-start space-x-3">
                 <img
                   src={book.coverImage}
@@ -337,6 +383,13 @@ const MyPosts: React.FC = () => {
                 <span className="text-gray-600">위시리스트</span>
               </div>
               <span className="font-semibold text-lg">{wishlistCount}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <DocumentTextIcon className="w-4 h-4 text-red-600 mr-2" />
+                <span className="text-gray-600">읽다 만 책</span>
+              </div>
+              <span className="font-semibold text-lg">{droppedBooksCount}</span>
             </div>
           </div>
         </div>
@@ -484,6 +537,18 @@ const MyPosts: React.FC = () => {
             </div>
           </div>
       )}
+
+      {/* 책 모달 */}
+      <BookModal
+        selectedItem={selectedItem}
+        showModal={showModal}
+        onClose={closeModal}
+        onDelete={handleDelete}
+        onStartReading={handleStartReading}
+        onMarkAsRead={handleMarkAsRead}
+        onDropBook={handleDropBook}
+        onResumeReading={handleResumeReading}
+      />
     </div>
   );
 };
